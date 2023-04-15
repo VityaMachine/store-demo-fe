@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="/style/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/burger_my.css">
+</head>
+<body>
+    <header>
+        <div class="header-wrapper">
+            <div class="logo">
+                <img src="/img/market/logo.png" alt="logo">
+            </div>
+            <div class="navigation">
+                <div class="burger-container">
+                    <ul class="nav">
+                        <li><a href="/catalog_page/">SHORTS</a></li>
+                        <li><a href="/">PANTS</a></li>
+                        <li><a href="/">SHIRTS</a></li>
+                        <li><a href="/">ACCESSORIES</a></li>
+                        <li><a href="/">SALE</a></li>
+                    </ul>
+                </div>
+                <div class="search-box">
+                    <div class="search-btn fa-2x"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <input type="search" id="search-field" placeholder="SEARCH ENTIRE STORE">
+                </div>
+                <div class="basket-box">
+                    <span class="basket ">
+                        <i class="fa-solid fa-cart-shopping fa-3x" style="--fa-animation-duration: 15s;"></i>
+                    </span>
+                    <span class="basket-counter">0</span>
+                </div>
+                <div class="burger">
+                    <span></span>
+                </div>
+            </div>
+    
+        </div>
+    </header>
+    <main>
+        <section class="main-search">
+            <div class="home-navigation-container">
+                <span><a href="/"><img src="/img/market/home.png" alt=""></a></span>
+                <span><a href="/">HOME</a></span>
+                <span><img src="/img/market/nav_arrow.png"></span>
+                <span>YOUR CART</span>
+            </div>
+        </section>
+        <section class="your-cart">
+            <h1 class="cart-heading">YOUR CART(1 ITEMS)</h1>
+        </section>
+        <section class="cart-products">
+            <table class="cart-products-table">
+                <thead>
+                    <tr class="cart-table-head">
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="cart-product">
+                        <td class="cart-about-product">
+                            <div class="cart-product-img"><img src="/img/market/cart_shorts.jpg" alt=""></div>
+                            <div class="cart-product-description">
+                                <div class="cart-product-name">Sportif's Original Short</div>
+                                <div class="cart-product-color-container">
+                                    <span>Color:</span><div class="cart-product-color"></div>
+                                </div>
+                                <div class="cart-product-size-container">
+                                    <span>Size:</span><div class="cart-product-size">32</div>
+                                </div>
+                                <div class="cart-product-change">Change</div>
+                            </div>
+                        </td>
+                        <td class="cart-product=price">$67.00</td>
+                        <td class="cart-product-quantity-container">
+                            <div class="add">-</div>
+                            <div class="cart-product-quantity">1</div>
+                            <div class="remove">+</div>
+                        </td>
+                        <td class="cart-total-price"><span>$67.00</span> <span class="cart-product-remove">&#x2715</span></td>
+                    </tr> 
+                    <tr class="cart-product">
+                        <td class="cart-about-product">
+                            <div class="cart-product-img"><img src="/img/market/cart_shorts.jpg" alt=""></div>
+                            <div class="cart-product-description">
+                                <div class="cart-product-name">Sportif's Original Short</div>
+                                <div class="cart-product-color-container">
+                                    <span>Color:</span>
+                                    <div class="cart-product-color"></div>
+                                </div>
+                                <div class="cart-product-size-container">
+                                    <span>Size:</span>
+                                    <div class="cart-product-size">32</div>
+                                </div>
+                                <div class="cart-product-change">Change</div>
+                            </div>
+                        </td>
+                        <td class="cart-product=price">$67.00</td>
+                        <td class="cart-product-quantity-container">
+                            <div class="add">-</div>
+                            <div class="cart-product-quantity">1</div>
+                            <div class="remove">+</div>
+                        </td>
+                        <td class="cart-total-price"><span>$67.00</span> <span class="cart-product-remove">&#x2715</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="data-cart">
+            <div class="data-cart-subtotal">
+                <div>Subtotal:</div>
+                <div class="cart-subtotal">$275.00</div>
+            </div>
+            <div class="data-cart-dicsount">
+                <div>Discount Code:</div>
+                <div class="data-cart-dicsount-inputs">
+                    <input type="text" id="discount" placeholder="Enter Your Discount Code">
+                    <div class="btn-apply">APPLY</div>
+                </div>
+            </div>
+            <div class="data-cart-grand-total">
+                <div>Grand total:</div>
+                <div class="cart-grand-total">$275.00</div>
+            </div>
+            <div class="btn-check">CHECK OUT</div>
+        </section>
+    </main>
+    <footer>
+        <div class="contacts-container">
+            <div class="contacts">
+                <ul class="list online">
+                    <li>ORDERING ONLINE</li>
+                    <li>Account Login</li>
+                    <li>Our Guarantee</li>
+                    <li>Sportif Stretch Guide</li>
+                    <li>Size Chart & Sizing Information</li>
+                    <li>Hemming Information</li>
+                    <li>Ordering & Payment</li>
+                    <li>Shipping Information</li>
+                </ul>
+                <ul class="list about">
+                    <li>ABOUT SPORTIF</li>
+                    <li>COVID-19 Response</li>
+                    <li>History</li>
+                    <li>Legacy</li>
+                    <li>Good Sam Program</li>
+                    <li>Privacy & Security</li>
+                    <li>Terms & Conditions</li>
+                    <li>Careers</li>
+                </ul>
+                <ul class="list links">
+                    <li>QUICK LINKS</li>
+                    <li>FAQs</li>
+                    <li>Shop Online Catalog</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+            <div class="subscribe">
+                <ul class="list sign-up">
+                    <li>GET TO KNOW US</li>
+                    <li>Sign up for our weekly newsletter and get a 10% off coupon by email for your first order!</li>
+                </ul>
+                <ul class="list form">
+                    <li>Sign Up for Our Newsletter:</li>
+                    <li>
+                        <input type="email" id="mail" placeholder="EMAIL ADDRESS">
+                        <input type="button" value="SUBSCRIBE">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">©2021 Sportif Mailorder. All Rights Reserved.</div>
+    </footer>
+    <script src="https://kit.fontawesome.com/7fc5c6640b.js" crossorigin="anonymous"></script>
+    <script src="/code/index.js"></script>
+    <script src="/code/click_events.js"></script>
+</body>
+</html>
