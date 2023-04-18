@@ -15,7 +15,7 @@ function getProduct(data) {
     showFilerColorSize(getColorsSizeProducts(data));
 
     productList = data;
-    console.log(data);
+    console.log(productList);
     eventClickOpenModal()
 }
 
@@ -75,6 +75,8 @@ inputSearch.addEventListener("input", (e) => {
 })
 
 FETCH(url, getProduct);
+
+
 
 
 function eventClickOpenModal () {
