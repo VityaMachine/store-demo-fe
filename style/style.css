@@ -303,7 +303,8 @@ a {
 }
 
 .show-products-card-img > img {
-  width: 80%;
+  /* width: 80%; */
+  max-height: 20rem;
 }
 
 .show-products-card-stars > img {
@@ -337,6 +338,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 10rem;
 }
 
 .sale-products-price,
@@ -352,6 +354,7 @@ a {
   display: inline-block;
   margin: 15px 5px 10px 5px;
   cursor: pointer;
+  border: 1px solid black;
 }
 
 .add-to-cart {
@@ -907,7 +910,7 @@ input[value="SUBSCRIBE"] {
 .modal-product-about {
   box-sizing: border-box;
   padding: 2rem;
-  width: 70%;
+  width: 80%;
   /* height: 90%; */
   min-height: 500px;
   max-height: 90%;
@@ -931,7 +934,7 @@ input[value="SUBSCRIBE"] {
 }
 
 .modal-image-main img {
-  width: 75%;
+  max-width: 35rem;
 }
 
 .modal-product-description {
@@ -992,9 +995,10 @@ input[value="SUBSCRIBE"] {
   height: 3rem;
   margin: 1rem 1rem 0 0;
   cursor: pointer;
+  border: 1px solid black;
 }
 
-.color-wrapper div:nth-child(1) {
+/* .color-wrapper div:nth-child(1) {
   background-color: #000000;
 }
 
@@ -1004,7 +1008,7 @@ input[value="SUBSCRIBE"] {
 
 .color-wrapper div:nth-child(3) {
   background-color: green;
-}
+} */
 
 .size-wrapper div {
   display: inline-block;
@@ -1067,10 +1071,14 @@ input[value="SUBSCRIBE"] {
 .modal-image-secondary > div {
   width: 130px;
   height: 130px;
-  border: 1px solid #333333;
+  /* border: 1px solid #333333; */
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.modal-image-secondary div>img {
+  width: 13rem
 }
 
 .modal-shipping {

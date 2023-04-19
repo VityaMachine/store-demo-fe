@@ -1,7 +1,8 @@
 import { FETCH } from "./request.js";
 import { url } from "./index.js";
 import {creatProductElement} from "./creatCards.js";
-import {searchCetalogPage} from "./search.js"
+import { searchCetalogPage } from "./search.js";
+import { showModalProduct } from "./modal.js";
 
 const inputSearch = document.querySelector("[name='search-line']");
 let productList = [];
@@ -15,11 +16,11 @@ function getProduct(data) {
     showFilerColorSize(getColorsSizeProducts(data));
 
     productList = data;
-    console.log(data);
-    eventClickOpenModal()
+    console.log(productList);
+    eventClickOpenModal(productList)
 }
 
-const getColorsSizeProducts = (products = []) => {
+    const getColorsSizeProducts = (products = []) => {
     if(!Array.isArray(products)) return;
     const mainColorArr = [];
     const mainSizeArr = [];
@@ -33,16 +34,15 @@ const getColorsSizeProducts = (products = []) => {
         })
     })
 
-    products.forEach((object)=>{
-        object.availableOptions.forEach((option)=>{
-            option.prices.forEach((sizeEl)=>{
-                if(!mainSizeArr.includes(sizeEl.size)){
-                mainSizeArr.push(sizeEl.size)
-            }
-            })
-            
-        })
-    })
+    products.forEach((object) => {
+			object.availableOptions.forEach((option) => {
+				option.prices.forEach((sizeEl) => {
+					if (!mainSizeArr.includes(sizeEl.size)) {
+						mainSizeArr.push(sizeEl.size);
+					}
+				});
+			});
+		});
 
 
     return {color: mainColorArr, size : mainSizeArr}
@@ -76,14 +76,14 @@ inputSearch.addEventListener("input", (e) => {
 
 FETCH(url, getProduct);
 
-
-function eventClickOpenModal () {
-    
-	// відкрити модальне вікно
+// модальне вікно
+function eventClickOpenModal (productList) {   
 	document.querySelectorAll(".show-products-card").forEach((el) => {
 		el.addEventListener("click", (evt) => {
-			if ((evt.target.parentElement.classList == "add-to-cart")) {return}
-			document.querySelector(".modal").classList.toggle("hide");
+            if ((evt.target.parentElement.classList == "add-to-cart")) {
+                document.querySelector(".modal").classList.toggle("hide");
+                showModalProduct(el,productList)
+            }
 		});
 	});
 
@@ -91,11 +91,10 @@ function eventClickOpenModal () {
 	try {
 		document.querySelector(".close-modal").addEventListener("click", () => {
 			document.querySelector(".modal").classList.toggle("hide");
-		});	
+		});
 	} catch (e) {
 		if (document.location.pathname.includes("/catalog/")) {
 			new Error(e);
-			//console.error(e);
 		}
 	}
 }

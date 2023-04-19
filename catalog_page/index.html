@@ -32,7 +32,9 @@
                 </div>
                 <div class="search-box">
                     <div class="search-btn fa-2x"><i class="fa-solid fa-magnifying-glass"></i></div>
-                    <input type="search" id="search-field" placeholder="SEARCH ENTIRE STORE">
+                    <input type="search" id="search-field" list="product-name" placeholder="SEARCH ENTIRE STORE">
+                    <datalist id="product-name">
+                    </datalist>
                 </div>
                 <div class="basket-box">
                     <span class="basket ">
@@ -90,25 +92,7 @@
                 </div>
             </div>
             <div class="products-to-show">
-                <!-- <div class="show-products-card">
-                    <div class="show-products-card-img">
-                        <img src="/img/market/image 10.png" alt="sale1">
-                    </div>
-                    <div class="show-products-card-name">Sportif's Original Short</div>
-                    <div class="show-products-card-stars">
-                        <img src="/img/market/stars.png" alt="stars">
-                    </div>
-                    <div class="show-products-price">As low as <b>$67.00</b></div>
-                    <div class="show-products-color">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div class="add-to-cart">
-                        <img src="/img/market/bags.svg" alt="bags">
-                        <div>ADD TO CART</div>
-                    </div>
-                </div> -->
+
             </div>
             <div class="legacy-arrow">
                 <a href="#"><img src="/img/market/arrow.svg" alt="arrow"></a>
@@ -125,12 +109,12 @@
         <div class="modal-product-about">
             <div class="close-modal">&#x2715</div>
             <div class="modal-image-main">
-                <div><img src="/img/market/image 50.png" alt="img"></div>
+                <div class="modal-image-main-container"><!-- <img src="/img/market/image 50.png" alt="img"> --></div>
             </div>
             <div class="modal-product-description">
                 <div class="modal-product-tiitle">
                     <div class="modal-product-name">
-                        Sportif's Original Short <span>ITEM # 670170</span> 
+                        <!-- Sportif's Original Short <span>ITEM # 670170</span>  -->
                     </div>
                     <div class="modal-product-stars">
                         <img src="/img/market/stars.png" alt="img">
@@ -140,24 +124,24 @@
                 <div class="modal-product-data">
                     <div class="modal-product-price">
                         As low as<br>
-                        <span>$67.00</span>
+                        <span class="low-price"><!-- $100 --></span>
                     </div>
                     <div class="modal-product-colors">
                         <div>COLOR:</div>
                         <div class="color-wrapper">
+                            <!-- <div></div>
                             <div></div>
-                            <div></div>
-                            <div></div>
+                            <div></div> -->
                         </div>
                     </div>
                     <div class="modal-product-sizes">
                         <span>SIZE:</span>
                         <div class="size-wrapper">
-                            <div>32</div>
+                            <!-- <div>32</div>
                             <div>34</div>
                             <div>36</div>
                             <div>38</div>
-                            <div>40</div>
+                            <div>40</div> -->
                         </div>
                     </div>
                 </div>
@@ -179,16 +163,14 @@
                 </div>
             </div>
             <div class="modal-image-secondary">
-                <div><img src="/img/market/image 48.png" alt="img"></div>
-                <div><img src="/img/market/image 49.png" alt="img"></div>
+                <!-- <div><img src="/img/market/image 48.png" alt="img"></div>
+                <div><img src="/img/market/image 49.png" alt="img"></div> -->
             </div>
             <div class="modal-shipping">
                 <div><img src="/img/SVG/shopping.svg" alt=""></div>
             </div>
         </div>
     </section>
-
-
 
     <footer>
         <div class="contacts-container">
@@ -241,6 +223,8 @@
     </div>
     <script src="https://kit.fontawesome.com/7fc5c6640b.js" crossorigin="anonymous"></script>
     <script src="../code/catalog-page.js" type="module"></script>
+    <script src="../code/modal.js" type="module"></script>
+    <script src="../code/mainPage.js" type="module"></script>
     <script src="/code/click_events.js" type="module"></script>
 </body>
 </html>
