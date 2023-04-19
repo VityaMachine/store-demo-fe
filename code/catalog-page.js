@@ -1,7 +1,9 @@
-import { FETCH } from "./request.js";
-import { url } from "./index.js";
+import { FETCH, postData } from "./request.js";
+import { url, urlAdd } from "./index.js";
 import {creatProductElement} from "./creatCards.js";
 import {searchCetalogPage} from "./search.js"
+import{baskCounter} from "./methods/methods.js"
+// import {baskCounter, urlAdd} from "./cart_page.js"
 
 const inputSearch = document.querySelector("[name='search-line']");
 let productList = [];
@@ -75,7 +77,8 @@ inputSearch.addEventListener("input", (e) => {
 })
 
 FETCH(url, getProduct);
-
+// Запит на сервер про вміст кошика.
+FETCH(urlAdd, baskCounter)
 
 function eventClickOpenModal () {
     
@@ -99,3 +102,37 @@ function eventClickOpenModal () {
 		}
 	}
 }
+
+
+
+// Тестові товари.
+const data1 = {
+    product_id: "d919e5d9-4d1c-46c4-930b-09d12504e66f",
+    option_id: "319bf1b8-85d1-44f8-b2a7-e0c1202f0d21",
+    price_id: "c7275961-b461-4e85-9174-f8cfc865ef77",
+};
+const data = {
+    product_id: "0bd61a9d-1422-4aaf-b17e-1661bb335f97",
+    option_id: "ba0b7dcb-ee45-4d37-9f01-68b4e61ff7a6",
+    price_id: "61c9fb01-f13a-42fc-b7b8-90f29b1618f9",
+};
+
+// Функція додавання товару у кошик.
+function addToBag({product_id, option_id, price_id}){
+    if(product_id && option_id && price_id){
+        const data = {
+            product_id: product_id,
+            option_id: option_id,
+            price_id: price_id,
+            quantity: 1,
+          };
+        postData(urlAdd,"POST", data, baskCounter)   
+    }
+    else return
+}
+
+// Слухач події кнопки додати товар у кошик.
+document.querySelector('.add-to-bag').addEventListener('click',(ev)=>{
+    addToBag(data1)
+    document.querySelector(".modal").classList.toggle("hide");
+})

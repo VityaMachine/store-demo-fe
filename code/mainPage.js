@@ -1,6 +1,6 @@
 import { AJAX, FETCH } from "./request.js";
-import { randomProduct } from "./methods/methods.js";
-import {url} from "./index.js"
+import { randomProduct, baskCounter} from "./methods/methods.js";
+import {url, urlAdd} from "./index.js"
 
 AJAX(url, "GET" , show);
 
@@ -58,3 +58,4 @@ function showRandomProducts(productsArr) {
   });
   
 }
+FETCH(urlAdd, baskCounter)
