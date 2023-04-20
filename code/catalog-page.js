@@ -24,8 +24,7 @@ function getProduct(data) {
     if(!Array.isArray(products)) return;
     const mainColorArr = [];
     const mainSizeArr = [];
-
-
+          
     products.forEach((object)=>{
         object.availableOptions.forEach((colors)=>{
             if(!mainColorArr.includes(colors.optionColorCode)){
@@ -43,7 +42,6 @@ function getProduct(data) {
 				});
 			});
 		});
-
 
     return {color: mainColorArr, size : mainSizeArr}
 }
@@ -65,9 +63,6 @@ function showFilerColorSize (option) {
         div.innerText = size;
         elSize.append(div)
     }) 
-
-
-
 }
 
 inputSearch.addEventListener("input", (e) => {

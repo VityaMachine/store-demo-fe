@@ -1322,8 +1322,12 @@ div.btn-check {
     --main-font-size: 6px;
   }
 
+ .logo{
+  cursor: pointer;
+ }
+
   .logo > img {
-    width: 25rem;
+    width: 25rem; 
   }
 
   .products-to-show {

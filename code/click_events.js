@@ -1,5 +1,3 @@
-
-
 window.onload = function () {
 	// адаптивне бургер меню
 	document.querySelector(".burger").addEventListener("click", function () {
@@ -22,11 +20,14 @@ window.onload = function () {
 		});
 	});
 
-
-	
 	//відкрити корзину
 	document.querySelector(".basket-box").addEventListener("click", () => {
-		document.location.pathname="/cart_page"
+		document.location.pathname="../cart_page"
+	})
+
+	//лого на головну
+	document.querySelector(".logo").addEventListener("click", () => {
+		document.location.pathname="../"
 	})
 	
 };

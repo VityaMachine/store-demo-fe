@@ -1,3 +1,4 @@
+import { BD } from "../arhiv/products.js";
 const loader = document.querySelector(".loader_box");
 
 function AJAX(url = "", method = "GET", callback = () => {}) {
@@ -24,6 +25,7 @@ async function FETCH(
   loader.classList.remove("hide");
   const request = await fetch(url, option);
   const data = await request.json();
+  //const data = BD;
   callback(data);
   loader.classList.add("hide");
 }

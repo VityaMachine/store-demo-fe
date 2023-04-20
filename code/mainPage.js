@@ -2,7 +2,8 @@ import { AJAX, FETCH } from "./request.js";
 import { randomProduct } from "./methods/methods.js";
 import {url} from "./index.js"
 
-AJAX(url, "GET" , show);
+AJAX(url, "GET", show);
+
 
 let dataMain = [];
 function show(data) {
