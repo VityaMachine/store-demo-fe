@@ -4,7 +4,6 @@ import{creatCartProducts} from "./creatCards.js"
 
 
 const cartProducts = document.getElementById('cart-table-products');
-// export const urlAdd = "https://store-demo-be.onrender.com/api/cart";
 
 // Запит на сервер про вміст кошика.
 FETCH(urlAdd, showCartProduct);
@@ -26,43 +25,6 @@ FETCH(urlAdd, showCartProduct);
 
 // https://store-demo-be.onrender.com/api/products
 
-
-
-const data1 = {
-  product_id: "d919e5d9-4d1c-46c4-930b-09d12504e66f",
-  option_id: "319bf1b8-85d1-44f8-b2a7-e0c1202f0d21",
-  price_id: "c7275961-b461-4e85-9174-f8cfc865ef77",
-  quantity: 1,
-};
-const data = {
-  product_id: "0bd61a9d-1422-4aaf-b17e-1661bb335f97",
-  option_id: "ba0b7dcb-ee45-4d37-9f01-68b4e61ff7a6",
-  price_id: "61c9fb01-f13a-42fc-b7b8-90f29b1618f9",
-  quantity: 2,
-};
-
-
-const dataput = {
-  quantity: 10,
-};
-
-
-
-
-
-// Виклик функції додати в кошик.
-
-// postData(urlAdd,"POST", data1,showCartProduct)
-
-
-
-// url =  "https://store-demo-be.onrender.com/api/cart/(+ ID Товару з кошика який треба змінити або видалити)"
-
-// Виклик функції змінити кількість.
-
-// postData(urlPut, "PATCH",dataput,showCartProduct)
-
-// postData(urlPut, "DELETE",showCartProduct)
 
 // Функція створення  динамічного Url.
 const creatUrl = (id) =>{

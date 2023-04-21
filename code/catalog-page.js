@@ -1,23 +1,21 @@
 import { FETCH, postData } from "./request.js";
 import { url, urlAdd } from "./index.js";
 import {creatProductElement} from "./creatCards.js";
-import {searchCetalogPage} from "./search.js"
-import{baskCounter} from "./methods/methods.js"
-// import {baskCounter, urlAdd} from "./cart_page.js"
+import {searchCetalogPage} from "./search.js";
+import{baskCounter} from "./methods/methods.js";
 
 const inputSearch = document.querySelector("[name='search-line']");
 let productList = [];
 
 function getProduct(data) {
+    console.log(data)
 	data.forEach(element => {
 		document.querySelector('.products-to-show')
 			.append(creatProductElement(element))
 	});
 
     showFilerColorSize(getColorsSizeProducts(data));
-
     productList = data;
-    console.log(data);
     eventClickOpenModal()
 }
 
@@ -77,6 +75,7 @@ inputSearch.addEventListener("input", (e) => {
 })
 
 FETCH(url, getProduct);
+
 // Запит на сервер про вміст кошика.
 FETCH(urlAdd, baskCounter)
 
@@ -93,6 +92,10 @@ function eventClickOpenModal () {
 	// закрити модальне вікно
 	try {
 		document.querySelector(".close-modal").addEventListener("click", () => {
+            // Очищення обє'кта після зачинення модалки.
+            productAddBag.product_id = '';
+            productAddBag.option_id = '' ;
+            productAddBag.price_id = '';
 			document.querySelector(".modal").classList.toggle("hide");
 		});	
 	} catch (e) {
@@ -102,20 +105,12 @@ function eventClickOpenModal () {
 		}
 	}
 }
-
-
-
-// Тестові товари.
-const data1 = {
-    product_id: "d919e5d9-4d1c-46c4-930b-09d12504e66f",
-    option_id: "319bf1b8-85d1-44f8-b2a7-e0c1202f0d21",
-    price_id: "c7275961-b461-4e85-9174-f8cfc865ef77",
-};
-const data = {
-    product_id: "0bd61a9d-1422-4aaf-b17e-1661bb335f97",
-    option_id: "ba0b7dcb-ee45-4d37-9f01-68b4e61ff7a6",
-    price_id: "61c9fb01-f13a-42fc-b7b8-90f29b1618f9",
-};
+// Обє'кт обраного товару перед відправкою в корзину.
+const productAddBag = {
+    product_id: '',
+    option_id: '',
+    price_id: '',
+}
 
 // Функція додавання товару у кошик.
 function addToBag({product_id, option_id, price_id}){
@@ -133,6 +128,44 @@ function addToBag({product_id, option_id, price_id}){
 
 // Слухач події кнопки додати товар у кошик.
 document.querySelector('.add-to-bag').addEventListener('click',(ev)=>{
-    addToBag(data1)
-    document.querySelector(".modal").classList.toggle("hide");
-})
+    productAddBag.product_id = document.querySelector('.add-to-bag').dataset.productid;
+    if(productAddBag.product_id !== '' && productAddBag.option_id !== '' && productAddBag.price_id !== ''){
+        console.log(productAddBag)
+        addToBag(productAddBag);
+        // Очищення обє'кта після додавання товару в корзину.
+        productAddBag.product_id = '';
+        productAddBag.option_id = '' ;
+        productAddBag.price_id = '';
+        document.querySelector(".modal").classList.toggle("hide");
+    }else {
+        alert("Треба обрати розмір та колір");
+        return;
+    } 
+});
+
+
+// Слухач події кнопки модального вікна обрати колір .
+document.querySelector('.color-wrapper').addEventListener('click',(ev)=>{
+    if(ev.target.dataset.optionid){
+        const [...elColor] = document.querySelectorAll('.color-wrapper > div');
+        elColor.forEach((el)=>{
+            el.classList.add('filter');
+        })
+        ev.target.classList.remove('filter')
+        productAddBag.option_id = ev.target.dataset.optionid;
+    }
+    else return
+});
+
+// Слухач події кнопки модального вікна обрати крозмір.
+document.querySelector('.size-wrapper').addEventListener('click',(ev)=>{
+    if(ev.target.dataset.priceid){
+        const [...elSize] = document.querySelectorAll('.size-wrapper > div');
+        elSize.forEach((el)=>{
+            el.classList.add('filter');
+        })
+        ev.target.classList.remove('filter')
+        productAddBag.price_id = ev.target.dataset.priceid;
+    }
+    else return
+});

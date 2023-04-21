@@ -1103,6 +1103,13 @@ input[value="SUBSCRIBE"] {
 .e {
   display: none;
 }
+.filter{
+  /* filter: blur(1px); */
+  filter: blur(.8px) opacity(.6);
+  /* opacity: .5; */
+  /* filter: opacity(.5); */
+}
+
 
 /* -----------------------CART PAGE--------------------------------- */
 .cart-basket-empty{

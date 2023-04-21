@@ -45,7 +45,7 @@ export function creatCartProducts(el){
             <div class="cart-product-change">Change</div>
         </div>
     </td>
-    <td class="cart-product=price">${el.price} UAN</td>
+    <td class="cart-product=price">${el.price} UAH</td>
     <td class="cart-product-quantity-container" data-id="${el.id}">
         <div class="remove">➖</div>
         <div class="cart-product-quantity" data-quantity="${el.quantity}">${el.quantity}</div>
