@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="/style/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/burger_my.css">
+    <link rel="stylesheet" href="../style/loader.css">
+    <link rel="stylesheet" href="../style/basket.css">
+</head>
+<body>
+    <main>
+        <section class="main-search  cart-page">
+            <div class="home-navigation-container">
+                <span><a href="/"><img src="/img/market/home.png" alt=""></a></span>
+                <span><a href="/">HOME</a></span>
+                <span><img src="/img/market/nav_arrow.png"></span>
+                <span>YOUR CART</span>
+            </div>
+        </section>
+        <section class="your-cart">
+            <h1 class="cart-heading">YOUR CART</h1>
+            <div class="cart-basket-empty hide">
+                <h2 class="cart-basket-empty-title">Your basket is empty.</h2>
+                <div class="cart-basket-empty-img">
+                    <img src="../img/SVG/basket-empty.svg" alt="basket-empty">
+                </div>
+                <button class="cart-basket-empty-btn" type="button">Return to shopping</button>
+            </div>
+        </section>
+        <section class="cart-products hide">
+            <table class="cart-products-table ">
+                <thead>
+                    <tr class="cart-table-head">
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-table-products">
+                </tbody>
+            </table>
+            <div class="data-cart">
+                <div class="btn-check">Return to shopping</div>
+                <div class="data-cart-subtotal">
+                    <div>Grand total:</div>
+                    <div class="cart-grand-total">$275.00</div>
+                    <div class="btn-apply">complete an application</div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <div class="loader_box hide">
+        <span class="loader"></span>
+    </div>
+    <script src="https://kit.fontawesome.com/7fc5c6640b.js" crossorigin="anonymous"></script>
+    <script src="../code/index.js" type="module"></script>
+    <!-- <script src="../code/click_events.js" type="module"></script> -->
+    <script src="../code/cart_page.js" type="module"></script>
+</body>
+</html>

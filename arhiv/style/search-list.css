@@ -1,0 +1,33 @@
+.product-list{
+    margin: 0;
+    width: 60%;
+    position: absolute;
+    z-index:1;
+    font-size: 20px;
+    left: 30%;
+    top: 93%;
+}
+
+.product-list > li {
+    display: flex;
+    width: 100%;
+    background-color: white;
+    align-items: center;
+    margin-bottom: .2rem;
+    box-shadow: 2px 2px 30px 2px black;
+    justify-content: space-between;
+}
+
+.product-list > li > :first-child{
+    width: 20%;
+}
+
+.product-list > li > :last-child{
+    width: 70%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.product-list img{
+    max-width: 100%;
+}
