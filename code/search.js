@@ -1,5 +1,5 @@
 export const searchCetalogPage = (value, products = []) => {
-    debugger
+
  const l = products.length;
  const arr =  products.filter((product)=>{
      return product.productName.toLowerCase().includes(value.toLowerCase())

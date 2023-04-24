@@ -1,7 +1,8 @@
 import { FETCH } from "./request.js";
 import { url } from "./index.js";
 import { creatProductElement } from "./creatCards.js";
-import { searchCetalogPage } from "./search.js";
+import {  searchCetalogPage  } from "./search.js";
+import { showModalProduct } from "./modal.js";;
 
 import paginator from "./paginator.js";
 
@@ -54,40 +55,40 @@ function getProduct(data) {
 
   showFilerColorSize(getColorsSizeProducts(data));
 
-  productList = data;
-
-  eventClickOpenModal();
+    productList = data;
+    console.log(productList);
+    eventClickOpenModal(productList)
 }
 
-const getColorsSizeProducts = (products = []) => {
-  if (!Array.isArray(products)) return;
-  const mainColorArr = [];
-  const mainSizeArr = [];
+    const getColorsSizeProducts = (products = []) => {
+    if(!Array.isArray(products)) return;
+    const mainColorArr = [];
+    const mainSizeArr = [];
+          
+    products.forEach((object)=>{
+        object.availableOptions.forEach((colors)=>{
+            if(!mainColorArr.includes(colors.optionColorCode)){
+                mainColorArr.push(colors.optionColorCode)
+            }
+        })
+    })
 
-  products.forEach((object) => {
-    object.availableOptions.forEach((colors) => {
-      if (!mainColorArr.includes(colors.optionColorCode)) {
-        mainColorArr.push(colors.optionColorCode);
-      }
-    });
-  });
+    products.forEach((object) => {
+			object.availableOptions.forEach((option) => {
+				option.prices.forEach((sizeEl) => {
+					if (!mainSizeArr.includes(sizeEl.size)) {
+						mainSizeArr.push(sizeEl.size);
+					}
+				});
+			});
+		});
 
-  products.forEach((object) => {
-    object.availableOptions.forEach((option) => {
-      option.prices.forEach((sizeEl) => {
-        if (!mainSizeArr.includes(sizeEl.size)) {
-          mainSizeArr.push(sizeEl.size);
-        }
-      });
-    });
-  });
+    return {color: mainColorArr, size : mainSizeArr}
+}
 
-  return { color: mainColorArr, size: mainSizeArr };
-};
-
-function showFilerColorSize(option) {
-  const elColor = document.querySelector(".filter-parameters-color");
-  const elSize = document.querySelector(".filter-parameters-size");
+function showFilerColorSize (option) {
+    const elColor = document.querySelector(".filter-parameters-color");
+    const elSize = document.querySelector(".filter-parameters-size");
 
   elColor.innerHTML = "";
   elSize.innerHTML = "";
@@ -99,40 +100,41 @@ function showFilerColorSize(option) {
     elColor.append(div);
   });
 
-  option.size.forEach((size) => {
-    const div = document.createElement("div");
-    div.classList.add("size-parameter");
-    div.innerText = size;
-    elSize.append(div);
-  });
+    option.size.forEach((size)=>{
+        const div = document.createElement("div");
+        div.classList.add("size-parameter");
+        div.innerText = size;
+        elSize.append(div)
+    }) 
 }
 
 inputSearch.addEventListener("input", (e) => {
-  searchCetalogPage(e.target.value, productList);
-});
+    searchCetalogPage(e.target.value, productList)
+})
 
-function eventClickOpenModal() {
-  // відкрити модальне вікно
-  document.querySelectorAll(".show-products-card").forEach((el) => {
-    el.addEventListener("click", (evt) => {
-      if (evt.target.parentElement.classList == "add-to-cart") {
-        return;
-      }
-      document.querySelector(".modal").classList.toggle("hide");
-    });
-  });
+FETCH(url, getProduct);
 
-  // закрити модальне вікно
-  try {
-    document.querySelector(".close-modal").addEventListener("click", () => {
-      document.querySelector(".modal").classList.toggle("hide");
-    });
-  } catch (e) {
-    if (document.location.pathname.includes("/catalog/")) {
-      new Error(e);
-      //console.error(e);
-    }
-  }
+// модальне вікно
+function eventClickOpenModal (productList) {   
+	document.querySelectorAll(".show-products-card").forEach((el) => {
+		el.addEventListener("click", (evt) => {
+            if ((evt.target.parentElement.classList == "add-to-cart")) {
+                document.querySelector(".modal").classList.toggle("hide");
+                showModalProduct(el,productList)
+            }
+		});
+	});
+
+	// закрити модальне вікно
+	try {
+		document.querySelector(".close-modal").addEventListener("click", () => {
+			document.querySelector(".modal").classList.toggle("hide");
+		});
+	} catch (e) {
+		if (document.location.pathname.includes("/catalog/")) {
+			new Error(e);
+		}
+	}
 }
 
 function pageNumHandler(e) {
