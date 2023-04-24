@@ -1265,13 +1265,14 @@ div.remove {
   height: 2rem;
   font-weight: 400;
   font-size: 1.8rem;
-  /* font-size: 2rem; */
   border: 1px solid gray;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   padding: 3px;
 }
-
+.card-products{
+  text-align: center;
+}
 .cart-product-remove {
   cursor: pointer;
   font-weight: 500;

@@ -42,6 +42,7 @@ export function baskCounter(data) {
 		showBasket ()
 	}
 };
+
 // Функції анімації кошика товарів порожній повний.
 export function showBasket (on = 'off'){
 	if(on === 'on'){
@@ -49,13 +50,15 @@ export function showBasket (on = 'off'){
 		document.querySelector('.cart__top').classList.add('show')
 		document.querySelector('.cart__wheel1').classList.add('show')
 		document.querySelector('.cart__wheel2').classList.add('show')
-		document.querySelector('.cart__wheel-stroke').classList.add('show')
+		document.querySelector('.cart__wheel1 > .cart__wheel-stroke').classList.add('show')
+    document.querySelector('.cart__wheel2 >.cart__wheel-stroke').classList.add('show')
 	}
 	else if(on === 'off'){
 		document.querySelector('.cart__lines').classList.remove('show')
 		document.querySelector('.cart__top').classList.remove('show')
 		document.querySelector('.cart__wheel1').classList.remove('show')
 		document.querySelector('.cart__wheel2').classList.remove('show')
-		document.querySelector('.cart__wheel-stroke').classList.remove('show')
+		document.querySelector('.cart__wheel1 > .cart__wheel-stroke').classList.remove('show')
+    document.querySelector('.cart__wheel2 >.cart__wheel-stroke').classList.remove('show')
 	}
 }

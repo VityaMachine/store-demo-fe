@@ -60,19 +60,31 @@ function showCartProduct(data) {
   }
 }
 
+
 // Події для кнопок (+ , -,  Х) 
 cartProducts.addEventListener('click',(ev)=>{
-  if(ev.target.classList.value === 'add'){
+  console.log(ev.target.classList.value)
+
+  if(ev.target.classList.value === 'plus-icon icon'){
+      let quantityEl = document.querySelector(`div[data-idquntity = '${ev.target.dataset.idplus}']`)
     const dataput = {
-      quantity: ev.target.offsetParent.children[1].dataset.quantity*1 + 1,
+      quantity: quantityEl.innerHTML*1 + 1,
     }
-    postData(creatUrl(ev.target.offsetParent.dataset.id), "PATCH", dataput,showCartProduct)
+    postData(creatUrl(ev.target.dataset.idplus), "PATCH", dataput,showCartProduct)
   }
-  else if(ev.target.classList.value === 'remove' && ev.target.offsetParent.children[1].innerText*1 > 1){
-    const dataput = {
-      quantity: ev.target.offsetParent.children[1].dataset.quantity*1 - 1,
+  else if(ev.target.classList.value === 'minus-icon icon'){
+    let quantityEl = document.querySelector(`div[data-idquntity = '${ev.target.dataset.idminus}']`)
+
+    let counter = document.querySelector(`div[data-idcont = '${ev.target.dataset.idminus}']`)
+
+    if (quantityEl.innerHTML*1 === 1) {
+        return
+    } else {
+      const dataput = {
+        quantity:quantityEl.innerHTML*1 - 1,
+      }
+      postData(creatUrl(ev.target.dataset.idminus), "PATCH", dataput,showCartProduct)
     }
-    postData(creatUrl(ev.target.offsetParent.dataset.id), "PATCH", dataput,showCartProduct)
   }
   else if(ev.target.classList.value === 'cart-product-remove'){
     if(confirm('Are you sure you want to remove the product from the cart?')){
@@ -80,7 +92,8 @@ cartProducts.addEventListener('click',(ev)=>{
     }
   }
   else return
-})
+});
+
 
 // Слухач події кнопок "продовжити покупки" та "оформити заявку"
 document.querySelector('.data-cart').addEventListener('click',(ev)=>{

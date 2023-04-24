@@ -46,21 +46,18 @@ export function creatCartProducts(el){
         </div>
     </td>
     <td class="cart-product=price">${el.price} UAH</td>
-    <td class="cart-product-quantity-container" data-id="${el.id}">
-        <div class="remove">➖</div>
-        <div class="cart-product-quantity" data-quantity="${el.quantity}">${el.quantity}</div>
-        <div class="add">➕</div>
-    </td>
+
+    <td class="card-products">
+    <div class="counter-container ${el.quantity === 1 ? '' : 'expand'}" data-idCont="${el.id}">
+        <div class="minus-icon icon" data-idMinus="${el.id}">➖</div>
+        <div class="itemCount" data-idQuntity="${el.id}">${el.quantity}</div>
+        <div class="plus-icon icon"  data-idPlus="${el.id}">➕</div>
+    </div>
+</td>
+
     <td class="cart-total-price"><span>${el.total_cost} UAN</span> <span class="cart-product-remove" data-id="${el.id}"> &#x2715</span>
     </td>`
     cardContainer.insertAdjacentHTML("beforeend", info)
     return cardContainer;
   }
-
-
-
-
-
-
-
 

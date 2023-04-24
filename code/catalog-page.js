@@ -4,6 +4,10 @@ import {creatProductElement} from "./creatCards.js";
 import {searchCetalogPage} from "./search.js";
 import{baskCounter} from "./methods/methods.js";
 
+// Запит на сервер про вміст кошика.
+FETCH(urlAdd, baskCounter)
+
+
 const inputSearch = document.querySelector("[name='search-line']");
 let productList = [];
 
@@ -76,8 +80,7 @@ inputSearch.addEventListener("input", (e) => {
 
 FETCH(url, getProduct);
 
-// Запит на сервер про вміст кошика.
-FETCH(urlAdd, baskCounter)
+
 
 function eventClickOpenModal () {
     
