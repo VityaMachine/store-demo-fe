@@ -16,7 +16,7 @@ html {
   font-family: "Oswald";
 }
 
-.hide{
+.hide {
   display: none !important;
 }
 
@@ -292,12 +292,11 @@ a {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-
 .sale-products-card-stars > img {
   width: 100%;
 }
 
-.sale-products-card-img>img{
+.sale-products-card-img > img {
   max-height: 165px;
   height: 165px;
 }
@@ -623,8 +622,11 @@ a {
   text-align: center;
 }
 
-div.legacy-arrow {
-  position: absolute;
+.legacy-arrow {
+  
+  display: none;
+
+  position: fixed;
   bottom: 70px;
   right: 10px;
   margin: 0;
@@ -823,7 +825,7 @@ input[value="SUBSCRIBE"] {
   transition: transform 1s linear;
 }
 
-.color-parameter:hover{
+.color-parameter:hover {
   transform: scale(1.1);
 }
 
@@ -866,14 +868,17 @@ input[value="SUBSCRIBE"] {
   grid-auto-rows: min-content;
 }
 
-.pagination {
+.pages-list {
   display: flex;
   justify-content: flex-end;
   background-color: #f1f1f1;
   padding: 0 60px 20px 60px;
 }
 
-.pagination div {
+.pages-list .page-n-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 30px;
   height: 30px;
   border: 1px solid var(--main-color);
@@ -883,12 +888,23 @@ input[value="SUBSCRIBE"] {
   color: #a04955;
   text-align: center;
   margin-right: 2rem;
-  cursor: pointer;
 }
 
-.pagination > .pagination-selected {
+.pages-list .page-n-info:first-child {
+  transform: scale(-1, 1);
+}
+
+.pages-list > .selected-page {
   background-color: var(--main-color);
   color: #f1f1f1;
+}
+
+.pages-list button:active {
+  background-color: #c9c9c9;
+}
+
+.pages-list button[disabled] {
+  background-color: #979797;
 }
 
 /* ---------------------MODAL------------------------------- */
