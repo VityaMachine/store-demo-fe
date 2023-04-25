@@ -1,4 +1,4 @@
-export function randomProduct(product, quantity, math = Math) {
+﻿export function randomProduct(product, quantity, math = Math) {
 	if (!Array.isArray(product)) {
 		console.warn("Отримано не масив");
 		return;
@@ -25,6 +25,7 @@ export function randomProduct(product, quantity, math = Math) {
 		return product[index];
 	});
 }
+
 // Функції відображення кошика товарів.
 export function baskCounter(data) {
 	if(!Array.isArray(data)) return;

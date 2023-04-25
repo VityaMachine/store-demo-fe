@@ -25,11 +25,12 @@ async function FETCH(
   loader.classList.remove("hide");
   const request = await fetch(url, option);
   const data = await request.json();
+  //const data = BD;
   callback(data);
   loader.classList.add("hide");
 }
 
-// Відправлення POST, PATCH та DELETE запитів:
+// Відправлення POST, PATCH та DELETE запитів.
 async function postData(url = "", met = "POST", data = {},callback = ()=>{}) {
   loader.classList.remove("hide");
  if(met === 'DELETE'){
@@ -39,7 +40,7 @@ async function postData(url = "", met = "POST", data = {},callback = ()=>{}) {
    }); 
  }
  else{
-   const response = await fetch(url, {
+   const respons = await fetch(url, {
      method: met, // *POST, PUT, DELETE, etc.PATCH
      cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
      headers: {
@@ -56,3 +57,4 @@ async function postData(url = "", met = "POST", data = {},callback = ()=>{}) {
 
 
 export { AJAX, FETCH,  postData};
+

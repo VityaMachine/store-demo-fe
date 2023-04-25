@@ -1,7 +1,14 @@
-export function creatProductElement(product) {
-
+﻿export function creatProductElement(product) {
+    // визначаємо ID 
+    const cardID = product.id;
+    // визначаємо кольори
+    const colors = `${product.availableOptions.map((el) => {
+			return `<div data-id="${el.option_id}" style ="background-color:#${el.optionColorCode}"></div>`;
+		})}`.replace(/,/g, "");
+        
 	const cardContainer = document.createElement("div");
-	cardContainer.classList.add("show-products-card");
+    cardContainer.classList.add("show-products-card");
+    cardContainer.dataset.id = cardID;
 
 	const info = `
                     <div class="show-products-card-img">
@@ -12,21 +19,14 @@ export function creatProductElement(product) {
                         <img src="/img/market/stars.png" alt="stars">
                     </div>
                     <div class="show-products-price">As low as <b>${product.availableOptions[0].prices[0].price} UAH</b></div>
-                    <div class="show-products-color">
-                    ${product.availableOptions.map((el) => {
-		return `<div data-id="${el.option_id}" style ="background-color:#${el.optionColorCode}"></div>`
-
-	}).join('')
-		}
-                    </div>
-                    <div class="add-to-cart">
+                    <div class="show-products-color">${colors}</div>
+                    <div data-id="${cardID}" class="add-to-cart">
                         <img src="/img/market/bags.svg" alt="bags">
                         <div>ADD TO CART</div>
                     </div>`
 	cardContainer.insertAdjacentHTML("beforeend", info)
 	return cardContainer;
 }
-
 
 // Функція створення карток товарів сторінки корзина.
 export function creatCartProducts(el){
@@ -55,9 +55,19 @@ export function creatCartProducts(el){
     </div>
 </td>
 
-    <td class="cart-total-price"><span>${el.total_cost} UAN</span> <span class="cart-product-remove" data-id="${el.id}"> &#x2715</span>
+    <td class="cart-total-price"><span>${el.total_cost} UAH</span> <span class="cart-product-remove" data-id="${el.id}"> &#x2715</span>
     </td>`
     cardContainer.insertAdjacentHTML("beforeend", info)
     return cardContainer;
   }
+
+
+
+
+
+
+
+
+
+
 

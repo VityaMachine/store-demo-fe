@@ -1,13 +1,11 @@
-import { AJAX, FETCH } from "./request.js";
-import { randomProduct, baskCounter} from "./methods/methods.js";
-import {url, urlAdd} from "./index.js";
+﻿import { AJAX, FETCH } from "./request.js";
+import { randomProduct , baskCounter} from "./methods/methods.js";
+import {url,urlAdd} from "./index.js"
 
-AJAX(url, "GET" , show);
+AJAX(url, "GET", show);
+
 // Запит на сервер про вміст кошика.
-FETCH(urlAdd, baskCounter)
-
-
-
+FETCH(urlAdd, baskCounter);
 
 let dataMain = [];
 function show(data) {
@@ -19,7 +17,6 @@ function show(data) {
   }
 }
 
-
 const datalist = document.querySelector("#product-name");
 
 const searchInput = document.getElementById("search-field");
@@ -29,22 +26,23 @@ searchInput.addEventListener("input", (event) => {
   const foundedItems = dataMain.filter( (el) => {
     return el.productName.toLowerCase().includes(event.target.value.toLowerCase())
   })
-
-  foundedItems.forEach((el) => {
-    const option = document.createElement("option")
-    option.value = el.productName;
-    datalist.append(option);
-  })
+  
+foundedItems.forEach((el) => {
+  const option = document.createElement("option")
+  option.value = el.productName;
+  datalist.append(option);
+})
 });
 
 function showRandomProducts(productsArr) {
-  if (!Array.isArray(productsArr)) {
-    console.warn("Отримано не масив");
-    return;
-  }
-  
-  productsArr.forEach((el) => {
-		let card = `
+	try {
+		if (!Array.isArray(productsArr)) {
+			console.warn("Отримано не масив");
+			return;
+		}
+
+		productsArr.forEach((el) => {
+			let card = `
         <div class="sale-products-card">
           <div class="sale-products-card-img">
             <img src="${el.availableOptions[0].optionImages[0]}" alt="${el.productName}">
@@ -58,10 +56,15 @@ function showRandomProducts(productsArr) {
             <img src="./img/market/bags.svg" alt="bags">
             <div>ADD TO CART</div>
           </div>
-        </div> 
-    `;
-    document.querySelector('.sale-products').insertAdjacentHTML("beforeend",card)
-  });
-  
+        </div>`;
+    
+      document.querySelector(".sale-products").insertAdjacentHTML("beforeend", card);
+		});
+	} catch (e) {
+		if (document.location.pathname === "/") {
+			console.error(e)
+		}
+	}
 }
+
 
