@@ -45,8 +45,6 @@ function getProduct(data) {
     pagesControls[2].disabled = false;
   }
 
-  //   console.dir(pagesControls);
-
   productsContainer.innerHTML = "";
 
   resObj.data.forEach((element) => {
@@ -56,11 +54,11 @@ function getProduct(data) {
   showFilerColorSize(getColorsSizeProducts(data));
 
     productList = data;
-    console.log(productList);
-    eventClickOpenModal(productList)
+    console.log(data);
+    eventClickOpenModal(data)
 }
 
-    const getColorsSizeProducts = (products = []) => {
+const getColorsSizeProducts = (products = []) => {
     if(!Array.isArray(products)) return;
     const mainColorArr = [];
     const mainSizeArr = [];
@@ -112,29 +110,22 @@ inputSearch.addEventListener("input", (e) => {
     searchCetalogPage(e.target.value, productList)
 })
 
-FETCH(url, getProduct);
-
 // модальне вікно
-function eventClickOpenModal (productList) {   
+function eventClickOpenModal(productList) {   
+  // відкрити модальне вікно
 	document.querySelectorAll(".show-products-card").forEach((el) => {
 		el.addEventListener("click", (evt) => {
-            if ((evt.target.parentElement.classList == "add-to-cart")) {
-                document.querySelector(".modal").classList.toggle("hide");
-                showModalProduct(el,productList)
-            }
+      if ((evt.target.parentElement.classList == "add-to-cart")) {
+        document.querySelector(".modal").classList.remove("hide");
+        showModalProduct(el, productList)
+      }
 		});
 	});
 
 	// закрити модальне вікно
-	try {
-		document.querySelector(".close-modal").addEventListener("click", () => {
-			document.querySelector(".modal").classList.toggle("hide");
-		});
-	} catch (e) {
-		if (document.location.pathname.includes("/catalog/")) {
-			new Error(e);
-		}
-	}
+	document.querySelector(".close-modal").addEventListener("click", () => {
+	  document.querySelector(".modal").classList.add("hide");
+	});
 }
 
 function pageNumHandler(e) {
