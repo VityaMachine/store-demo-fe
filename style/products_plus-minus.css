@@ -8,8 +8,8 @@ box-sizing: border-box;
 
 .counter-container {
 position: relative;
-width: 3.4rem;
-height: 3.4rem;
+width: 3.6rem;
+height: 3.6rem;
 border: 1px solid #a04955;
 background-color: #a04955;
 border-radius: 50%;
@@ -20,7 +20,7 @@ cursor: pointer;
 
 .itemCount,
 .icon {
-width: 2rem;
+/* width: 2rem; */
 height: 100%;
 position: absolute;
 left: 50%;
