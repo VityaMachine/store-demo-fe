@@ -1,9 +1,11 @@
-import { AJAX, FETCH } from "./request.js";
-import { randomProduct } from "./methods/methods.js";
-import {url} from "./index.js"
+﻿import { AJAX, FETCH } from "./request.js";
+import { randomProduct , baskCounter} from "./methods/methods.js";
+import {url,urlAdd} from "./index.js"
 
 AJAX(url, "GET", show);
 
+// Запит на сервер про вміст кошика.
+FETCH(urlAdd, baskCounter);
 
 let dataMain = [];
 function show(data) {

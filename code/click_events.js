@@ -5,13 +5,6 @@ window.onload = function () {
 		document.querySelector(".burger-container").classList.toggle("open");
 	});
 
-	// Анімація корзини при додаванні товару
-	if (document.querySelector(".basket-counter").textContent > 0) {
-		document.querySelector(".basket").classList.add("fa-bounce");
-	} else {
-		document.querySelector(".basket").classList.remove("fa-bounce");
-	}
-
 	//випадаюче філтьр-меню
 	document.querySelectorAll(".filter-name").forEach((el) => {
 		el.addEventListener("click", () => {

@@ -1,4 +1,4 @@
-import { BD } from "../arhiv/products.js";
+import { urlAdd } from "./index.js";
 const loader = document.querySelector(".loader_box");
 
 function AJAX(url = "", method = "GET", callback = () => {}) {
@@ -30,4 +30,31 @@ async function FETCH(
   loader.classList.add("hide");
 }
 
-export { AJAX, FETCH };
+// Відправлення POST, PATCH та DELETE запитів.
+async function postData(url = "", met = "POST", data = {},callback = ()=>{}) {
+  loader.classList.remove("hide");
+ if(met === 'DELETE'){
+   const response = await fetch(url, {
+     method: met, // *POST, PUT, DELETE, etc.PATCH
+     cache: "no-cache", // *default, no-cache, reload, force-cache,
+   }); 
+ }
+ else{
+   const respons = await fetch(url, {
+     method: met, // *POST, PUT, DELETE, etc.PATCH
+     cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+     headers: {
+       "Content-Type": "application/json",
+     },
+     body: JSON.stringify(data), // body data type must match "Content-Type" header
+   });
+ }
+ loader.classList.add("hide");
+ FETCH(urlAdd, callback);
+};
+
+
+
+
+export { AJAX, FETCH,  postData};
+

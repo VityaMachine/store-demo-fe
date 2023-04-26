@@ -85,7 +85,6 @@ a {
 }
 
 .search-btn {
-  /* width: 50px; */
   color: var(--main-color);
   position: relative;
   left: 40px;
@@ -105,6 +104,7 @@ a {
   display: flex;
   align-items: center;
   width: 15rem;
+  flex-direction: column;
   justify-content: center;
   cursor: pointer;
 }
@@ -119,10 +119,11 @@ a {
   width: 1.7rem;
   height: 1.7rem;
   text-align: center;
-  position: relative;
   right: 1.5rem;
-  top: 1rem;
   padding: 2px;
+}
+.hide-basket{
+  display: none;
 }
 
 .best {
@@ -862,7 +863,6 @@ input[value="SUBSCRIBE"] {
   color: #a04955;
   text-align: center;
   margin-right: 2rem;
-  cursor: pointer;
 }
 
 .pages-list .page-n-info:first-child {
@@ -895,7 +895,6 @@ input[value="SUBSCRIBE"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* display: none; */
 }
 
 .modal-product-about {
@@ -1094,15 +1093,50 @@ input[value="SUBSCRIBE"] {
 .e {
   display: none;
 }
+.filter{
+  filter: blur(.8px) opacity(.6);
+}
 
 /* -----------------------CART PAGE--------------------------------- */
+.cart-basket-empty{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cart-basket-empty-title{
+  font-size: 3.5rem;
+}
+.cart-basket-empty-img{
+  margin-bottom: 2rem;
+}
+
+.cart-basket-empty-btn{
+  font-weight: 600;
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: var(--main-color);
+  background: #f5f5f5;
+  padding: 1rem;
+  border: 1px solid var(--main-color);
+  cursor: pointer;
+  transition: all .3s;
+}
+.cart-basket-empty-btn:hover{
+  color: #f5f5f5;
+  background: var(--main-color);
+}
+
+.cart-page{
+  padding-top: 20px;
+}
+
 .cart-heading {
   font-size: 4rem;
   text-align: center;
 }
 
 .cart-products {
-  margin: 5rem 30rem 2rem 40rem;
+  margin: 5rem 20rem 10rem 20rem;
   background-color: #eee;
 }
 
@@ -1137,7 +1171,12 @@ td,
 td {
   padding: 2rem;
 }
-
+.cart-product-img{
+  max-width: 18rem;
+}
+.cart-product-img img{
+  width: 100%;
+}
 .cart-about-product {
   display: flex;
   justify-content: flex-start;
@@ -1168,7 +1207,6 @@ td {
   height: 2rem;
   font-weight: 300;
   font-size: 1.5rem;
-  /* line-height: 3.6rem; */
   text-align: center;
   margin-left: 1rem;
   background-color: #001f3d;
@@ -1181,7 +1219,6 @@ td {
   height: 2rem;
   font-weight: 300;
   font-size: 1.5rem;
-  /* line-height: 3.6rem; */
   text-align: center;
   margin-left: 1rem;
 }
@@ -1205,63 +1242,47 @@ div.add,
 div.remove {
   width: 2rem;
   height: 2rem;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1.8rem;
   border: 1px solid gray;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   padding: 3px;
 }
-
+.card-products{
+  text-align: center;
+}
 .cart-product-remove {
   cursor: pointer;
-  position: absolute;
-  right: 15px;
+  font-weight: 500;
+  margin-left: 5px;
 }
 
 .data-cart {
-  margin: 5rem 30rem 2rem 40rem;
+  margin: 5rem 5rem 2rem 5rem;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  justify-content: space-around;
+  align-items: end;
 }
 
-.data-cart > div {
+.data-cart-subtotal{
   font-size: 2rem;
   border-bottom: 1px solid #e5e5e5;
   width: 40%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
 
-.data-cart-dicsount {
-  display: flex;
-  flex-direction: column;
-}
-
-.data-cart-dicsount-inputs {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1rem 0;
-  gap: 2rem;
-}
-
-#discount {
-  font-size: 1.4rem;
-  width: 70%;
-  height: 3rem;
-  background-color: #e5e5e5;
-  border: 1px solid #abaaaa;
-}
-
 .btn-apply,
 .btn-check {
-  width: 25%;
+  width: 100%;
   height: 3.5rem;
+  font-size: 2rem;
   background-color: var(--main-color);
+  text-transform: uppercase;
   color: white;
   display: flex;
   align-items: center;
@@ -1269,14 +1290,21 @@ div.remove {
   gap: 2rem;
   border: 1px solid var(--main-color);
   cursor: pointer;
+  transition: all 0.3s;
 }
-
-div.btn-check {
-  width: 15rem;
-  align-items: center;
-  justify-content: center;
+.btn-apply{
   margin-top: 3rem;
 }
+.btn-check {
+  width: 40%;
+  margin-bottom: 1.5rem;
+}
+.btn-apply:hover,
+.btn-check:hover{
+  color: var(--main-color);
+  background: white;
+}
+
 
 @media (max-width: 1350px) {
   :root {
