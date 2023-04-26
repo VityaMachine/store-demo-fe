@@ -147,7 +147,7 @@ function eventClickOpenModal(productList) {
             productAddBag.product_id = '';
             productAddBag.option_id = '' ;
             productAddBag.price_id = '';
-			document.querySelector(".modal").classList.toggle("hide");
+			document.querySelector(".modal").classList.add("hide");
 		});
 	} catch (e) {
 		if (document.location.pathname.includes("/catalog/")) {
