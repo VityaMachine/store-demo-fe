@@ -1,4 +1,4 @@
-﻿export function creatProductElement(product) {
+export function creatProductElement(product) {
     // визначаємо ID 
     const cardID = product.id;
     // визначаємо кольори

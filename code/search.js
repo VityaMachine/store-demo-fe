@@ -22,7 +22,8 @@ function showProductSearchList (products = [], l) {
         return
     }
 
-    products.forEach(({productImg, productName})=> {
+    products.forEach(({ productImg, productName }) => {
+        if (ul.childElementCount > 4) return;
         const li = document.createElement("li");
         const img = document.createElement("img");
         const p = document.createElement("p");
@@ -34,10 +35,5 @@ function showProductSearchList (products = [], l) {
         li.append(img, p);
         ul.append(li);
     })
-
-
-
-    // ul > li - product img + product name
-
 }
 

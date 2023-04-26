@@ -778,7 +778,8 @@ input[value="SUBSCRIBE"] {
 
 .products-filter {
   flex-basis: 50%;
-  min-width: 22%;
+  min-width: 15%;
+  max-width: 20%;
   margin-right: 2rem;
   background-color: white;
   height: fit-content;
@@ -833,35 +834,7 @@ input[value="SUBSCRIBE"] {
 .size-parameter {
   background-color: #f1f1f1;
 }
-/*
-.color-parameter:nth-child(1) {
-  background-color: black;
-}
 
-.color-parameter:nth-child(2) {
-  background-color: brown;
-}
-
-.color-parameter:nth-child(3) {
-  background-color: blue;
-}
-
-.color-parameter:nth-child(4) {
-  background-color: green;
-}
-
-.color-parameter:nth-child(5) {
-  background-color: gray;
-}
-
-.color-parameter:nth-child(6) {
-  background-color: orange;
-}
-
-.color-parameter:nth-child(7) {
-  background-color: white;
-}
-*/
 .products-to-show {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -872,6 +845,7 @@ input[value="SUBSCRIBE"] {
 .pages-list {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   background-color: #f1f1f1;
   padding: 0 60px 20px 60px;
 }
@@ -927,6 +901,7 @@ input[value="SUBSCRIBE"] {
   box-sizing: border-box;
   padding: 2rem;
   width: 80%;
+  /* height: 90%; */
   min-height: 500px;
   max-height: 90%;
   background-color: white;
@@ -1013,6 +988,18 @@ input[value="SUBSCRIBE"] {
   border: 1px solid black;
 }
 
+/* .color-wrapper div:nth-child(1) {
+  background-color: #000000;
+}
+
+.color-wrapper div:nth-child(2) {
+  background-color: gray;
+}
+
+.color-wrapper div:nth-child(3) {
+  background-color: green;
+} */
+
 .size-wrapper div {
   display: inline-block;
   width: 4.5rem;
@@ -1074,6 +1061,7 @@ input[value="SUBSCRIBE"] {
 .modal-image-secondary > div {
   width: 130px;
   height: 130px;
+  /* border: 1px solid #333333; */
   display: flex;
   justify-content: center;
   align-items: center;

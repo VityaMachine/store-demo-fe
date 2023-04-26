@@ -1,4 +1,4 @@
-﻿import { FETCH, postData} from "./request.js";
+import { FETCH, postData} from "./request.js";
 import { url, urlAdd} from "./index.js";
 import { creatProductElement } from "./creatCards.js";
 import {  searchCetalogPage  } from "./search.js";
@@ -16,6 +16,18 @@ const inputSearch = document.querySelector("[name='search-line']");
 
 const productsContainer = document.querySelector(".products-to-show");
 const [...pagesControls] = document.querySelector(".pages-list").children;
+
+pagesControls.forEach((el) => {
+  if (el.dataset.type) {
+    el.addEventListener("click", pageNumHandler);
+  }
+});
+
+window.addEventListener("load", () => {
+  perPageHandler();
+});
+
+
 
 pagesControls.forEach((el) => {
   if (el.dataset.type) {
@@ -60,7 +72,8 @@ function getProduct(data) {
   showFilerColorSize(getColorsSizeProducts(data));
 
     productList = data;
-    eventClickOpenModal(productList)
+    console.log(data);
+    eventClickOpenModal(data)
 }
 
     const getColorsSizeProducts = (products = []) => {
@@ -115,15 +128,14 @@ inputSearch.addEventListener("input", (e) => {
     searchCetalogPage(e.target.value, productList)
 })
 
-FETCH(url, getProduct);
-
 // модальне вікно
-function eventClickOpenModal (productList) {   
+function eventClickOpenModal(productList) {   
+  // відкрити модальне вікно
 	document.querySelectorAll(".show-products-card").forEach((el) => {
 		el.addEventListener("click", (evt) => {
       if ((evt.target.parentElement.classList == "add-to-cart")) {
-          document.querySelector(".modal").classList.toggle("hide");
-          showModalProduct(el,productList)
+        document.querySelector(".modal").classList.remove("hide");
+        showModalProduct(el, productList)
       }
 		});
 	});
