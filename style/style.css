@@ -1093,6 +1093,8 @@ input[value="SUBSCRIBE"] {
 .e {
   display: none;
 }
+
+
 .filter{
   filter: blur(.8px) opacity(.6);
 }
