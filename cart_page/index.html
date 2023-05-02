@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../style/burger_my.css">
     <link rel="stylesheet" href="../style/loader.css">
     <link rel="stylesheet" href="../style/products_plus-minus.css">
+    <link rel="stylesheet" href="../style/basket.css">
 </head>
 <body>
     <header>
@@ -24,7 +25,7 @@
             <div class="navigation">
                 <div class="burger-container">
                     <ul class="nav">
-                        <li><a href="../catalog_page/">SHORTS</a></li>
+                        <li><a href="../catalog_page/index.html">SHORTS</a></li>
                         <li><a href="#">PANTS</a></li>
                         <li><a href="#">SHIRTS</a></li>
                         <li><a href="#">ACCESSORIES</a></li>
@@ -33,23 +34,39 @@
                 </div>
                 <div class="search-box">
                     <div class="search-btn fa-2x"><i class="fa-solid fa-magnifying-glass"></i></div>
-                    <input type="search" id="search-field" placeholder="SEARCH ENTIRE STORE">
+                    <input type="search" id="search-field" list="product-name" placeholder="SEARCH ENTIRE STORE">
+                    <datalist id="product-name">
+                    </datalist>
                 </div>
-                <div class="basket-box">
-                    <span class="basket ">
-                        <i class="fa-solid fa-cart-shopping fa-3x" style="--fa-animation-duration: 15s;"></i>
-                    </span>
-                    <span class="basket-counter">0</span>
+                 <div class="basket-box">
+                    <span class="basket-counter hide-basket">0</span>         
+                    <svg class="cart" role="img" aria-label="Shopping cart line animation" viewBox="0 0 128 128" width="35px" height="35px" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+                            <g class="cart__track" stroke="hsla(0,10%,10%,0.1)">
+                                <polyline points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80" />
+                                <circle cx="43" cy="111" r="13" />
+                                <circle cx="102" cy="111" r="13" />
+                            </g>
+                            <g class="cart__lines" stroke="currentColor">
+                                <polyline class="cart__top" points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80" stroke-dasharray="338 338" stroke-dashoffset="-338" />
+                                <g class="cart__wheel1" transform="rotate(-90,43,111)">
+                                    <circle class="cart__wheel-stroke" cx="43" cy="111" r="13" stroke-dasharray="81.68 81.68" stroke-dashoffset="81.68" />
+                                </g>
+                                <g class="cart__wheel2" transform="rotate(90,102,111)">
+                                    <circle class="cart__wheel-stroke" cx="102" cy="111" r="13" stroke-dasharray="81.68 81.68" stroke-dashoffset="81.68" />
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
                 </div>
                 <div class="burger">
                     <span></span>
                 </div>
             </div>
-    
         </div>
     </header>
     <main>
-        <section class="main-search  cart-page">
+        <section class="main-search">
             <div class="home-navigation-container">
                 <span><a href="../"><img src="../img/market/home.png" alt=""></a></span>
                 <span><a href="../">HOME</a></span>
@@ -90,11 +107,60 @@
             </div>
         </section>
     </main>
+
+    <footer>
+        <div class="contacts-container">
+            <div class="contacts">
+                <ul class="list online">
+                    <li>ORDERING ONLINE</li>
+                    <li>Account Login</li>
+                    <li>Our Guarantee</li>
+                    <li>Sportif Stretch Guide</li>
+                    <li>Size Chart & Sizing Information</li>
+                    <li>Hemming Information</li>
+                    <li>Ordering & Payment</li>
+                    <li>Shipping Information</li>
+                </ul>
+                <ul class="list about">
+                    <li>ABOUT SPORTIF</li>
+                    <li>COVID-19 Response</li>
+                    <li>History</li>
+                    <li>Legacy</li>
+                    <li>Good Sam Program</li>
+                    <li>Privacy & Security</li>
+                    <li>Terms & Conditions</li>
+                    <li>Careers</li>
+                </ul>
+                <ul class="list links">
+                    <li>QUICK LINKS</li>
+                    <li>FAQs</li>
+                    <li>Shop Online Catalog</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+            <div class="subscribe">
+                <ul class="list sign-up">
+                    <li>GET TO KNOW US</li>
+                    <li>Sign up for our weekly newsletter and get a 10% off coupon by email for your first order!</li>
+                </ul>
+                <ul class="list form">
+                    <li>Sign Up for Our Newsletter:</li>
+                    <li>
+                        <input type="email" id="mail" placeholder="EMAIL ADDRESS">
+                        <input type="button" value="SUBSCRIBE">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">©2021 Sportif Mailorder. All Rights Reserved.</div>
+    </footer>
     <div class="loader_box hide">
         <span class="loader"></span>
     </div>
     <script src="https://kit.fontawesome.com/7fc5c6640b.js" crossorigin="anonymous"></script>
     <script src="../code/index.js" type="module"></script>
+    <!-- <script src="../code/mainPage.js" type="module"></script> -->
     <script src="../code/cart_page.js" type="module"></script>
+    <script src="../code/click_events.js" type="module"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 import { urlAdd } from "./index.js";
+// import { Url,urlAdd } from "./methods/url";
 const loader = document.querySelector(".loader_box");
 
 function AJAX(url = "", method = "GET", callback = () => {}) {
@@ -47,6 +48,7 @@ async function postData(url = "", met = "POST", data = {},callback = ()=>{}) {
        "Content-Type": "application/json",
      },
      body: JSON.stringify(data), // body data type must match "Content-Type" header
+  
    });
  }
  loader.classList.add("hide");

@@ -1,4 +1,6 @@
-﻿export function randomProduct(product, quantity, math = Math) {
+﻿// import { urlAdd } from "../index";
+
+export function randomProduct(product, quantity, math = Math) {
 	if (!Array.isArray(product)) {
 		console.warn("Отримано не масив");
 		return;
@@ -28,7 +30,7 @@
 
 // Функції відображення кошика товарів.
 export function baskCounter(data) {
-	if(!Array.isArray(data)) return;
+	if(!Array.isArray(data)) {return;}
 	let caunter = 0;
 	data.forEach(el =>{
 		caunter += el.quantity*1;
@@ -63,3 +65,13 @@ export function showBasket (on = 'off'){
     document.querySelector('.cart__wheel2 >.cart__wheel-stroke').classList.remove('show')
 	}
 }
+
+// Функція створення  динамічного Url.
+export const creatUrl = (id) =>{
+	return `https://store-demo-be.onrender.com/api/cart/${id}`;
+}
+
+// Функція створення  динамічного Url.
+// export const creatUrl = (id) =>{
+// 	return `${urlAdd}${id}`;
+// }

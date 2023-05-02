@@ -18,9 +18,9 @@ export function showModalProduct(product = "", productList = []) {
 			getProductOptions(findProduct);
     
     // вивід параметрів в модалку
-    document.querySelector(".modal-image-main-container").insertAdjacentHTML("beforeend", `
-        <img src="${srcMain}" alt="img">
-    `);
+    // document.querySelector(".modal-image-main-container").insertAdjacentHTML("beforeend", `
+    //     <img src="${srcMain}" alt="img">
+    // `);
 
     document.querySelector(".modal-product-name").insertAdjacentHTML("beforeend", `
         ${productName} <span>ITEM # ${productId.slice(0, 5)}</span>
@@ -38,8 +38,16 @@ export function showModalProduct(product = "", productList = []) {
         document.querySelector(".size-wrapper").insertAdjacentHTML("beforeend", data)
     });
 
-    srcSecondary.forEach((src) => {
-        let data = `<div><img src="${src}" alt="img"></div>`
+    srcSecondary.forEach((src,i) => {
+        let data = '';
+        if(i === 0){
+            data = `<div class="modal-image-select"><img src="${src}" alt="img"></div>`;
+            document.querySelector(".modal-image-main-container").innerHTML = `<img src="${src}" alt="img">`;
+        }
+        else {
+            data = `<div><img src="${src}" alt="img"></div>`
+        }
+        
         document.querySelector(".modal-image-secondary").insertAdjacentHTML("beforeend", data)
     });
 
@@ -49,7 +57,7 @@ export function showModalProduct(product = "", productList = []) {
 function getProductOptions(object) {
     
     const modalObj = {
-        srcMain: object.availableOptions[0].optionImages[0],
+        // srcMain: object.availableOptions[0].optionImages[0],
         srcSecondary: [],
         productName: object.productName,
         lowPrice: object.availableOptions[0].prices[0].price,

@@ -118,9 +118,12 @@ a {
   color: white;
   width: 1.7rem;
   height: 1.7rem;
-  text-align: center;
+  /* text-align: center; */
   right: 1.5rem;
   padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .hide-basket{
   display: none;
@@ -1059,17 +1062,24 @@ input[value="SUBSCRIBE"] {
 }
 
 .modal-image-secondary > div {
-  width: 130px;
-  height: 130px;
+  width: 100px;
+  height: 100px;
   /* border: 1px solid #333333; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.modal-image-select{
+  border: 1px solid #333333;
+}
 
 .modal-image-secondary div>img {
-  width: 13rem
+  /* width: 13rem; */
+  display: block;
+  width: 80%;
 }
+
+
 
 .modal-shipping {
   grid-area: modal-shipping;
@@ -1104,6 +1114,7 @@ input[value="SUBSCRIBE"] {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 6rem;
 }
 .cart-basket-empty-title{
   font-size: 3.5rem;
@@ -1128,9 +1139,7 @@ input[value="SUBSCRIBE"] {
   background: var(--main-color);
 }
 
-.cart-page{
-  padding-top: 20px;
-}
+
 
 .cart-heading {
   font-size: 4rem;
@@ -1306,8 +1315,27 @@ div.remove {
   color: var(--main-color);
   background: white;
 }
+.message{
+  background-color: #0000007e;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-
+  z-index: 50;
+}
+.message div{
+  width: 60%;
+  padding: 5rem;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 3rem;
+  text-align: center;
+}
 @media (max-width: 1350px) {
   :root {
     --main-font-size: 8px;
