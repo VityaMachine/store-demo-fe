@@ -106,7 +106,6 @@ document.querySelector('.cart-basket-empty-btn').addEventListener("click",() =>{
 
 // модальне вікно.
 
-
 document.querySelector(".close-modal").addEventListener("click", () => {
   // Очищення обє'кта після зачинення модалки.
   cleanProductAddBag()

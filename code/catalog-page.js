@@ -189,13 +189,32 @@ searchBtn.addEventListener('click',()=>{
 
 });
 
-//закрити модальне вікно
+// модальне вікно
+function eventClickOpenModal(productList) {
+  // відкрити модальне вікно
+  document.querySelectorAll(".show-products-card").forEach((el) => {
+    el.addEventListener("click", (evt) => {
+      if (evt.target.parentElement.classList == "add-to-cart") {
+        document.querySelector(".modal").classList.remove("hide");
+        showModalProduct(el.dataset.id, productList);
+        modalListener();
+      }
+    });
+  });
 
-document.querySelector(".close-modal").addEventListener("click", () => {
-  // Очищення обє'кта після зачинення модалки.
-  cleanProductAddBag()
-  document.querySelector(".modal").classList.add("hide");
-});
+  // закрити модальне вікно
+  try {
+    document.querySelector(".close-modal").addEventListener("click", () => {
+      // Очищення обє'кта після зачинення модалки.
+      cleanProductAddBag()
+      document.querySelector(".modal").classList.add("hide");
+    });
+  } catch (e) {
+    if (document.location.pathname.includes("/catalog/")) {
+      new Error(e);
+    }
+  }
+}
 
 
 function pageNumHandler(e) {
