@@ -1,5 +1,4 @@
-﻿// import { urlAdd } from "../index";
-
+﻿// Функції відображення випадкових чотирьох товарів першої сторінки.
 export function randomProduct(product, quantity, math = Math) {
 	if (!Array.isArray(product)) {
 		console.warn("Отримано не масив");
@@ -26,7 +25,7 @@ export function randomProduct(product, quantity, math = Math) {
 	return  indexRandom.map((index) => {
 		return product[index];
 	});
-}
+};
 
 // Функції відображення кошика товарів.
 export function baskCounter(data) {
@@ -36,14 +35,14 @@ export function baskCounter(data) {
 		caunter += el.quantity*1;
 	})
 	if(caunter > 0){
-		document.querySelector('.basket-counter').classList.remove('hide-basket')
-		document.querySelector('.basket-counter').innerText = caunter
-		showBasket ('on')
+		document.querySelector('.basket-counter').classList.remove('hide-basket');
+		document.querySelector('.basket-counter').innerText = caunter;
+		showBasket ('on');
 	}
 	else {
-		document.querySelector('.basket-counter').classList.add('hide-basket')
-		showBasket ()
-	}
+		document.querySelector('.basket-counter').classList.add('hide-basket');
+		showBasket ();
+	};
 };
 
 // Функції анімації кошика товарів порожній повний.
@@ -64,14 +63,9 @@ export function showBasket (on = 'off'){
 		document.querySelector('.cart__wheel1 > .cart__wheel-stroke').classList.remove('show')
     document.querySelector('.cart__wheel2 >.cart__wheel-stroke').classList.remove('show')
 	}
-}
+};
 
 // Функція створення  динамічного Url.
 export const creatUrl = (id) =>{
 	return `https://store-demo-be.onrender.com/api/cart/${id}`;
-}
-
-// Функція створення  динамічного Url.
-// export const creatUrl = (id) =>{
-// 	return `${urlAdd}${id}`;
-// }
+};

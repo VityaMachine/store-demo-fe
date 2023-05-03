@@ -1,20 +1,17 @@
 import { FETCH, postData } from "./request.js";
 import { url, urlAdd } from "./index.js";
-// import { url, urlAdd, creatUrl} from "./methods/url.js";
 import { creatProductElement } from "./creatCards.js";
 import { searchCetalogPage } from "./search.js";
 import { showModalProduct } from "./modal.js";
-
 import { baskCounter, creatUrl } from "./methods/methods.js";
 import { colorsFilterHandler } from "./filters.js";
 import paginator from "./paginator.js";
-import{modalListener} from "./methods/modalListener.js";
+import{ modalListener, cleanProductAddBag } from "./methods/modalListener.js";
 import{ searchEntipeStori } from "./methods/search-entipe_stori.js";
+
 
 // Запит на сервер про вміст кошика.
 FETCH(urlAdd, baskCounter);
-
-
 
 const inputSearch = document.querySelector("[name='search-line']");
 
@@ -101,7 +98,6 @@ function getProduct(data) {
 
 const getColorsSizeProducts = (products = []) => {
   if (!Array.isArray(products)) return;
-  // const mainColorArr = [];
   const mainSizeArr = [];
 
   const colorsArr = products
@@ -166,32 +162,41 @@ inputSearch.addEventListener("input", (e) => {
   searchCetalogPage(e.target.value, productList);
 });
 
-// модальне вікно
-function eventClickOpenModal(productList) {
-  // відкрити модальне вікно
-  document.querySelectorAll(".show-products-card").forEach((el) => {
-    el.addEventListener("click", (evt) => {
-      if (evt.target.parentElement.classList == "add-to-cart") {
-        document.querySelector(".modal").classList.remove("hide");
-        showModalProduct(el, productList);
-        modalListener();
-      }
-    });
-  });
+// Слухач події додавання товару через інпут хедер.
+const searchInput = document.getElementById("search-field");
 
-  // закрити модальне вікно
-  try {
-    document.querySelector(".close-modal").addEventListener("click", () => {
-      // Очищення обє'кта після зачинення модалки.
-      cleanProductAddBag()
-      document.querySelector(".modal").classList.add("hide");
+const searchBtn = document.querySelector('.search-btn');
+
+searchBtn.addEventListener('click',()=>{
+  if(searchInput.value !== ''){
+    const foundedItem = productList.filter( (el) => {
+
+      return el.productName.toLowerCase().includes(searchInput.value.toLowerCase())
+      
     });
-  } catch (e) {
-    if (document.location.pathname.includes("/catalog/")) {
-      new Error(e);
+    if(foundedItem.length > 0){
+      document.querySelector(".modal").classList.remove("hide");
+      showModalProduct(foundedItem[0].id, productList);
+      modalListener();
+      searchInput.value = '';
     }
+    else {
+      searchInput.value = '';
+      return
+    }
+
   }
-}
+
+});
+
+//закрити модальне вікно
+
+document.querySelector(".close-modal").addEventListener("click", () => {
+  // Очищення обє'кта після зачинення модалки.
+  cleanProductAddBag()
+  document.querySelector(".modal").classList.add("hide");
+});
+
 
 function pageNumHandler(e) {
   if (e.target.dataset.type === "prev") {
@@ -214,6 +219,8 @@ function perPageHandler() {
 
 FETCH(url, getProduct);
 
+
+
 window.addEventListener("resize", (e) => {
   perPageHandler();
   getProduct(productList);
@@ -229,4 +236,5 @@ function colorsFilterClickHandler(e) {
   page_num = 1;
 
   getProduct(productList);
-}
+};
+

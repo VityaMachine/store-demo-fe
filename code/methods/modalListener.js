@@ -1,51 +1,61 @@
 import { FETCH, postData } from "../request.js";
 import { urlAdd } from "../index.js";
 import { creatUrl,baskCounter } from "./methods.js";
-    // Обє'кт обраного товару перед відправкою в кошик.
-    const productAddBag = {
-      product_id: "",
-      option_id: "",
-      price_id: "",
-      quantity: 1,
-    };
 
-export function modalListener() {
-  // Функція очищення обєкта productAddBag.
-  function cleanProductAddBag (){
-    productAddBag.product_id = "";
-    productAddBag.option_id = "";
-    productAddBag.price_id = ""; 
+// Обє'кт обраного товару перед відправкою в кошик.
+const productAddBag = {
+  product_id: "",
+  option_id: "",
+  price_id: "",
+  quantity: 1,
+};
+
+// Функція очищення обєкта productAddBag.
+export function cleanProductAddBag (){
+  productAddBag.product_id = "";
+  productAddBag.option_id = "";
+  productAddBag.price_id = ""; 
+};
+
+// Функція перевірки перевірки чи є подібний товар та додавання товару у кошик.
+function addToBag(data) {
+  let product = '';
+  if (!Array.isArray(data)) {
+    console.warn("Отримано не масив");
+    return;
   }
-
-  // Функція перевірки перевірки чи є подібний товар та додавання товару у кошик.
-  function addToBag(data) {
-
-    if (!Array.isArray(data)) {
-      console.warn("Отримано не масив");
-      return;
-    }
-    const findProductag = data.find((obj) => {
-      return obj.product_id === productAddBag.product_id
-      });
-      if(findProductag){
-        let {id,product_id,option_id,price_id,quantity} = findProductag;
-          if(product_id === productAddBag.product_id &&
-          option_id === productAddBag.option_id &&
-          price_id === productAddBag.price_id){
-            postData(creatUrl(id), "PATCH", {quantity:quantity*1+1},baskCounter);
-            cleanProductAddBag();
-            return
-          }
+ else if(data.length > 0){
+  data.find((obj) => {
+      if(obj.product_id === productAddBag.product_id && obj.option_id === productAddBag.option_id && obj.price_id === productAddBag.price_id){
+        product = obj;
+        return
       }
       else {
-        postData(urlAdd, "POST", productAddBag, baskCounter);
-        cleanProductAddBag();
+        return
       }
+    }); 
+  };
+
+  if(product !== ''){
+    let {id,quantity} = product;
+    postData(creatUrl(id), "PATCH", {quantity:quantity*1+1},baskCounter);
+    cleanProductAddBag();
+    product = '';
+    return
   }
+  else if(product === '' && productAddBag.product_id !== ''){
+    postData(urlAdd, "POST", productAddBag, baskCounter);
+    cleanProductAddBag();
+    return; 
+  };
+};
+
+// Функція слухач подій кнопок модального вікна.
+export function modalListener() {
 
   // Слухач події кнопки модального вікна обрати колір .
   document.querySelector(".color-wrapper").addEventListener("click", (ev) => {
-    if (ev.target.dataset.optionid) {
+    if (ev.target.dataset.optionid){
       const [...elColor] = document.querySelectorAll(".color-wrapper > div");
       elColor.forEach((el) => {
         el.classList.add("filter");
@@ -69,8 +79,7 @@ export function modalListener() {
   });
   // Слухач події кнопки додати товар у кошик.
   document.querySelector(".add-to-bag").addEventListener("click", (ev) => {
-    productAddBag.product_id =
-      document.querySelector(".add-to-bag").dataset.productId;
+    productAddBag.product_id = document.querySelector(".add-to-bag").dataset.productId;
     if (
       productAddBag.product_id !== "" &&
       productAddBag.option_id !== "" &&
@@ -93,7 +102,6 @@ export function modalListener() {
 
   const modalImageSecondary= document.querySelector('.modal-image-secondary');
 
-
   modalImageSecondary.addEventListener('click',(ev)=>{
     const [...arr] = document.querySelectorAll('.modal-image-secondary div');
     if(ev.target.src){
@@ -110,4 +118,4 @@ export function modalListener() {
     }
     else return
   });
-}
+};

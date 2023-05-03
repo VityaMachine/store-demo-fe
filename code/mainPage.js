@@ -2,8 +2,9 @@
 import { randomProduct , baskCounter} from "./methods/methods.js";
 import {url,urlAdd} from "./index.js";
 import { showModalProduct } from "./modal.js";
-import { modalListener } from "./methods/modalListener.js";
+import { modalListener, cleanProductAddBag  } from "./methods/modalListener.js";
 import{ searchEntipeStori } from "./methods/search-entipe_stori.js";
+
 // import {url,urlAdd} from "./methods/url.js";
 // import{dataMain} from "./data/data.js";
 
@@ -66,7 +67,7 @@ function eventClickOpenModal(productList) {
     el.addEventListener("click", (evt) => {
       if (evt.target.parentElement.classList == "add-to-cart") {
         document.querySelector(".modal").classList.remove("hide");
-        showModalProduct(el, productList);
+        showModalProduct(el.dataset.id, productList);
         modalListener();
       }
     });
@@ -84,4 +85,30 @@ function eventClickOpenModal(productList) {
       new Error(e);
     }
   }
-}
+};
+
+// Слухач події додавання товару через інпут хедер.
+const searchInput = document.getElementById("search-field");
+
+const searchBtn = document.querySelector('.search-btn');
+
+searchBtn.addEventListener('click',()=>{
+  if(searchInput.value !== ''){
+    const foundedItem = dataMain.filter( (el) => {
+
+      return el.productName.toLowerCase().includes(searchInput.value.toLowerCase())
+      
+    });
+    if(foundedItem.length > 0){
+      document.querySelector(".modal").classList.remove("hide");
+      showModalProduct(foundedItem[0].id, dataMain);
+      modalListener();
+      searchInput.value = '';
+    }
+    else {
+      searchInput.value = '';
+      return
+    }
+  }
+
+});

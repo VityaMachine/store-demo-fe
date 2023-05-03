@@ -1,5 +1,5 @@
 import { urlAdd } from "./index.js";
-// import { Url,urlAdd } from "./methods/url";
+
 const loader = document.querySelector(".loader_box");
 
 function AJAX(url = "", method = "GET", callback = () => {}) {
@@ -39,6 +39,7 @@ async function postData(url = "", met = "POST", data = {},callback = ()=>{}) {
      method: met, // *POST, PUT, DELETE, etc.PATCH
      cache: "no-cache", // *default, no-cache, reload, force-cache,
    }); 
+   FETCH(urlAdd, callback); 
  }
  else{
    const respons = await fetch(url, {
@@ -48,11 +49,14 @@ async function postData(url = "", met = "POST", data = {},callback = ()=>{}) {
        "Content-Type": "application/json",
      },
      body: JSON.stringify(data), // body data type must match "Content-Type" header
-  
+     
    });
- }
+   if (respons.status >= 200 && respons.status < 300) {
+    FETCH(urlAdd, callback);
+   }
+   else   return;
+  }
  loader.classList.add("hide");
- FETCH(urlAdd, callback);
 };
 
 

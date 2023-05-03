@@ -7,8 +7,8 @@ export function showModalProduct(product = "", productList = []) {
     document.querySelector(".size-wrapper").innerHTML = ""
     document.querySelector(".modal-image-secondary").innerHTML = ""
     //знаходимо обраний товар
-    let productId = product.dataset.id;
-    
+    // let productId = product.dataset.id;
+    let productId = product;
 
     const findProduct = productList.find((obj) => {
         return obj.id == productId
