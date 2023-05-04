@@ -1,18 +1,19 @@
-import{FETCH,postData } from "./request.js";
-import{url, urlAdd} from "./index.js";
-import{creatCartProducts} from "./creatCards.js"
+import {FETCH, postData } from "./request.js";
+import { url, urlAdd } from "./index.js";
+import { creatCartProducts } from "./creatCards.js"
 import { baskCounter,creatUrl } from "./methods/methods.js";
-import{ searchEntipeStori, dataMain } from "./methods/search-entipe_stori.js";
+import { searchEntipeStori, dataMain } from "./methods/search-entipe_stori.js";
 import { showModalProduct } from "./modal.js";
 import { cleanProductAddBag, modalListener } from "./methods/modalListener.js";
 
-const cartProducts = document.getElementById('cart-table-products');
 
+const cartProducts = document.getElementById('cart-table-products');
 
 // Запит на сервер про вміст кошика.
 FETCH(urlAdd, showCartProduct);
 // Запит на сервер щоб отримати список товарів.
 FETCH(url, searchEntipeStori);
+
 
 // Функція очищення корзини на сервері корзини.
 function clearBasket(data) {
@@ -42,7 +43,7 @@ function showCartProduct(data) {
     document.querySelector('.cart-grand-total').innerText = `${totalCost} UAH`
   }
   baskCounter(data)
-}
+};
 
 
 // Події для кнопок (+ , -,  Х) 
@@ -105,7 +106,6 @@ document.querySelector('.cart-basket-empty-btn').addEventListener("click",() =>{
 
 
 // модальне вікно.
-
 document.querySelector(".close-modal").addEventListener("click", () => {
   // Очищення обє'кта після зачинення модалки.
   cleanProductAddBag()
@@ -137,5 +137,5 @@ searchBtn.addEventListener('click',()=>{
       return
     }
   }
-
 });
+

@@ -257,3 +257,28 @@ function colorsFilterClickHandler(e) {
   getProduct(productList);
 };
 
+// Додавання товарів у кошик через головний пошук.
+const ul = document.querySelector(".product-list");
+
+const search = document.querySelector('.main-search-line > input');
+ul.addEventListener('click',(ev)=>{
+  document.querySelector(".modal").classList.remove("hide");
+  showModalProduct(ev.target.dataset.id, productList);
+  modalListener();
+  search.value = '';
+  ul.innerHTML = "";
+});
+
+// Очищення інпут головного пошуку при втраті фокусу.
+document.body.addEventListener('click',(ev)=>{
+  if(ev.target.nodeName === 'INPUT' ||
+  ev.target.nodeName === 'IMG'||
+  ev.target.nodeName === 'P'
+  ){
+    return
+  }
+  else {
+    search.value = '';
+    ul.innerHTML = "";
+  }
+});

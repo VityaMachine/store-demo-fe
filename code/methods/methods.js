@@ -27,6 +27,7 @@ export function randomProduct(product, quantity, math = Math) {
 	});
 };
 
+
 // Функції відображення кошика товарів.
 export function baskCounter(data) {
 	if(!Array.isArray(data)) {return;}

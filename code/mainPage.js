@@ -1,12 +1,10 @@
 ﻿import { AJAX, FETCH } from "./request.js";
-import { randomProduct , baskCounter} from "./methods/methods.js";
-import {url,urlAdd} from "./index.js";
+import { randomProduct , baskCounter } from "./methods/methods.js";
+import { url,urlAdd } from "./index.js";
 import { showModalProduct } from "./modal.js";
-import { modalListener, cleanProductAddBag  } from "./methods/modalListener.js";
-import{ searchEntipeStori } from "./methods/search-entipe_stori.js";
+import { modalListener, cleanProductAddBag } from "./methods/modalListener.js";
+import { searchEntipeStori } from "./methods/search-entipe_stori.js";
 
-// import {url,urlAdd} from "./methods/url.js";
-// import{dataMain} from "./data/data.js";
 
 AJAX(url, "GET", show);
 

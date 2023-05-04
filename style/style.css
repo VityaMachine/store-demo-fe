@@ -721,6 +721,7 @@ input[value="SUBSCRIBE"] {
   right: 1rem;
   top: 0.9rem;
   cursor: pointer;
+
 }
 
 .copyright {
@@ -758,11 +759,12 @@ input[value="SUBSCRIBE"] {
 }
 
 .main-search-line > input {
+  outline: 1px solid rgba(245, 222, 179, 0);
   width: 100%;
   font-weight: 500;
   line-height: 60px;
   font-weight: 400;
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   border: none;
   border-bottom: 1px solid #c4c4c4;
 }
