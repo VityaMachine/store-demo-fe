@@ -1,7 +1,8 @@
-import { urlAdd } from "./index.js";
-
+import { urlAdd } from "./url.js";
+//Змінна лоудер.
 const loader = document.querySelector(".loader_box");
 
+// Відправлення POST запитів.
 function AJAX(url = "", method = "GET", callback = () => {}) {
   loader.classList.remove("hide");
   const ajax = new XMLHttpRequest();
@@ -16,8 +17,9 @@ function AJAX(url = "", method = "GET", callback = () => {}) {
     }
     loader.classList.add("hide");
   });
-}
+};
 
+// Відправлення POST запитів.
 async function FETCH(
   url = "",
   callback = () => {},
@@ -59,8 +61,4 @@ async function postData(url = "", met = "POST", data = {},callback = ()=>{}) {
  loader.classList.add("hide");
 };
 
-
-
-
 export { AJAX, FETCH,  postData};
-

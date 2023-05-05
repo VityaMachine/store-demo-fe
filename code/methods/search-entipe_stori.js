@@ -30,4 +30,10 @@ export function searchEntipeStori(data){
       datalist.append(option);
     });
   });
+
+  // Очищення поля вводу при click в іншому місті сторінки.
+  document.querySelector('main').addEventListener('click',()=>{
+    searchInput.value = '';
+  });
 };
+

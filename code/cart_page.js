@@ -1,18 +1,19 @@
-import{FETCH,postData } from "./request.js";
-import{url, urlAdd} from "./index.js";
-import{creatCartProducts} from "./creatCards.js"
-import { baskCounter,creatUrl } from "./methods/methods.js";
-import{ searchEntipeStori, dataMain } from "./methods/search-entipe_stori.js";
-import { showModalProduct } from "./modal.js";
+import { FETCH, postData } from "./methods/request.js";
+import { url, urlAdd, creatUrl } from "./methods/url.js";
+import { creatCartProducts } from "./methods/creatCards.js"
+import { baskCounter, message } from "./methods/methods.js";
+import { searchEntipeStori, dataMain } from "./methods/search-entipe_stori.js";
+import { showModalProduct } from "./methods/modal.js";
 import { cleanProductAddBag, modalListener } from "./methods/modalListener.js";
 
+//Змінна таблиці товарів.
 const cartProducts = document.getElementById('cart-table-products');
-
 
 // Запит на сервер про вміст кошика.
 FETCH(urlAdd, showCartProduct);
 // Запит на сервер щоб отримати список товарів.
 FETCH(url, searchEntipeStori);
+
 
 // Функція очищення корзини на сервері корзини.
 function clearBasket(data) {
@@ -23,7 +24,7 @@ function clearBasket(data) {
 }
 
 // Функція виводу товарів на сторінку корзини.
-function showCartProduct(data) {
+export function showCartProduct(data) {
   if(!Array.isArray(data)) return;
   cartProducts.innerHTML = '';
   let totalCost = 0;
@@ -42,7 +43,7 @@ function showCartProduct(data) {
     document.querySelector('.cart-grand-total').innerText = `${totalCost} UAH`
   }
   baskCounter(data)
-}
+};
 
 
 // Події для кнопок (+ , -,  Х) 
@@ -77,9 +78,6 @@ cartProducts.addEventListener('click',(ev)=>{
   else return
 });
 
-const message = document.createElement('div');
-message.classList = 'message';
-message.innerHTML = `<div><p>Далі буде сторінка підтвердження та оформлення замовлення.</p></div>`
 
 // Слухач події кнопок "продовжити покупки" та "оформити заявку"
 document.querySelector('.data-cart').addEventListener('click',(ev)=>{
@@ -87,6 +85,7 @@ document.querySelector('.data-cart').addEventListener('click',(ev)=>{
     document.location.pathname="/catalog_page"
   }
   else if(ev.target.classList.value === 'btn-apply'){
+    message.innerHTML = `<div class="message-box"><p>Далі буде сторінка підтвердження та оформлення замовлення.</p></div>`;
     document.querySelector('main').append(message)
     setInterval(()=>{
       message.remove(message);
@@ -101,20 +100,43 @@ document.querySelector('.cart-basket-empty-btn').addEventListener("click",() =>{
   document.location.pathname="/catalog_page"
 });
 
-
-
-
 // модальне вікно.
-
 document.querySelector(".close-modal").addEventListener("click", () => {
   // Очищення обє'кта після зачинення модалки.
   cleanProductAddBag()
   document.querySelector(".modal").classList.add("hide");
 });
 
-
+//Повідомленя про вдале додавання товару у кошик.
+document.querySelector(".add-to-bag").addEventListener("click", (ev) => {
+  message.innerHTML = `<div class="message-box">
+    <div class="message-box-img" >
+      <img src="../img/SVG/bag.png" alt="bag">
+    </div>
+    <p>The product has been successfully added to the cart.</p>
+    <div  class="message-btns">
+      <button data-id="go-shop">Continue shopping?</button>
+      <button data-id="go-bag">View cart?</button>
+    </div>
+  </div>`;
+  document.querySelector('main').append(message);
+    //Подія натиску кнопок вікнна повідомлення.
+  document.querySelector('.message-btns')
+    .addEventListener('click',(ev)=>{
+        if(ev.target.dataset.id === 'go-shop'){
+          document.location.pathname="../catalog_page";
+          message.remove(message);
+        }
+        else if(ev.target.dataset.id === 'go-bag'){
+          FETCH(urlAdd, showCartProduct);
+          message.remove(message);
+        }
+        else return;
+      });
+});
 
 // Слухач події додавання товару через інпут хедер.
+
 const searchInput = document.getElementById("search-field");
 
 const searchBtn = document.querySelector('.search-btn');
@@ -137,5 +159,4 @@ searchBtn.addEventListener('click',()=>{
       return
     }
   }
-
 });

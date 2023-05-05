@@ -1,6 +1,6 @@
-import { FETCH, postData } from "../request.js";
-import { urlAdd } from "../index.js";
-import { creatUrl,baskCounter } from "./methods.js";
+import { FETCH, postData } from "./request.js";
+import { urlAdd , creatUrl } from "./url.js";
+import { baskCounter } from "./methods.js";
 
 // Обє'кт обраного товару перед відправкою в кошик.
 const productAddBag = {
@@ -28,11 +28,11 @@ function addToBag(data) {
   data.find((obj) => {
       if(obj.product_id === productAddBag.product_id && obj.option_id === productAddBag.option_id && obj.price_id === productAddBag.price_id){
         product = obj;
-        return
+        return;
       }
       else {
-        return
-      }
+        return;
+      };
     }); 
   };
 
@@ -108,13 +108,13 @@ export function modalListener() {
       arr.forEach((el)=>{
         if(el.firstChild.src === ev.target.src){
           modalImageContainer.innerHTML = ` <img src="${ev.target.src}" alt="img">`
-          el.classList.add('modal-image-select')
+          el.classList.add('modal-image-select');
         }
         else {
-          el.classList.remove('modal-image-select')
-          return
+          el.classList.remove('modal-image-select');
+          return;
         }
-      })
+      });
     }
     else return
   });

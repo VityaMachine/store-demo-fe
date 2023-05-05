@@ -1,4 +1,5 @@
-﻿// Функції відображення випадкових чотирьох товарів першої сторінки.
+﻿
+// Функції відображення випадкових чотирьох товарів першої сторінки.
 export function randomProduct(product, quantity, math = Math) {
 	if (!Array.isArray(product)) {
 		console.warn("Отримано не масив");
@@ -27,6 +28,7 @@ export function randomProduct(product, quantity, math = Math) {
 	});
 };
 
+
 // Функції відображення кошика товарів.
 export function baskCounter(data) {
 	if(!Array.isArray(data)) {return;}
@@ -37,6 +39,7 @@ export function baskCounter(data) {
 	if(caunter > 0){
 		document.querySelector('.basket-counter').classList.remove('hide-basket');
 		document.querySelector('.basket-counter').innerText = caunter;
+		
 		showBasket ('on');
 	}
 	else {
@@ -65,7 +68,6 @@ export function showBasket (on = 'off'){
 	}
 };
 
-// Функція створення  динамічного Url.
-export const creatUrl = (id) =>{
-	return `https://store-demo-be.onrender.com/api/cart/${id}`;
-};
+
+export const message = document.createElement('div');
+message.classList = 'message';
