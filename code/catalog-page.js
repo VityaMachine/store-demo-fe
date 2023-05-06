@@ -1,13 +1,13 @@
-import { FETCH, postData } from "./request.js";
-import { url, urlAdd } from "./index.js";
-import { creatProductElement } from "./creatCards.js";
-import { searchCetalogPage } from "./search.js";
-import { showModalProduct } from "./modal.js";
-import { baskCounter, creatUrl } from "./methods/methods.js";
-import { colorsFilterHandler } from "./filters.js";
-import paginator from "./paginator.js";
-import{ modalListener, cleanProductAddBag } from "./methods/modalListener.js";
-import{ searchEntipeStori } from "./methods/search-entipe_stori.js";
+import { FETCH } from "./methods/request.js";
+import { url, urlAdd } from "./methods/url.js";
+import { creatProductElement } from "./methods/creatCards.js";
+import { searchCetalogPage } from "./methods/search.js";
+import { showModalProduct } from "./methods/modal.js";
+import { baskCounter, message } from "./methods/methods.js";
+import { colorsFilterHandler } from "./methods/filters.js";
+import paginator from "./methods/paginator.js";
+import { modalListener, cleanProductAddBag } from "./methods/modalListener.js";
+import { searchEntipeStori } from "./methods/search-entipe_stori.js";
 
 
 // Запит на сервер про вміст кошика.
@@ -214,7 +214,7 @@ function eventClickOpenModal(productList) {
       new Error(e);
     }
   }
-}
+};
 
 
 function pageNumHandler(e) {
@@ -226,7 +226,7 @@ function pageNumHandler(e) {
   }
 
   getProduct(productList);
-}
+};
 
 function perPageHandler() {
   if (window.innerWidth <= 1150) {
@@ -234,8 +234,9 @@ function perPageHandler() {
   } else {
     per_page = 8;
   }
-}
+};
 
+// Запит на сервер щоб отримати список товарів.
 FETCH(url, getProduct);
 
 
@@ -269,6 +270,37 @@ ul.addEventListener('click',(ev)=>{
   ul.innerHTML = "";
 });
 
+<<<<<<< HEAD
+=======
+//Повідомленя про вдале додавання товару у кошик.
+document.querySelector(".add-to-bag").addEventListener("click", (ev) => {
+  message.innerHTML = `<div class="message-box">
+    <div class="message-box-img" >
+      <img src="../img/SVG/bag.png" alt="bag">
+    </div>
+    <p>The product has been successfully added to the cart.</p>
+    <div  class="message-btns">
+      <button data-id="go-shop">Continue shopping?</button>
+      <button data-id="go-bag">View cart?</button>
+    </div>
+  </div>`;
+  document.querySelector('main').append(message);
+  //Подія натиску кнопок вікнна повідомлення.
+  document.querySelector('.message-btns')
+    .addEventListener('click',(ev)=>{
+      if(ev.target.dataset.id === 'go-shop'){
+        message.remove(message);
+        return;
+      }
+      else if(ev.target.dataset.id === 'go-bag'){
+        document.location.pathname="../cart_page";;
+        message.remove(message);
+      }
+      else return;
+    });
+});
+
+>>>>>>> d8ce7381293ad23b9a2e85a4faafa3190f4c69d0
 // Очищення інпут головного пошуку при втраті фокусу.
 document.body.addEventListener('click',(ev)=>{
   if(ev.target.nodeName === 'INPUT' ||

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿import { AJAX, FETCH } from "./request.js";
 import { randomProduct , baskCounter } from "./methods/methods.js";
 import { url,urlAdd } from "./index.js";
@@ -5,7 +6,16 @@ import { showModalProduct } from "./modal.js";
 import { modalListener, cleanProductAddBag } from "./methods/modalListener.js";
 import { searchEntipeStori } from "./methods/search-entipe_stori.js";
 
+=======
+﻿import { AJAX, FETCH } from "./methods/request.js";
+import { randomProduct , baskCounter, message } from "./methods/methods.js";
+import { url,urlAdd } from "./methods/url.js";
+import { showModalProduct } from "./methods/modal.js";
+import { modalListener, cleanProductAddBag } from "./methods/modalListener.js";
+import { searchEntipeStori } from "./methods/search-entipe_stori.js";
+>>>>>>> d8ce7381293ad23b9a2e85a4faafa3190f4c69d0
 
+// Запит на сервер щоб отримати список товарів.
 AJAX(url, "GET", show);
 
 // Запит на сервер про вміст кошика.
@@ -56,7 +66,7 @@ function showRandomProducts(productsArr) {
 			console.error(e)
 		}
 	}
-}
+};
 
 // модальне вікно.
 function eventClickOpenModal(productList) {
@@ -110,3 +120,34 @@ searchBtn.addEventListener('click',()=>{
   }
 
 });
+<<<<<<< HEAD
+=======
+
+//Повідомленя про вдале додавання товару у кошик.
+document.querySelector(".add-to-bag").addEventListener("click", (ev) => {
+  message.innerHTML = `<div class="message-box">
+    <div class="message-box-img" >
+      <img src="../img/SVG/bag.png" alt="bag">
+    </div>
+    <p>The product has been successfully added to the cart.</p>
+    <div  class="message-btns">
+      <button data-id="go-shop">Continue shopping?</button>
+      <button data-id="go-bag">View cart?</button>
+    </div>
+  </div>`;
+  document.querySelector('main').append(message);
+  //Подія натиску кнопок вікнна повідомлення.
+  document.querySelector('.message-btns')
+    .addEventListener('click',(ev)=>{
+      if(ev.target.dataset.id === 'go-shop'){
+        message.remove(message);
+        return;
+      }
+      else if(ev.target.dataset.id === 'go-bag'){
+        document.location.pathname="../cart_page";;
+        message.remove(message);
+      }
+      else return;
+    });
+});
+>>>>>>> d8ce7381293ad23b9a2e85a4faafa3190f4c69d0
