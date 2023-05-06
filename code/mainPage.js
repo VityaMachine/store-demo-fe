@@ -1,19 +1,9 @@
-<<<<<<< HEAD
-﻿import { AJAX, FETCH } from "./request.js";
-import { randomProduct , baskCounter } from "./methods/methods.js";
-import { url,urlAdd } from "./index.js";
-import { showModalProduct } from "./modal.js";
-import { modalListener, cleanProductAddBag } from "./methods/modalListener.js";
-import { searchEntipeStori } from "./methods/search-entipe_stori.js";
-
-=======
 ﻿import { AJAX, FETCH } from "./methods/request.js";
 import { randomProduct , baskCounter, message } from "./methods/methods.js";
 import { url,urlAdd } from "./methods/url.js";
 import { showModalProduct } from "./methods/modal.js";
 import { modalListener, cleanProductAddBag } from "./methods/modalListener.js";
 import { searchEntipeStori } from "./methods/search-entipe_stori.js";
->>>>>>> d8ce7381293ad23b9a2e85a4faafa3190f4c69d0
 
 // Запит на сервер щоб отримати список товарів.
 AJAX(url, "GET", show);
@@ -120,8 +110,6 @@ searchBtn.addEventListener('click',()=>{
   }
 
 });
-<<<<<<< HEAD
-=======
 
 //Повідомленя про вдале додавання товару у кошик.
 document.querySelector(".add-to-bag").addEventListener("click", (ev) => {
@@ -150,4 +138,3 @@ document.querySelector(".add-to-bag").addEventListener("click", (ev) => {
       else return;
     });
 });
->>>>>>> d8ce7381293ad23b9a2e85a4faafa3190f4c69d0

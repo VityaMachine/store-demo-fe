@@ -1,0 +1,108 @@
+.open{
+    display: flex !important;
+}
+
+.burger{
+    display: none;
+    position: relative;
+    z-index: 50;
+    align-items: center;
+    justify-content: flex-end;
+    width: 30px;
+    /* height: 1.8rem; */   
+}
+
+.burger span{
+    height: 0.4rem;
+    width: 80%;
+    transform: scale(1);
+    background-color: black;
+}
+
+.burger::before {
+    content: "";
+    position: absolute;
+    height: 0.4rem;
+    width: 100%;
+    background-color: black;
+    transition: all 0.3s ease 0s;
+    top: 7px;
+}
+
+.burger::after {
+    content: "";
+    position: absolute;
+    height: 0.4rem;
+    width: 100%;
+    background-color: black;
+    transition: all 0.3s ease 0s;
+    bottom: 7px;
+}
+
+/* .burger::before{top: 1.8rem}
+
+.burger::after{bottom: 1.8rem} */
+
+.burger.active>span{transform:scale(0)}
+
+.burger.active::before{
+    top: 50%;
+    transform: rotate(-45deg) translate(0,-50%);
+}
+
+.burger.active::after {
+    bottom: 50%;
+    transform: rotate(45deg) translate(0, 50%);
+}
+
+
+@media (max-width: 875px){
+    header {
+        overflow-y: hidden;
+    }
+
+    .burger {
+        display: flex;
+        /* position: fixed;
+        top: 6.1rem; 
+        right: 5rem; */
+    }
+
+    .burger-container{
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        z-index: 50;
+        top: 0;bottom: 0;left: 0;right: 0;
+        overflow-y: hidden;
+        padding: 50px 40px;
+        animation: burgerAnimation 0.5s;
+        background-color: #f1f1f1;
+    }
+
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 30px;
+        font-family: "Oswald";
+        cursor: pointer;
+        
+    }
+
+    .nav li {
+        font-size: 3rem;
+    }
+
+    .nav li:hover {
+        text-decoration: underline;
+        transition: 0.7s;
+    }
+
+}
+
+@keyframes burgerAnimation {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}

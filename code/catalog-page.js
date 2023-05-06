@@ -270,8 +270,6 @@ ul.addEventListener('click',(ev)=>{
   ul.innerHTML = "";
 });
 
-<<<<<<< HEAD
-=======
 //Повідомленя про вдале додавання товару у кошик.
 document.querySelector(".add-to-bag").addEventListener("click", (ev) => {
   message.innerHTML = `<div class="message-box">
@@ -300,7 +298,6 @@ document.querySelector(".add-to-bag").addEventListener("click", (ev) => {
     });
 });
 
->>>>>>> d8ce7381293ad23b9a2e85a4faafa3190f4c69d0
 // Очищення інпут головного пошуку при втраті фокусу.
 document.body.addEventListener('click',(ev)=>{
   if(ev.target.nodeName === 'INPUT' ||

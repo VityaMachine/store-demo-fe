@@ -160,4 +160,3 @@ searchBtn.addEventListener('click',()=>{
     }
   }
 });
-
