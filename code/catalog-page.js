@@ -8,10 +8,15 @@ import { colorsFilterHandler } from "./methods/filters.js";
 import paginator from "./methods/paginator.js";
 import { modalListener, cleanProductAddBag } from "./methods/modalListener.js";
 import { searchEntipeStori } from "./methods/search-entipe_stori.js";
+import { clickEvents } from "./methods/click_events.js";
 
 
 // Запит на сервер про вміст кошика.
 FETCH(urlAdd, baskCounter);
+
+// Запит на сервер щоб отримати список товарів.
+FETCH(url, getProduct);
+
 
 const inputSearch = document.querySelector("[name='search-line']");
 
@@ -236,10 +241,6 @@ function perPageHandler() {
   }
 };
 
-// Запит на сервер щоб отримати список товарів.
-FETCH(url, getProduct);
-
-
 
 window.addEventListener("resize", (e) => {
   perPageHandler();
@@ -311,3 +312,6 @@ document.body.addEventListener('click',(ev)=>{
     ul.innerHTML = "";
   }
 });
+
+//Виклик функції клік кнопок хедера.
+clickEvents();

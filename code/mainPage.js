@@ -4,6 +4,7 @@ import { url,urlAdd } from "./methods/url.js";
 import { showModalProduct } from "./methods/modal.js";
 import { modalListener, cleanProductAddBag } from "./methods/modalListener.js";
 import { searchEntipeStori } from "./methods/search-entipe_stori.js";
+import { clickEvents } from "./methods/click_events.js";
 
 // Запит на сервер щоб отримати список товарів.
 AJAX(url, "GET", show);
@@ -138,3 +139,7 @@ document.querySelector(".add-to-bag").addEventListener("click", (ev) => {
       else return;
     });
 });
+
+
+//Виклик функції клік кнопок хедера.
+clickEvents();

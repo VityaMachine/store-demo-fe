@@ -1,4 +1,4 @@
-window.onload = function () {
+export function clickEvents() {
 	// адаптивне бургер меню
 	document.querySelector(".burger").addEventListener("click", function () {
 		this.classList.toggle("active");

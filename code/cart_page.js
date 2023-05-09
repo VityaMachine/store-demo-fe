@@ -5,12 +5,14 @@ import { baskCounter, message } from "./methods/methods.js";
 import { searchEntipeStori, dataMain } from "./methods/search-entipe_stori.js";
 import { showModalProduct } from "./methods/modal.js";
 import { cleanProductAddBag, modalListener } from "./methods/modalListener.js";
+import { clickEvents } from "./methods/click_events.js";
 
 //Змінна таблиці товарів.
 const cartProducts = document.getElementById('cart-table-products');
 
 // Запит на сервер про вміст кошика.
 FETCH(urlAdd, showCartProduct);
+
 // Запит на сервер щоб отримати список товарів.
 FETCH(url, searchEntipeStori);
 
@@ -160,3 +162,7 @@ searchBtn.addEventListener('click',()=>{
     }
   }
 });
+
+
+//Виклик функції клік кнопок хедера.
+clickEvents();
