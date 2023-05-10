@@ -117,7 +117,7 @@ function eventClickOpenModal(productList) {
 		el.addEventListener("click", (evt) => {
       if ((evt.target.parentElement.classList == "add-to-cart")) {
         document.querySelector(".modal").classList.remove("hide");
-        showModalProduct(el, productList)
+        showModalProduct(el.dataset.id, productList)
       }
 		});
 	});
