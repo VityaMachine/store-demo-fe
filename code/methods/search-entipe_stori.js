@@ -22,7 +22,7 @@ export function searchEntipeStori(data){
       return el.productName.toLowerCase().includes(event.target.value.toLowerCase())
       
     });
-
+  
     foundedItems.forEach((el) => {
       const option = document.createElement("option");
       option.dataset.id = el.id;

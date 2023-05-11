@@ -7,7 +7,11 @@ import { searchEntipeStori } from "./methods/search-entipe_stori.js";
 import { clickEvents } from "./methods/click_events.js";
 
 // Запит на сервер щоб отримати список товарів.
-AJAX(url, "GET", show);
+// AJAX трохи тормозить замінив на FETCH
+// AJAX(url, "GET", show);
+
+// Запит на сервер щоб отримати список товарів.
+FETCH(url, show);
 
 // Запит на сервер про вміст кошика.
 FETCH(urlAdd, baskCounter);

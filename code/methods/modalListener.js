@@ -61,8 +61,6 @@ export function modalListener() {
         el.classList.add("filter");
       });
       ev.target.classList.remove("filter");
-      productAddBag.price_id = "";
-      productAddBag.option_id = ev.target.dataset.optionid;
     } else return;
   });
 
@@ -74,8 +72,12 @@ export function modalListener() {
         el.classList.add("filter");
       });
       ev.target.classList.remove("filter");
+      productAddBag.option_id = ev.target.dataset.optionid;
       productAddBag.price_id = ev.target.dataset.priceid;
-    } else return;
+    } else {
+      alert("Треба обрати розмір та колір");
+      return;
+    }
   });
   // Слухач події кнопки додати товар у кошик.
   document.querySelector(".add-to-bag").addEventListener("click", (ev) => {
