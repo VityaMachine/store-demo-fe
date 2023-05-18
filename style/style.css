@@ -77,6 +77,21 @@ a {
   text-decoration: none;
   color: black;
 }
+/* Прихований заголовок */
+.visually-hidden{
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+
+
 
 .search-box {
   display: flex;
@@ -151,7 +166,15 @@ a {
   flex-flow: column;
   justify-content: center;
 }
-
+.about-shorts>h2,
+.shorts_title{
+  font-weight: 700;
+  font-size: 6rem;
+  line-height: 96px;
+  color: #001f3d;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 0;
+}
 .about-shorts p:nth-child(1) {
   font-weight: 700;
   font-size: 6rem;
@@ -261,13 +284,13 @@ a {
   align-items: center;
 }
 
-.sale-about p {
+.sale-about_title{
   font-weight: 500;
   font-size: 3.6rem;
   margin: 0 0 2rem 0;
 }
 
-.sale-about p:last-child {
+.sale-about_text{
   font-size: 6rem;
 }
 
@@ -279,7 +302,6 @@ a {
 .sale-products-card,
 .show-products-card {
   width: 28rem;
-  /* height: 420px; */
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -337,7 +359,6 @@ a {
   font-size: 2.4rem;
   line-height: 3.6rem;
   text-align: center;
-  /* height: 6rem; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -377,9 +398,8 @@ a {
   font-size: 1.8rem;
   cursor: pointer;
 }
-
+about-shorts
 .about-pants {
-  /* width: 50%; */
   display: flex;
   flex-flow: column;
   justify-content: center;
@@ -1090,8 +1110,8 @@ input[value="SUBSCRIBE"] {
   cursor: pointer;
 }
 
-.add-to-bag > div,
-.add-to-wishlist > div {
+.add-to-bag > span,
+.add-to-wishlist > span {
   font-weight: 400;
   font-size: 2.4rem;
 }

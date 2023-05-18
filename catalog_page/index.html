@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catalog</title>
     <link rel="stylesheet" href="/style/normalize.css">
-    <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700" rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic"
+        rel="stylesheet">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/burger_my.css">
 	<link rel="stylesheet" href="../style/loader.css">
@@ -66,10 +65,11 @@
     </header>
     <main>
         <section class="main-search">
+            <h2 class="visually-hidden">main search</h2>
             <div class="home-navigation-container">
-                <span><a href="../"><img src="/img/market/home.png" alt=""></a></span>
+                <span><a href="../"><img src="/img/market/home.png" alt="home"></a></span>
                 <span><a href="../">HOME</a></span>
-                <span><img src="../img/market/nav_arrow.png"></span>
+                <span><img src="../img/market/nav_arrow.png" alt="arrow"></span>
                 <span>SHORTS</span>
             </div>
             <div class="main-search-line">
@@ -78,40 +78,41 @@
             <ul class="product-list"></ul>
         </section>
         <section class="products">
+            <h2 class="visually-hidden">products filter</h2>
             <div class="products-filter">
                 <div class="products-filter-container">
                     <div class="color filter-wrapper">
-                        <div class="filter-name">SIZE <span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg" style="color: #a04955;"></i></i></span></div>
+                        <div class="filter-name">SIZE <span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg" style="color: #a04955;"></i></span></div>
                         <div class="filter-parameters-size hide">
                              <!--size-parameter-->
                         </div>
                     </div>
                     <div class="size filter-wrapper">
-                        <div class="filter-name">COLOR <span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg fa-rotate-180" style="color: #a04955;"></i></i></span></div>
+                        <div class="filter-name">COLOR <span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg fa-rotate-180" style="color: #a04955;"></i></span></div>
                         <div class="filter-parameters-color">
                           <!--color-parameter-->
                         </div>
                     </div>
 
                     <div class="collections filter-wrapper">
-                        <div class="filter-name">brands<span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg fa-rotate-180" style="color: #a04955;"></i></i></span></div>
+                        <div class="filter-name">brands<span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg fa-rotate-180" style="color: #a04955;"></i></span></div>
                         <div class="filter-parameters-brands">
                             <!--brand name-->
                         </div>
                     </div>
 
                     <div class="inseam filter-wrapper">
-                        <div class="filter-name">price<span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg fa-rotate-180" style="color: #a04955;"></i></i></span></div>
+                        <div class="filter-name">price<span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg fa-rotate-180" style="color: #a04955;"></i></span></div>
                         <div class="filter-parameters-price">
                             <button class="btn-filter-price" data-flag="min" type="button">Min-Max</button>
-                            <button class="btn-filter-price"data-flag="max"  type="button">Max-Min</button>
+                            <button class="btn-filter-price" data-flag="max"  type="button">Max-Min</button>
                         </div>
                     </div>
                     <div class="sustainable filter-wrapper">
-                        <div class="filter-name">alphabetical sorting<span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg fa-rotate-180" style="color: #a04955;"></i></i></span></div>
+                        <div class="filter-name">alphabetical sorting<span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg fa-rotate-180" style="color: #a04955;"></i></span></div>
                         <div class="filter-parameters-sorting">
                             <button class="btn-filter-sorting" data-flag="a" type="button">A-z</button>
-                            <button class="btn-filter-sorting filter-parameters-prices"data-flag="z"  type="button">Z-a</button>
+                            <button class="btn-filter-sorting filter-parameters-prices" data-flag="z"  type="button">Z-a</button>
                         </div>
                     </div>
 
@@ -126,6 +127,7 @@
             </div>    
         </section>
         <section class="pages-list">
+            <h2 class="visually-hidden">pages list</h2>
             <button class="page-n-info" data-type="prev"><img data-type="prev" src="/img/market/pagination_arrow.png" alt=""></button>
             <div class="page-n-info selected-page">1</div>
             <button class="page-n-info" data-type="next"><img data-type="next" src="/img/market/pagination_arrow.png" alt=""></button>
@@ -133,8 +135,9 @@
     </main>
 
     <section class="modal hide">
+        <h3 class="visually-hidden">modal product about</h3>
         <div class="modal-product-about">
-            <div class="close-modal">&#x2715</div>
+            <div class="close-modal">&#x2715;</div>
             <div class="modal-image-main">
                 <div class="modal-image-main-container"><!-- Product list generated JS --></div>
             </div>
@@ -169,18 +172,18 @@
                 <div class="modal-product-buttons">
                     <button class="add-to-bag">
                         <img src="../img/market/bags.svg" alt="bags">
-                        <div>ADD TO BAG</div>
+                        <span>ADD TO BAG</span>
                     </button>
                     <button class="add-to-wishlist">
                         <img src="../img/market/heart.png" alt="bags">
-                        <div>ADD TO WISHLIST</div>
+                        <span>ADD TO WISHLIST</span>
                     </button>
                 </div>
                 <div class="modal-product-social">
-                    <img src="../img/market/facebook 1.png" alt="face">
-                    <img src="../img/market/twitter 1.png" alt="twitt">
-                    <img src="../img/market/pinterest 1.png" alt="pint">
-                    <img src="../img/market/link 1.png" alt="link">
+                    <img src="../img/market/facebook.png" alt="face">
+                    <img src="../img/market/twitter.png" alt="twitt">
+                    <img src="../img/market/pinterest.png" alt="pint">
+                    <img src="../img/market/link.png" alt="link">
                 </div>
             </div>
             <div class="modal-image-secondary">
@@ -190,7 +193,7 @@
                 <div><img src="../img/SVG/shopping.svg" alt=""></div>
             </div>
         </div>
-    </section>
+      </section>
 
     <footer>
         <div class="contacts-container">
