@@ -83,7 +83,7 @@
                     <div class="color filter-wrapper">
                         <div class="filter-name">SIZE <span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg" style="color: #a04955;"></i></i></span></div>
                         <div class="filter-parameters-size hide">
-                            
+                             <!--size-parameter-->
                         </div>
                     </div>
                     <div class="size filter-wrapper">
@@ -92,18 +92,30 @@
                           <!--color-parameter-->
                         </div>
                     </div>
+
+                    <div class="collections filter-wrapper">
+                        <div class="filter-name">brands<span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg fa-rotate-180" style="color: #a04955;"></i></i></span></div>
+                        <div class="filter-parameters-brands">
+                            <!--brand name-->
+                        </div>
+                    </div>
+
                     <div class="inseam filter-wrapper">
-                        <div class="filter-name">INSEAM <span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg" style="color: #a04955;"></i></i></span></div>
-                        <div class="filter-parameters-inseam"></div>
+                        <div class="filter-name">price<span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg fa-rotate-180" style="color: #a04955;"></i></i></span></div>
+                        <div class="filter-parameters-price">
+                            <button class="btn-filter-price" data-flag="min" type="button">Min-Max</button>
+                            <button class="btn-filter-price"data-flag="max"  type="button">Max-Min</button>
+                        </div>
                     </div>
                     <div class="sustainable filter-wrapper">
-                        <div class="filter-name">SUSTAINABLE <span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg" style="color: #a04955;"></i></i></span></div>
-                        <div class="filter-parameters-sustainable"></div>
+                        <div class="filter-name">alphabetical sorting<span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg fa-rotate-180" style="color: #a04955;"></i></i></span></div>
+                        <div class="filter-parameters-sorting">
+                            <button class="btn-filter-sorting" data-flag="a" type="button">A-z</button>
+                            <button class="btn-filter-sorting filter-parameters-prices"data-flag="z"  type="button">Z-a</button>
+                        </div>
                     </div>
-                    <div class="collections filter-wrapper">
-                        <div class="filter-name">COLLECTIONS <span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg" style="color: #a04955;"></i></i></span></div>
-                        <div class="filter-parameters-collections"></div>
-                    </div>
+
+                    <button class="reset-all-filters" type="button">reset all filters</button>
                 </div>
             </div>
             <div class="products-to-show">

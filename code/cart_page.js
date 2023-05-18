@@ -7,6 +7,7 @@ import { showModalProduct } from "./methods/modal.js";
 import { cleanProductAddBag, modalListener } from "./methods/modalListener.js";
 import { clickEvents } from "./methods/click_events.js";
 
+
 //Змінна таблиці товарів.
 const cartProducts = document.getElementById('cart-table-products');
 
@@ -89,7 +90,7 @@ document.querySelector('.data-cart').addEventListener('click',(ev)=>{
   else if(ev.target.classList.value === 'btn-apply'){
     message.innerHTML = `<div class="message-box"><p>Далі буде сторінка підтвердження та оформлення замовлення.</p></div>`;
     document.querySelector('main').append(message)
-    setInterval(()=>{
+    setTimeout(()=>{
       message.remove(message);
     },3000);
     FETCH(urlAdd, clearBasket);
