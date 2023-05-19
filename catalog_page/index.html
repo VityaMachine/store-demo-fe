@@ -64,7 +64,7 @@
         </div>
     </header>
     <main>
-        <section class="main-search">
+        <nav class="main-search">
             <h2 class="visually-hidden">main search</h2>
             <div class="home-navigation-container">
                 <span><a href="../"><img src="/img/market/home.png" alt="home"></a></span>
@@ -76,10 +76,9 @@
                 <input type="text" name="search-line" placeholder="SEARCH">
             </div>
             <ul class="product-list"></ul>
-        </section>
+        </nav>
         <section class="products">
-            <h2 class="visually-hidden">products filter</h2>
-            <div class="products-filter">
+            <aside class="products-filter">
                 <div class="products-filter-container">
                     <div class="color filter-wrapper">
                         <div class="filter-name">SIZE <span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg" style="color: #a04955;"></i></span></div>
@@ -118,23 +117,24 @@
 
                     <button class="reset-all-filters" type="button">reset all filters</button>
                 </div>
-            </div>
+            </aside>
             <div class="products-to-show">
+            <h1 class="visually-hidden">Product list</h1>
                 <!-- Product list generated JS -->
             </div>
             <div class="legacy-arrow">
                 <a href="#"><img src="../img/market/arrow.svg" alt="arrow"></a>
             </div>    
         </section>
-        <section class="pages-list">
-            <h2 class="visually-hidden">pages list</h2>
+        <nav class="pages-list">
+         
             <button class="page-n-info" data-type="prev"><img data-type="prev" src="/img/market/pagination_arrow.png" alt=""></button>
             <div class="page-n-info selected-page">1</div>
             <button class="page-n-info" data-type="next"><img data-type="next" src="/img/market/pagination_arrow.png" alt=""></button>
-        </section>
+        </nav>
     </main>
 
-    <section class="modal hide">
+    <div class="modal hide">
         <h3 class="visually-hidden">modal product about</h3>
         <div class="modal-product-about">
             <div class="close-modal">&#x2715;</div>
@@ -193,7 +193,7 @@
                 <div><img src="../img/SVG/shopping.svg" alt=""></div>
             </div>
         </div>
-      </section>
+    </div>
 
     <footer>
         <div class="contacts-container">

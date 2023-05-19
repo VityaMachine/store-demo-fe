@@ -210,7 +210,7 @@ function showFilerColorSizeBrand(option, selectedColor, selectedSize, selectedBr
   });
 
   option.size.forEach((size,i) => {
-    const div = createHtmlEl("div","size-parameter",'All',size)
+    const div = createHtmlEl("div","size-parameter", size, size)
     div.dataset.sizename = size;
     if (selectedSize !== 'all' && selectedSize !== size) {
       div.classList.add("filter");
