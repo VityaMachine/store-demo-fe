@@ -15,6 +15,10 @@ html {
   font-size: var(--main-font-size);
   font-family: "Oswald";
 }
+.main-page{
+  max-width: 177rem;
+  margin: 0 auto;
+}
 
 .hide {
   display: none !important;
@@ -27,6 +31,7 @@ html {
 
 header {
   position: fixed;
+  max-width: 177rem;
   width: 100%;
   background-color: white;
   z-index: 50;
@@ -66,16 +71,17 @@ header {
   font-style: normal;
   font-weight: 400;
   font-size: 2rem;
+  transition: all 0.7s;
 }
 
 .nav li:hover {
   text-decoration: underline;
-  transition: 0.7s;
 }
 
 a {
   text-decoration: none;
   color: black;
+  transition: all .3s;
 }
 /* Прихований заголовок */
 .visually-hidden{
@@ -138,8 +144,8 @@ a {
   width: 1.7rem;
   height: 1.7rem;
   /* text-align: center; */
-  right: 1.5rem;
-  padding: 2px;
+  /* right: 1.5rem; */
+  padding: .3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,51 +154,85 @@ a {
   display: none;
 }
 
-.best {
+
+/* Секції головної сторінки*/
+/* .best {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
   padding: 90px 60px 90px 60px;
   box-sizing: border-box;
-}
+} */
 
-.pants {
-  flex-direction: row-reverse;
+/* Секція 1 shorts*/
+.shorts{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  padding: 90px 60px 90px 60px;
+  box-sizing: border-box;
+  padding-top: 14rem;
 }
-
 .about-shorts {
   width: 35%;
   display: flex;
   flex-flow: column;
   justify-content: center;
 }
-.about-shorts>h2,
+
 .shorts_title{
   font-weight: 700;
   font-size: 6rem;
   line-height: 96px;
   color: #001f3d;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  margin: 0;
+  margin-bottom: 2.5rem;
 }
-.about-shorts p:nth-child(1) {
+.shorts_text{
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 2.4rem;
+  color: #000000;
+  margin-bottom: 2.3rem;
+}
+/* .about-shorts p:nth-child(1) {
   font-weight: 700;
   font-size: 6rem;
   line-height: 96px;
   color: #001f3d;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 0;
-}
+} */
 
-.about-shorts p:nth-child(2) {
+/* .about-shorts p:nth-child(2) {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 300;
   font-size: 2.4rem;
   color: #000000;
+} */
+.shorts_btn{
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 2.4rem;
+  border: 1px solid black;
+  cursor: pointer;
+  width: fit-content;
+  padding: 1rem;
+  transition: all .3s;
 }
-
-.about-shorts p:nth-child(3) {
+.shorts_btn:hover{
+  background-color: var(--main-color);
+  transition: 0.5s;
+  scale: 1.1;
+  border-color: white;
+}
+.shorts_btn:hover a{
+  color: white;
+}
+/* .about-shorts p:nth-child(3) {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 300;
@@ -208,11 +248,11 @@ a {
   transition: 0.5s;
   scale: 1.1;
   border-color: white;
-}
+} */
 
-.about-shorts a:hover {
+/* .about-shorts a:hover {
   color: white;
-}
+} */
 
 .logo-shorts {
   width: 67rem;
@@ -270,7 +310,7 @@ a {
   left: 20px;
   top: 5px;
 }
-
+/* Секція 2 sale*/
 .sale {
   background-color: #f1f1f1;
   display: flex;
@@ -292,6 +332,7 @@ a {
 
 .sale-about_text{
   font-size: 6rem;
+  margin-bottom: 3rem;
 }
 
 .sale-products {
@@ -299,6 +340,7 @@ a {
   justify-content: space-evenly;
 }
 
+/* Стилі карток товару. */
 .sale-products-card,
 .show-products-card {
   width: 28rem;
@@ -398,13 +440,23 @@ a {
   font-size: 1.8rem;
   cursor: pointer;
 }
-about-shorts
+
+/* Секція 3 pants*/
+.pants {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  padding: 90px 60px 90px 60px;
+  box-sizing: border-box;
+  flex-direction: row-reverse;
+}
+
 .about-pants {
   display: flex;
   flex-flow: column;
   justify-content: center;
 }
-
+/* Секція 4 new-collection*/
 .new-collection {
   display: flex;
   align-items: center;
@@ -483,11 +535,11 @@ about-shorts
   border-color: white;
   color: white;
 }
-
+/* Секція 5 original-products*/
 .original-products {
   padding: 50px 60px 50px 60px;
   box-sizing: border-box;
-  background-image: url(../img/market/bgr2.png);
+  background-image: url("../img/market/bgr2.png");
   background-size: cover;
   background-attachment: fixed;
 }
@@ -526,7 +578,7 @@ about-shorts
   background-color: var(--main-color);
   border-color: var(--main-color);
 }
-
+/* Секція 6 in-trends*/
 .in-trends {
   padding: 90px 60px 90px 60px;
 }
@@ -602,7 +654,7 @@ about-shorts
 .card-name-wrapper {
   text-align: center;
 }
-
+/* Секція 7 legacy*/
 .legacy {
   padding: 5rem 10rem;
 }
@@ -628,7 +680,7 @@ about-shorts
 .legacy-name {
   font-weight: 700;
   font-size: 6.5rem;
-  /* line-height: 9.6rem; */
+  line-height: 9.6rem;
   text-align: center;
   color: #001f3d;
 }
@@ -639,6 +691,7 @@ about-shorts
   font-size: 2.4rem;
   line-height: 3.3rem;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .legacy-btn {
@@ -646,6 +699,7 @@ about-shorts
   text-align: center;
 }
 
+/* Кнопка на гору. */
 .legacy-arrow {
   
   display: none;
@@ -656,6 +710,7 @@ about-shorts
   margin: 0;
 }
 
+/* Підвал. */
 .contacts-container {
   display: flex;
   padding: 5rem 6rem;
@@ -894,7 +949,7 @@ input[value="SUBSCRIBE"] {
   width: 45%;
   font-weight: 300;
   font-size: 2rem;
-  line-height: 3.1rem;
+  line-height: 2.9rem;
   text-align: center;
   cursor: pointer;
   background: white;
@@ -906,7 +961,7 @@ input[value="SUBSCRIBE"] {
 .reset-all-filters{
   font-weight: 400;
   font-size: 2rem;
-  line-height: 3.6rem;
+  line-height: 3rem;
   text-align: center;
   cursor: pointer;
   background: white;
@@ -914,6 +969,7 @@ input[value="SUBSCRIBE"] {
   transition: all .4s;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+  padding: .6rem;
   text-transform: uppercase;
 }
 
@@ -1195,14 +1251,15 @@ input[value="SUBSCRIBE"] {
 }
 .cart-basket-empty-title{
   font-size: 3.5rem;
+  margin-bottom: 2rem;
 }
 .cart-basket-empty-img{
   margin-bottom: 2rem;
 }
 
 .cart-basket-empty-btn{
-  font-weight: 600;
-  font-size: 3rem;
+  font-weight: 400;
+  font-size: 2rem;
   text-transform: uppercase;
   color: var(--main-color);
   background: #f5f5f5;
@@ -1231,6 +1288,7 @@ input[value="SUBSCRIBE"] {
 .cart-products-table {
   width: 100%;
   border-collapse: collapse;
+
 }
 
 .cart-table-head {

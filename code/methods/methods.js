@@ -38,8 +38,7 @@ export function baskCounter(data) {
 	})
 	if(caunter > 0){
 		document.querySelector('.basket-counter').classList.remove('hide-basket');
-		document.querySelector('.basket-counter').innerText = caunter;
-		
+		document.querySelector('.basket-counter').innerHTML = caunter;
 		showBasket ('on');
 	}
 	else {
