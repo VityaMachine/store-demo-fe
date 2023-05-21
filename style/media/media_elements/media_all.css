@@ -1,0 +1,129 @@
+@media (max-width: 1350px) {
+    :root {
+      --main-font-size: 8px;
+    }
+}
+  
+@media (max-width: 1150px) {
+    :root {
+        --main-font-size: 7px;
+    }
+}
+  
+@media (max-width: 960px) {
+    :root {
+        --main-font-size: 6px;
+    }
+
+    .logo{
+    cursor: pointer;
+    }
+
+    .logo > img {
+        width: 25rem; 
+    }
+
+}
+  
+
+@media (max-width: 875px){
+    /* header */
+    header {
+        overflow-y: hidden;
+    }
+
+    .burger {
+        display: flex;
+        cursor: pointer;
+    }
+
+    .burger-container{
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        width: 100%;
+        height: 0;
+        z-index: 50;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        animation: burgerAnimation 0.5s;
+        background: #f1f1f1f1;
+        transition: all 1s;
+    }
+
+    .nav {
+        width: 80%;
+        margin: 10rem 8rem;
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 1rem;
+        font-family: "Oswald";
+    }
+    .nav li{
+        width: 90%;
+    }
+    .nav a {
+        display: inline-block;
+        width: 100%;
+        font-size: 3.2rem;
+        padding: 1rem;
+        border-radius: .6rem;
+     
+        transition: 0.3s;
+    }
+
+    .nav a:hover {
+        background-color: #ebe8e8;
+        background: rgb(218, 216, 216);
+        text-decoration: underline;
+        
+    }
+
+    /* Підвал. */
+    .contacts-container {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .contacts {
+        width: 100%;
+    }
+      
+    .subscribe {
+        align-items: center;
+        margin-bottom: 5rem;
+    }
+    .list{
+        align-items: center;
+    }
+}
+
+@media (max-width: 580px){
+    /* header */
+    .header-wrapper {
+        padding: 2rem 1rem 0 1rem;
+    }
+    .logo > img {
+        width: 20rem;
+    }
+    .search-box {
+         min-width: auto;
+    }
+    #search-field {
+        height: 4rem;
+    }
+}
+
+@media (max-width: 470px){
+    /* Підвал. */
+    .contacts {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #mail {
+        width: 50rem;
+        width: 40rem;
+    }
+}

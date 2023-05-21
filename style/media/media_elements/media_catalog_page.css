@@ -1,0 +1,30 @@
+
+@media (max-width: 1150px) {
+    /* catalog_page */
+    .products-to-show {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+  
+@media (max-width: 960px) {
+     /* Сторінка каталог. */
+    .products-to-show {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+  
+
+@media (max-width: 875px){
+ 
+}
+
+@media (max-width: 580px){
+    /* Сторінка каталог. */
+    .products-to-show {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 470px){
+
+}

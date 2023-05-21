@@ -1,0 +1,227 @@
+
+/* ---------------- CATALOG PAGE ------------------------ */
+
+.main-search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20rem 6rem 5rem 6rem;
+    position: relative;
+}
+  
+.home-navigation-container {
+    display: flex;
+    flex-grow: 0.1;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 400;
+    font-size: 2.4rem;
+}
+  
+.home-navigation-container span {
+    padding: 0 1rem;
+}
+  
+.main-search-line {
+    flex-grow: 0.88;
+}
+  
+.main-search-line > input {
+    width: 100%;
+    font-weight: 500;
+    line-height: 2.5;
+    font-weight: 400;
+    font-size: 2.8rem;
+    border: none;
+    border-bottom: 1px solid #c4c4c4;
+}
+.main-search-line > input:hover,
+.main-search-line > input:focus{
+    outline-offset: 1rem;
+    outline: 1px solid #c4c4c4;
+}
+  
+  
+.main-search-line > input::placeholder {
+    font-size: 5rem;
+    color: #c4c4c4;
+}
+  
+.products {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 6rem 5rem 6rem;
+    background-color: #f1f1f1;
+    position: relative;
+}
+  
+.products-filter {
+    flex-basis: 50%;
+    min-width: 15%;
+    max-width: 20%;
+    margin-right: 2rem;
+    background-color: white;
+    height: fit-content;
+    border: 1.5px solid #a04955;
+}
+  
+.products-filter-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+}
+  
+.filter-wrapper {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--main-color);
+}
+  
+.filter-name {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 1.5;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+  
+.filter-parameters-size,
+.filter-parameters-color {
+    display: flex;
+    flex-wrap: wrap;
+}
+  
+.size-parameter,
+.color-parameter {
+    width: 4rem;
+    height: 4rem;
+    font-weight: 300;
+    font-size: 2rem;
+    line-height: 1.8;
+    text-align: center;
+    margin: 1rem;
+    border: 1px solid black;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 1s linear;
+}
+
+.size-parameter:hover,
+.color-parameter:hover {
+    transform: scale(1.1);
+}
+  
+.size-parameter {
+    background-color: #f1f1f1;
+}
+
+.filter-parameters-sorting,
+.filter-parameters-price{
+    display: flex;
+    justify-content: space-around;
+    padding: .6rem;
+}
+  
+.brand-name{
+    font-weight: 300;
+    font-size: 2rem;
+    line-height: 1.5;
+    margin: 1rem;
+    padding-left: .5rem;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform .6s linear;
+}
+
+.brand-name:hover{
+    transform: scale(1.1);
+}
+  
+.btn-filter-sorting ,
+.btn-filter-price{
+    width: 45%;
+    font-weight: 300;
+    font-size: 2rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    background: white;
+    border: 1px solid var(--main-color);
+    padding: .8rem;
+    transition: all .3s;
+}
+  
+  
+.reset-all-filters{
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 1.5;
+    text-align: center;
+    cursor: pointer;
+    background: white;
+    border: 1px solid var(--main-color);
+    transition: all .4s;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: .8rem;
+    text-transform: uppercase;
+}
+  
+.reset-all-filters:hover,
+.btn-filter-sorting:hover,
+.btn-filter-price:hover{
+    color: white;
+    background: var(--main-color);
+}
+  
+.products-to-show {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+    grid-auto-rows: min-content;
+}
+  
+.pages-list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 0 60px 20px 60px;
+}
+  
+.pages-list .page-n-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 1px solid var(--main-color);
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 1.5;
+    color: #a04955;
+    text-align: center;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+  
+.pages-list .page-n-info:first-child {
+    transform: scale(-1, 1);
+}
+  
+.pages-list > .selected-page {
+    background-color: var(--main-color);
+    color: #f1f1f1;
+}
+  
+.pages-list button:active {
+    background-color: #c9c9c9;
+}
+  
+.pages-list button[disabled] {
+    background-color: #979797;
+    cursor:default;
+}
+  

@@ -1,0 +1,56 @@
+@import url('./style_elements/all_style.css');
+@import url('./style_elements/main_page_style.css');
+@import url('./style_elements/catalog_page_ctyle.css');
+@import url('./style_elements/cart_page_style.css');
+@import url('./style_elements/modal_message_window_style.css');
+
+@import url('./animation/animation.css');
+@import url('./style_elements/basket.css');
+@import url('./style_elements/loader-main-page.css');
+@import url('./style_elements/loader.css');
+@import url('./style_elements/burger_my.css');
+@import url('./style_elements/search-list.css');
+@import url('./style_elements/products_plus-minus.css');
+
+:root {
+    --main-font-size: 10px;
+    --main-color: #a04955;
+}
+  
+.adaptive {
+    /* font-size: calc(SMALL_FONTpx + (BIG_FONTpx-SMALL_FONTpx) * ((100vw - SMALL_SCREENpx) / (PROJECT_SCREENpx - SMALL_SCREENpx))); */
+    /* font-size: calc(24px + 16 * ((100vw - 320px) / (1280 - 320))); */
+    font-size: calc(55px+10 * ((100vw-1000px) / (1440-1000)));
+}
+  
+html {
+    font-size: var(--main-font-size);
+    font-family: "Oswald";
+}
+.main-page{
+    max-width: 177rem;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    transition: all .3s;
+} 
+  /* Прихований заголовок */
+.visually-hidden{
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+}
+  
+.hide {
+    display: none !important;
+}

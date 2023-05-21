@@ -1,0 +1,143 @@
+ /* Головна сторінка. */
+@media (max-width: 1150px) {
+    .to-shop-btn{
+      min-height: 6rem;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+    }
+}
+
+@media (max-width: 960px) {
+    .new-collection-card{
+        min-height: 540px;
+    }
+}
+  
+@media (max-width: 875px){
+    /* Секція 1 shorts*/
+    .shorts{
+        align-items: center;
+        padding: 15rem 3rem 10rem 3rem;
+        flex-direction: column-reverse;
+    }
+    .logo-shorts {
+        width: 87rem;
+        height: 82rem;
+        margin: auto;
+    }
+
+    .about-shorts {
+        width: 95%;
+    } 
+
+    /* Секція 2 sale*/
+    .sale-about_title{
+       text-align: center;
+      }
+    .sale-products {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Стилі карток товару. */
+    .sale-products-card {
+        width: 100%;
+        margin: 2rem;
+    }
+
+    .sale-products-card-img > img {
+        max-height: 100rem;
+        height: 50rem;
+        margin-bottom: 1rem;
+    }
+    .sale-products-card-name {
+      font-size: 3rem;
+      line-height: 1.5;
+    }
+    .sale-products-price {
+        font-size: 2rem;
+        line-height: 1.4;
+    }
+    .add-to-cart {
+        width: 35%;
+        justify-content: center;
+    } 
+
+    .add-to-cart > div {
+        font-size: 2rem;
+        margin-left: 1rem;
+    }
+
+    /* Секція 3 pants*/
+    .pants {
+        flex-direction: column;
+    }
+    .about-pants {
+        margin-bottom: 6rem;
+    }
+    /* Секція 4 new-collection*/
+    .new-collection {
+        flex-direction: column;
+    }
+    /* Секція 5 original-products*/
+    .original-products-container {
+        width: 60%;
+        margin: 10rem auto;
+    }
+    /* Секція 6 in-trends*/
+    .in-trends-wrapper {
+        background: linear-gradient(to bottom,  var(--main-color) 86%, white 20%);
+    }
+
+    .in-trends-cards-container {
+        flex-wrap: wrap;
+    }
+    
+    .in-trends-card {
+        margin: 2rem;
+        width: 41rem;
+    }
+}
+
+@media (max-width: 580px){
+    /* Секція 1 shorts*/
+    .logo-shorts {
+        width: 67rem;
+        height: 62rem;
+    }
+    /* Секція 2 sale*/
+    .sale-products-card-img > img {
+        max-height: 60rem;
+        height: 40rem;
+    }
+}
+
+@media (max-width: 470px){
+    /* Секція 1-3 shorts*/
+    .logo-shorts {
+        width: 47rem;
+        height: 42rem;
+
+    }
+    .rect-empty {
+        width: 32rem;
+        height: 27rem;
+    }
+      
+    .rect-fill {
+        width: 42rem;
+        height: 37rem;
+    }
+    .rect-empty-right {
+        width: 42rem;
+        height: 37rem;
+        right: 3rem;
+      }
+    #best-pants-img {
+        width: 80%;
+      }
+    #best-pants-img >img{
+        display: block;
+    }
+}

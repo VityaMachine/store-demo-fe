@@ -1,4 +1,6 @@
-﻿export function randomProduct(product, quantity, math = Math) {
+﻿
+// Функції відображення випадкових чотирьох товарів першої сторінки.
+export function randomProduct(product, quantity, math = Math) {
 	if (!Array.isArray(product)) {
 		console.warn("Отримано не масив");
 		return;
@@ -24,24 +26,25 @@
 	return  indexRandom.map((index) => {
 		return product[index];
 	});
-}
+};
+
 
 // Функції відображення кошика товарів.
 export function baskCounter(data) {
-	if(!Array.isArray(data)) return;
+	if(!Array.isArray(data)) {return;}
 	let caunter = 0;
 	data.forEach(el =>{
 		caunter += el.quantity*1;
 	})
 	if(caunter > 0){
-		document.querySelector('.basket-counter').classList.remove('hide-basket')
-		document.querySelector('.basket-counter').innerText = caunter
-		showBasket ('on')
+		document.querySelector('.basket-counter').classList.remove('hide-basket');
+		document.querySelector('.basket-counter').innerHTML = caunter;
+		showBasket ('on');
 	}
 	else {
-		document.querySelector('.basket-counter').classList.add('hide-basket')
-		showBasket ()
-	}
+		document.querySelector('.basket-counter').classList.add('hide-basket');
+		showBasket ();
+	};
 };
 
 // Функції анімації кошика товарів порожній повний.
@@ -62,4 +65,8 @@ export function showBasket (on = 'off'){
 		document.querySelector('.cart__wheel1 > .cart__wheel-stroke').classList.remove('show')
     document.querySelector('.cart__wheel2 >.cart__wheel-stroke').classList.remove('show')
 	}
-}
+};
+
+
+export const message = document.createElement('div');
+message.classList = 'message';

@@ -2,251 +2,312 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Homepage</title>
   <link rel="stylesheet" href="./style/normalize.css">
-  <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700" rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="./style/style.css">
-  <link rel="stylesheet" href="./style/burger_my.css">
-  <link rel="stylesheet" href="./style/loader.css">
-  <link rel="stylesheet" href="./style/basket.css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="./style/index.css">  
+  <link rel="stylesheet" href="./style/media/index.css">
 </head>
 
 <body>
-  <header>
-    <div class="header-wrapper">
-      <div class="logo">
-        <img src="./img/market/logo.png" alt="logo">
+  <div class="main-page">
+    <header>
+      <div class="header-wrapper">
+        <div class="logo">
+          <img src="./img/market/logo.png" alt="logo">
+        </div>
+        <div class="navigation ">
+          <div class="burger-container">
+            <ul class="nav">
+              <li><a href="./catalog_page/">SHORTS</a></li>
+              <li><a href="#">PANTS</a></li>
+              <li><a href="#">SHIRTS</a></li>
+              <li><a href="#">ACCESSORIES</a></li>
+              <li><a href="#">SALE</a></li>
+            </ul>
+          </div >
+          <div class="search-box">
+            <div class="search-btn fa-2x"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <input type="search" id="search-field" list="product-name" placeholder="SEARCH ENTIRE STORE">
+            <datalist id="product-name">
+            </datalist>
+          </div>
+          <div class="basket-box">
+            <span class="basket-counter hide-basket">0</span>         
+            <svg class="cart" role="img" aria-label="Shopping cart line animation" viewBox="0 0 128 128" width="35px" height="35px" xmlns="http://www.w3.org/2000/svg">
+                <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
+                    <g class="cart__track" stroke="hsla(0,10%,10%,0.1)">
+                        <polyline points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80" />
+                        <circle cx="43" cy="111" r="13" />
+                        <circle cx="102" cy="111" r="13" />
+                    </g>
+                    <g class="cart__lines" stroke="currentColor">
+                        <polyline class="cart__top" points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80" stroke-dasharray="338 338" stroke-dashoffset="-338" />
+                        <g class="cart__wheel1" transform="rotate(-90,43,111)">
+                            <circle class="cart__wheel-stroke" cx="43" cy="111" r="13" stroke-dasharray="81.68 81.68" stroke-dashoffset="81.68" />
+                        </g>
+                        <g class="cart__wheel2" transform="rotate(90,102,111)">
+                            <circle class="cart__wheel-stroke" cx="102" cy="111" r="13" stroke-dasharray="81.68 81.68" stroke-dashoffset="81.68" />
+                        </g>
+                    </g>
+                </g>
+            </svg>
+          </div>
+          <div class="burger">
+            <span></span>
+          </div>
+        </div>
       </div>
-      <div class="navigation ">
-        <div class="burger-container">
-          <ul class="nav">
-            <li><a href="./catalog_page/">SHORTS</a></li>
-            <li><a href="#">PANTS</a></li>
-            <li><a href="#">SHIRTS</a></li>
-            <li><a href="#">ACCESSORIES</a></li>
-            <li><a href="#">SALE</a></li>
+      <!-- Лоудер. -->
+      <div class="loader_header_box">
+        <span class="loader_header"></span>
+      </div>
+    </header>
+    <main>
+      <section class="shorts">
+        <div class="about-shorts">
+          <h1 class="shorts_title">BEST SELLING STRETCH SHORTS</h1>
+          <p class="shorts_text">Get the perfect fit with 6 different inseam lengths.</p>
+          <div class="shorts_btn"><a href="./catalog_page/">SHOP ALL SHORTS</a></div>
+        </div>
+        <div class="logo-shorts-wrapper">
+          <div class="logo-shorts">
+            <div class="rect-empty"></div>
+            <div class="rect-fill"></div>
+            <div><img src="./img/market/shorts.png" alt="logo-shorts"></div>
+          </div>
+        </div>
+      </section>
+      <section class="sale">
+        <div class="sale-about">
+          <h2 class="sale-about_title">TGIF, INLET, AND MARCHAL'S COLLECTIONS</h2>
+          <p class="sale-about_text" >NOW 40% OFF!</p>
+        </div>
+        <div class="sale-products">
+          <!-- Product list generated JS -->
+        </div>
+      </section>
+      <section class="pants">
+        <div class="about-pants">
+          <h2  class="shorts_title">OUR BESTSELLING PANTS</h2>
+          <p class="shorts_text">Our classic cargo pants are built to last and designed to exceed your expectations!
+            From Frequent Traveler to Hatteras to Trinidad, we have the perfect fit for you!</p>
+          <div class="shorts_btn"><a href="/">SHOP ALL PANTS</a></div>
+        </div>
+        <div class="logo-pants-wrapper">
+          <div class="logo-shorts">
+            <div class="rect-empty"></div>
+            <div class="rect-empty-right"></div>
+            <div id="best-pants-img"><img src="./img/market/bestselling.png" alt="logo-shorts"></div>
+          </div>
+        </div>
+      </section>
+      <section class="new-collection">
+        <h3 class="visually-hidden">new collection</h3>
+        <div class="new-collection-card">
+          <div class="new-collection-img">
+            <img src="./img/market/shirt1.png" alt="new-collection">
+            <div class="new-collection-img-description">
+              ECOTHS: NOW 30% OFF!
+            </div>
+          </div>
+          <div class="new-collection-about">
+            Our entire Ecoths collection is on sale! Plus, for every Ecoths purchase
+            we donate 3 meals to food banks across the United States. We’re over 400,000 meals
+            in now.
+          </div>
+          <div class="to-shop-btn">SHOP ECOTHS SALE</div>
+        </div>
+        <div class="new-collection-card">
+          <div class="new-collection-img">
+            <img src="./img/market/shirt2.png" alt="new-collection">
+            <div class="new-collection-img-description">
+              NEW POWELL PRINT SHIRT
+            </div>
+          </div>
+          <div class="new-collection-about">
+            New from Old Ranch Brands, the Powell short sleeve print shirt! Look effortlessly
+            sharp in this lightweight cotton shirt with a classic shape and convenient features.
+          </div>
+          <div class="to-shop-btn">SHOP POWEL SHORT SLEEVE</div>
+        </div>
+      </section>
+      <section class="original-products">
+        <div class="original-products-container">
+          <h2 class="original-products-name">SPORTIF ORIGINAL PANT</h2>
+          <p class="original-products-description">
+            Our classic nautical cargo pants are built to last and designed to exceed your
+            expectations! Crafted from our stretch twill blend that offers the comfort of
+            cotton, the wrinkle resistance of polyester and the mobility of Lycra®.
+          </p>
+          <div class="to-shop-btn original">SHOP SPORTIF ORIGINAL PANT</div>
+        </div>
+      </section>
+      <section class="in-trends">
+        <div class="in-trends-wrapper">
+          <h2 class="in-trends-tagline">STAY IN TREND WITH SPORTIF</h2>
+          <div class="in-trends-cards-container">
+            <div class="in-trends-card">
+              <div class="in-trends-img">
+                <img src="./img/market/belts-removebg-preview.png" alt="in-trends-img">
+              </div>
+              <div class="card-name-wrapper">
+                <h3 class="in-trends-card-name">Don't Forget a Belt!</h3>
+                <div class="to-shop-btn trends">SHOP ALL BELTS</div>
+              </div>
+            </div>
+            <div class="in-trends-card">
+              <div class="in-trends-img">
+                <img src="./img/market/swim2012-removebg-preview.png" alt="in-trends-img">
+              </div>
+              <div class="card-name-wrapper">
+                <h3 class="in-trends-card-name">Swim Trunk Styles on Sale!</h3>
+                <div class="to-shop-btn trends">SHOP ALL SWIM TRUNKS</div>
+              </div>
+            </div>
+            <div class="in-trends-card">
+              <div class="in-trends-img">
+                <img src="./img/market/2104_sp_home_catalog-removebg-preview.png" alt="in-trends-img">
+              </div>
+              <div class="card-name-wrapper">
+                <h3 class="in-trends-card-name">Shop Newest Online Catalog</h3>
+                <div class="to-shop-btn trends">SHOP NEWEST CATALOG</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="legacy">
+        <div class="legacy-container">
+          <div class="legacy-img"><img src="./img/market/50years.png" alt="50years"></div>
+          <h2 class="legacy-name">FAMILY OWNED LEGACY</h2>
+          <p class="legacy-history">
+            We are proud to celebrate over 50 years of excellence as a family owned and operated
+            business.
+          </p>
+          <div class="to-shop-btn legacy-btn">ABOUT US</div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="contacts-container">
+        <div class="contacts">
+          <ul class="list online">
+            <li>ORDERING ONLINE</li>
+            <li>Account Login</li>
+            <li>Our Guarantee</li>
+            <li>Sportif Stretch Guide</li>
+            <li>Size Chart & Sizing Information</li>
+            <li>Hemming Information</li>
+            <li>Ordering & Payment</li>
+            <li>Shipping Information</li>
           </ul>
-        </div >
-        <div class="search-box">
-          <div class="search-btn fa-2x"><i class="fa-solid fa-magnifying-glass"></i></div>
-          <input type="search" id="search-field" list="product-name" placeholder="SEARCH ENTIRE STORE">
-        <datalist id="product-name">
-        </datalist>
+          <ul class="list about">
+            <li>ABOUT SPORTIF</li>
+            <li>COVID-19 Response</li>
+            <li>History</li>
+            <li>Legacy</li>
+            <li>Good Sam Program</li>
+            <li>Privacy & Security</li>
+            <li>Terms & Conditions</li>
+            <li>Careers</li>
+          </ul>
+          <ul class="list links">
+            <li>QUICK LINKS</li>
+            <li>FAQs</li>
+            <li>Shop Online Catalog</li>
+            <li>Contact Us</li>
+          </ul>
         </div>
-        <div class="basket-box">
-          <span class="basket-counter hide-basket">0</span>         
-          <svg class="cart" role="img" aria-label="Shopping cart line animation" viewBox="0 0 128 128" width="35px" height="35px" xmlns="http://www.w3.org/2000/svg">
-              <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="8">
-                  <g class="cart__track" stroke="hsla(0,10%,10%,0.1)">
-                      <polyline points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80" />
-                      <circle cx="43" cy="111" r="13" />
-                      <circle cx="102" cy="111" r="13" />
-                  </g>
-                  <g class="cart__lines" stroke="currentColor">
-                      <polyline class="cart__top" points="4,4 21,4 26,22 124,22 112,64 35,64 39,80 106,80" stroke-dasharray="338 338" stroke-dashoffset="-338" />
-                      <g class="cart__wheel1" transform="rotate(-90,43,111)">
-                          <circle class="cart__wheel-stroke" cx="43" cy="111" r="13" stroke-dasharray="81.68 81.68" stroke-dashoffset="81.68" />
-                      </g>
-                      <g class="cart__wheel2" transform="rotate(90,102,111)">
-                          <circle class="cart__wheel-stroke" cx="102" cy="111" r="13" stroke-dasharray="81.68 81.68" stroke-dashoffset="81.68" />
-                      </g>
-                  </g>
-              </g>
-          </svg>
+        <div class="subscribe">
+          <ul class="list sign-up">
+            <li>GET TO KNOW US</li>
+            <li>Sign up for our weekly newsletter and get a 10% off coupon by email for your first order!</li>
+          </ul>
+          <ul class="list form">
+            <li>Sign Up for Our Newsletter:</li>
+            <li>
+              <input type="email" id="mail" placeholder="EMAIL ADDRESS">
+              <input type="button" value="SUBSCRIBE">
+            </li>
+          </ul>
         </div>
-        <div class="burger">
-          <span></span>
-        </div>
+      </div>
+      <div class="copyright">©2021 Sportif Mailorder. All Rights Reserved.</div>
+    </footer>
+    <!-- Модальне вікно. -->
+    <div class="modal hide">
+      <div class="modal-product-about">
+          <div class="close-modal">&#x2715;</div>
+          <div class="modal-image-main">
+              <div class="modal-image-main-container"><!-- Product list generated JS --></div>
+          </div>
+          <div class="modal-product-description">
+              <div class="modal-product-tiitle">
+                  <div class="modal-product-name">
+                  <!-- Product list generated JS -->
+                  </div>
+                  <div class="modal-product-stars">
+                      <img src="../img/market/stars.png" alt="stars">
+                      <span>93 REVIEWS</span> 
+                  </div>
+              </div>
+              <div class="modal-product-data">
+                  <div class="modal-product-price">
+                      As low as<br>
+                      <span class="low-price"><!-- Product list generated JS --></span>
+                  </div>
+                  <div class="modal-product-colors">
+                      <div>COLOR:</div>
+                      <div class="color-wrapper">
+                          <!-- Product list generated JS -->
+                      </div>
+                  </div>
+                  <div class="modal-product-sizes">
+                      <span>SIZE:</span>
+                      <div class="size-wrapper">
+                          <!-- Product list generated JS -->
+                      </div>
+                  </div>
+              </div>
+              <div class="modal-product-buttons">
+                  <button class="add-to-bag">
+                      <img src="../img/market/bags.svg" alt="bags">
+                      <span>ADD TO BAG</span>
+                  </button>
+                  <button class="add-to-wishlist">
+                      <img src="../img/market/heart.png" alt="bags">
+                      <span>ADD TO WISHLIST</span>
+                  </button>
+              </div>
+              <div class="modal-product-social">
+                  <img src="../img/market/facebook.png" alt="face">
+                  <img src="../img/market/twitter.png" alt="twitt">
+                  <img src="../img/market/pinterest.png" alt="pint">
+                  <img src="../img/market/link.png" alt="link">
+              </div>
+          </div>
+          <div class="modal-image-secondary">
+              <!-- Product list generated JS -->
+          </div>
+          <div class="modal-shipping">
+              <div><img src="../img/SVG/shopping.svg" alt="shopping"></div>
+          </div>
       </div>
     </div>
-  </header>
-  <main>
-    <section class="best shorts">
-      <div class="about-shorts">
-        <p>BEST SELLING <br> STRETCH SHORTS</p>
-        <p>Get the perfect fit with 6 different inseam lengths.</p>
-        <p><a href="./catalog_page/">SHOP ALL SHORTS</a></p>
-      </div>
-      <div class="logo-shorts-wrapper">
-        <div class="logo-shorts">
-          <div class="rect-empty"></div>
-          <div class="rect-fill"></div>
-          <div><img src="./img/market/shorts.png" alt="logo-shorts"></div>
-        </div>
-      </div>
-    </section>
-    <section class="sale">
-      <div class="sale-about">
-        <p>TGIF, INLET, AND MARCHAL'S COLLECTIONS</p>
-        <p>NOW 40% OFF!</p>
-      </div>
-      <div class="sale-products">
-      
-        
-      </div>
-    </section>
-    <section class="best pants">
-      <div class="about-shorts">
-        <p>OUR BESTSELLING <br> PANTS</p>
-        <p>Our classic cargo pants are built to last and designed to exceed your expectations!
-          From Frequent Traveler to Hatteras to Trinidad, we have the perfect fit for you!</p>
-        <p><a href="/">SHOP ALL PANTS</a></p>
-      </div>
-      <div class="logo-pants-wrapper">
-        <div class="logo-shorts">
-          <div class="rect-empty"></div>
-          <div class="rect-empty-right"></div>
-          <div id="best-pants-img"><img src="./img/market/bestselling.png" alt="logo-shorts"></div>
-        </div>
-      </div>
-    </section>
-    <section class="new-collection">
-      <div class="new-collection-card">
-        <div class="new-collection-img">
-          <img src="./img/market/shirt1.png" alt="new-collection">
-          <div class="new-collection-img-description">
-            ECOTHS: NOW 30% OFF!
-          </div>
-        </div>
-        <div class="new-collection-about">
-          Our entire Ecoths collection is on sale! Plus, for every Ecoths purchase
-          we donate 3 meals to food banks across the United States. We’re over 400,000 meals
-          in now.
-        </div>
-        <div class="to-shop-btn">SHOP ECOTHS SALE</div>
-      </div>
-      <div class="new-collection-card">
-        <div class="new-collection-img">
-          <img src="./img/market/shirt2.png" alt="new-collection">
-          <div class="new-collection-img-description">
-            NEW POWELL PRINT SHIRT
-          </div>
-        </div>
-        <div class="new-collection-about">
-          New from Old Ranch Brands, the Powell short sleeve print shirt! Look effortlessly
-          sharp in this lightweight cotton shirt with a classic shape and convenient features.
-        </div>
-        <div class="to-shop-btn">SHOP POWEL SHORT SLEEVE</div>7
-      </div>
-    </section>
-    <section class="original-products">
-      <div class="original-products-container">
-        <div class="original-products-name">SPORTIF ORIGINAL PANT</div>
-        <div class="original-products-description">
-          Our classic nautical cargo pants are built to last and designed to exceed your
-          expectations! Crafted from our stretch twill blend that offers the comfort of
-          cotton, the wrinkle resistance of polyester and the mobility of Lycra®.
-        </div>
-        <div class="to-shop-btn original">SHOP SPORTIF ORIGINAL PANT</div>
-      </div>
-    </section>
-    <section class="in-trends">
-      <div class="in-trends-wrapper">
-        <div class="in-trends-tagline">STAY IN TREND WITH SPORTIF</div>
-        <div class="in-trends-cards-container">
-          <div class="in-trends-card">
-            <div class="in-trends-img">
-              <img src="./img/market/belts-removebg-preview 1.png" alt="in-trends-img">
-            </div>
-            <div class="card-name-wrapper">
-              <div class="in-trends-card-name">Don't Forget a Belt!</div>
-              <div class="to-shop-btn trends">SHOP ALL BELTS</div>
-            </div>
-          </div>
-          <div class="in-trends-card">
-            <div class="in-trends-img">
-              <img src="./img/market/swim2012-removebg-preview 1.png" alt="in-trends-img">
-            </div>
-            <div class="card-name-wrapper">
-              <div class="in-trends-card-name">Swim Trunk Styles on Sale!</div>
-              <div class="to-shop-btn trends">SHOP ALL SWIM TRUNKS</div>
-            </div>
-          </div>
-          <div class="in-trends-card">
-            <div class="in-trends-img">
-              <img src="./img/market/2104_sp_home_catalog-removebg-preview 1.png" alt="in-trends-img">
-            </div>
-            <div class="card-name-wrapper">
-              <div class="in-trends-card-name">Shop Newest Online Catalog</div>
-              <div class="to-shop-btn trends">SHOP NEWEST CATALOG</div>
-            </div>
-          </div>
-        </div>
-        </di>
-    </section>
-    <section class="legacy">
-      <div class="legacy-container">
-        <div class="legacy-img"><img src="./img/market/50years 1.png" alt="50years"></div>
-        <div class="legacy-name">FAMILY OWNED LEGACY</div>
-        <div class="legacy-history">
-          We are proud to celebrate over 50 years of excellence as a family owned and operated
-          business.
-        </div>
-        <div class="to-shop-btn legacy-btn">ABOUT US</div>
-        <div class="legacy-arrow">
-          <a href="#"><img src="./img/market/arrow.svg" alt="arrow"></a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer>
-    <div class="contacts-container">
-      <div class="contacts">
-        <ul class="list online">
-          <li>ORDERING ONLINE</li>
-          <li>Account Login</li>
-          <li>Our Guarantee</li>
-          <li>Sportif Stretch Guide</li>
-          <li>Size Chart & Sizing Information</li>
-          <li>Hemming Information</li>
-          <li>Ordering & Payment</li>
-          <li>Shipping Information</li>
-        </ul>
-        <ul class="list about">
-          <li>ABOUT SPORTIF</li>
-          <li>COVID-19 Response</li>
-          <li>History</li>
-          <li>Legacy</li>
-          <li>Good Sam Program</li>
-          <li>Privacy & Security</li>
-          <li>Terms & Conditions</li>
-          <li>Careers</li>
-        </ul>
-        <ul class="list links">
-          <li>QUICK LINKS</li>
-          <li>FAQs</li>
-          <li>Shop Online Catalog</li>
-          <li>Contact Us</li>
-        </ul>
-      </div>
-      <div class="subscribe">
-        <ul class="list sign-up">
-          <li>GET TO KNOW US</li>
-          <li>Sign up for our weekly newsletter and get a 10% off coupon by email for your first order!</li>
-        </ul>
-        <ul class="list form">
-          <li>Sign Up for Our Newsletter:</li>
-          <li>
-            <input type="email" id="mail" placeholder="EMAIL ADDRESS">
-            <input type="button" value="SUBSCRIBE">
-          </li>
-        </ul>
-      </div>
+    <!-- Кнопка на гору. -->
+    <div class="legacy-arrow">
+      <a href="#"><img src="./img/market/arrow.svg" alt="arrow"></a>
     </div>
-    <div class="copyright">©2021 Sportif Mailorder. All Rights Reserved.</div>
-  </footer>
-  <div class="loader_box hide">
-    <span class="loader"></span>
   </div>
+
   <script src="https://kit.fontawesome.com/7fc5c6640b.js" crossorigin="anonymous"></script>
   <script src="./code/mainPage.js" type="module"></script>
-  <script src="./code/index.js" type="module"></script>
-  <script src="./code/click_events.js"></script>
 </body>
 
 </html>

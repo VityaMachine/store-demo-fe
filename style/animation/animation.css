@@ -1,0 +1,96 @@
+/* Анімація кошика товарів*/
+@keyframes msg {
+	from {
+		opacity: 1;
+		visibility: visible;
+	}
+	99.9% {
+		opacity: 0;
+		visibility: visible;
+	}
+	to {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+@keyframes cartLines {
+	from,
+	to {
+		opacity: 0;
+	}
+	8%,
+	92% {
+		opacity: 1;
+	}
+}
+@keyframes cartTop {
+	from {
+		stroke-dashoffset: -338;
+	}
+	50% {
+		stroke-dashoffset: 0;
+	}
+	to {
+		stroke-dashoffset: 338;
+	}
+}
+@keyframes cartWheel1 {
+	from {
+		transform: rotate(-0.25turn);
+	}
+	to {
+		transform: rotate(2.75turn);
+	}
+}
+@keyframes cartWheel2 {
+	from {
+		transform: rotate(0.25turn);
+	}
+	to {
+		transform: rotate(3.25turn);
+	}
+}
+@keyframes cartWheelStroke {
+	from,
+	to {
+		stroke-dashoffset: 81.68;
+	}
+	50% {
+		stroke-dashoffset: 40.84;
+	}
+}
+
+/* Анімація лоудера сторінок catalog_page cart_page */
+@keyframes shadowPulse {
+	33% {
+	  background: #fff;
+	  box-shadow: -24px 0 #ff3d00, 24px 0 #fff;
+	}
+	66% {
+	  background: #ff3d00;
+	  box-shadow: -24px 0 #fff, 24px 0 #fff;
+	}
+	100% {
+	  background: #fff;
+	  box-shadow: -24px 0 #fff, 24px 0 #ff3d00;
+	}
+}
+
+/* Анімація лоудера головної сторінки.*/
+@keyframes moving {
+    50% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0;
+        right: 0;
+        left: unset;
+    }
+}
+
+/* Анімація кнопки бургер меню. */
+@keyframes burgerAnimation {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}

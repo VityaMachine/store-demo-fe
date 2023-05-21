@@ -1,0 +1,43 @@
+
+.preloader__msg {
+	animation: msg 0.3s 13.7s linear forwards;
+}
+.preloader__msg--last {
+	animation-direction: reverse;
+	animation-delay: 14s;
+	visibility: hidden;
+}
+.cart {
+	display: block;
+	width: 4.2rem;
+	margin-right: 1rem;
+}
+
+.show{
+    animation: cartLines 2s ease-in-out infinite;
+}
+
+.cart__lines {
+	stroke: #d1b4b8;
+
+}
+.cart__top {
+	animation-name: cartTop;
+}
+.cart__wheel1 {
+	animation-name: cartWheel1;
+	transform: rotate(-0.25turn);
+	transform-origin: 43px 111px;
+}
+.cart__wheel2 {
+	animation-name: cartWheel2;
+	transform: rotate(0.25turn);
+	transform-origin: 102px 111px;
+}
+.cart__wheel-stroke {
+	animation-name: cartWheelStroke
+}
+.cart__track {
+	stroke: rgb(83, 81, 81);
+	transition: stroke 0.3s;
+}

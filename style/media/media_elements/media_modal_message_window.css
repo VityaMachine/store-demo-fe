@@ -1,0 +1,54 @@
+@media (max-width: 1350px) {
+
+}
+  
+@media (max-width: 1150px) {
+    /* Модалка. */
+    .modal-product-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .modal-product-social {
+      text-align: center;
+      align-self: center;
+    }
+  
+    .modal-product-social img {
+      width: 15%;
+    }
+}
+  
+@media (max-width: 960px) {
+    /* Модалка. */
+    .modal-product-about {
+        grid-template-areas:
+        "modal-image-main modal-product-description"
+        "modal-image-secondary modal-product-description"
+        "modal-shipping modal-shipping";
+    }
+
+    .modal-shipping {
+        text-align: center;
+    }
+
+    .modal-shipping img {
+        width: 80%;
+    }
+}
+  
+
+@media (max-width: 875px){
+    /* Вікно повідомлення. */
+    .message-btns{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 580px){
+
+}
+
+@media (max-width: 470px){
+
+}
