@@ -1,6 +1,14 @@
 import { urlAdd } from "./url.js";
+
 //Змінна лоудер.
-const loader = document.querySelector(".loader_box");
+let loader = '';
+
+if(document.location.pathname.includes("/catalog_page/") || 
+  document.location.pathname.includes("/cart_page/")){
+    loader = document.querySelector(".loader_box");
+}
+else loader = document.querySelector(".loader_header_box");
+
 
 // Відправлення POST запитів.
 function AJAX(url = "", method = "GET", callback = () => {}) {

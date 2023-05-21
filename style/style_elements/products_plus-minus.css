@@ -20,7 +20,6 @@ cursor: pointer;
 
 .itemCount,
 .icon {
-/* width: 2rem; */
 height: 100%;
 position: absolute;
 left: 50%;
@@ -96,9 +95,6 @@ height: 100%;
 height: 0;
 top: 0;
 }
-
-
-/* extra CSS I needed to add to make it work in CodePen */
 
 .icon::before{
 content:"";

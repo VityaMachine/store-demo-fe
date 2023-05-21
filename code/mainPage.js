@@ -5,10 +5,15 @@ import { showModalProduct } from "./methods/modal.js";
 import { modalListener, cleanProductAddBag } from "./methods/modalListener.js";
 import { searchEntipeStori } from "./methods/search-entipe_stori.js";
 import { clickEvents } from "./methods/click_events.js";
+import { products } from "./data-products/products.js";
 
 // Запит на сервер щоб отримати список товарів.
 // AJAX трохи тормозить замінив на FETCH
-// AJAX(url, "GET", show);
+// AJAX(url, "GET", show)
+// products локальний список товарів.
+
+let scr = window.screen.width
+console.log(scr)
 
 // Запит на сервер щоб отримати список товарів.
 FETCH(url, show);
@@ -27,7 +32,8 @@ function show(data) {
     throw new Error("You get an error");
   }
 }
-
+// Тимчасове заповнення сторінки до отримання данних з сервера.
+show(products)
 
 function showRandomProducts(productsArr) {
 	try {
@@ -35,7 +41,7 @@ function showRandomProducts(productsArr) {
 			console.warn("Отримано не масив");
 			return;
 		}
-
+    document.querySelector(".sale-products").innerHTML ='';
 		productsArr.forEach((el) => {
 			let card = `
         <div class="sale-products-card" data-id='${el.id}'>
@@ -52,7 +58,6 @@ function showRandomProducts(productsArr) {
             <div>ADD TO CART</div>
           </div>
         </div>`;
-    
       document.querySelector(".sale-products").insertAdjacentHTML("beforeend", card);
       eventClickOpenModal(dataMain);
 		});
@@ -68,7 +73,7 @@ function eventClickOpenModal(productList) {
   // відкрити модальне вікно
   document.querySelectorAll(".sale-products-card").forEach((el) => {
     el.addEventListener("click", (evt) => {
-      if (evt.target.parentElement.classList == "add-to-cart") {
+      if (evt.target.parentElement.classList == "add-to-cart" || evt.target.classList == "add-to-cart") {
         document.querySelector(".modal").classList.remove("hide");
         showModalProduct(el.dataset.id, productList);
         modalListener();

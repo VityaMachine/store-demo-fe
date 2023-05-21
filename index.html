@@ -9,10 +9,9 @@
   <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic"
     rel="stylesheet">
-  <link rel="stylesheet" href="./style/style.css">
-  <link rel="stylesheet" href="./style/burger_my.css">
-  <link rel="stylesheet" href="./style/loader.css">
-  <link rel="stylesheet" href="./style/basket.css">
+
+  <link rel="stylesheet" href="./style/index.css">  
+  <link rel="stylesheet" href="./style/media/index.css">
 </head>
 
 <body>
@@ -35,8 +34,8 @@
           <div class="search-box">
             <div class="search-btn fa-2x"><i class="fa-solid fa-magnifying-glass"></i></div>
             <input type="search" id="search-field" list="product-name" placeholder="SEARCH ENTIRE STORE">
-          <datalist id="product-name">
-          </datalist>
+            <datalist id="product-name">
+            </datalist>
           </div>
           <div class="basket-box">
             <span class="basket-counter hide-basket">0</span>         
@@ -64,6 +63,10 @@
           </div>
         </div>
       </div>
+      <!-- Лоудер. -->
+      <div class="loader_header_box">
+        <span class="loader_header"></span>
+      </div>
     </header>
     <main>
       <section class="shorts">
@@ -90,7 +93,7 @@
         </div>
       </section>
       <section class="pants">
-        <div class="about-shorts">
+        <div class="about-pants">
           <h2  class="shorts_title">OUR BESTSELLING PANTS</h2>
           <p class="shorts_text">Our classic cargo pants are built to last and designed to exceed your expectations!
             From Frequent Traveler to Hatteras to Trinidad, we have the perfect fit for you!</p>
@@ -301,12 +304,7 @@
     <div class="legacy-arrow">
       <a href="#"><img src="./img/market/arrow.svg" alt="arrow"></a>
     </div>
-    <!-- Лоудер. -->
-    <div class="loader_box hide">
-      <span class="loader"></span>
-    </div>
   </div>
-
 
   <script src="https://kit.fontawesome.com/7fc5c6640b.js" crossorigin="anonymous"></script>
   <script src="./code/mainPage.js" type="module"></script>

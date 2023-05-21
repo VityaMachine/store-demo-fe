@@ -362,7 +362,10 @@ function pageNumHandler(e) {
 };
 
 function perPageHandler() {
-  if (window.innerWidth <= 1150) {
+  if(window.innerWidth <= 550){
+    per_page = 4;
+  }
+  else if (window.innerWidth <= 1150) {
     per_page = 6;
   } else {
     per_page = 8;
