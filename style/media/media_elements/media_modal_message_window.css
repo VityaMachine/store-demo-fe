@@ -3,33 +3,14 @@
 }
   
 @media (max-width: 1150px) {
-    /* Модалка. */
-    .modal-product-buttons {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .modal-product-social {
-      text-align: center;
-      align-self: center;
-    }
-  
-    .modal-product-social img {
-      width: 15%;
-    }
+
 }
   
 @media (max-width: 960px) {
     /* Модалка. */
     .modal-product-about {
-        grid-template-areas:
-        "modal-image-main modal-product-description"
-        "modal-image-secondary modal-product-description"
-        "modal-shipping modal-shipping";
-    }
-
-    .modal-shipping {
-        text-align: center;
+        justify-content: center;
+        align-items: center;
     }
 
     .modal-shipping img {
@@ -39,16 +20,127 @@
   
 
 @media (max-width: 875px){
+    /* Модалка. */
+    .modal-product-about{
+        height: 80%;
+        display: flex;
+        flex-direction:row;
+        flex-wrap: wrap;
+        margin-top: 4rem;
+    }
+
+    .modal-product{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .modal-image-main{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1rem;
+    }
+
+    .modal-product-name{
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .modal-image-main-container{
+        margin: 2rem;
+    }
+
+    .modal-image-main-container > img {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    .modal-image-secondary > div {
+        width: 15rem;
+        height: 15rem;
+        display: flex;
+    }
+    .modal-product-rating{
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-product-data{
+        text-align: center;
+    }
+    .modal-product-social{
+        justify-content: space-between;
+    }
+
+    .modal-product-social  img {
+        margin: 1rem;
+        width: 25px;
+    }
+    
+    .modal-product-social a{
+        display: inline-block;
+        transition: all .3s;
+    }  
+
+    .modal-shipping img{
+        max-width: 70%;
+        margin: 0 auto;
+    }
+
+    .modal-product-buttons{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .add-to-bag,
+    .add-to-wishlist {
+        width: 90%;
+    }
+
+    .modal-shipping img {
+        width: 100%;
+    }
+
+    .close-modal {
+        position: fixed;
+        font-size: 4.5rem;
+        color: white;
+        top: 1.5rem;
+        right: 8%;
+    }
+
     /* Вікно повідомлення. */
+    .message-box{
+        width: 80%;
+    }
+    .message-box-img{
+        width: 40%;
+    }
     .message-btns{
         flex-direction: column;
+    }
+    .message-btns button{
+        width: 80%;
     }
 }
 
 @media (max-width: 580px){
-
+     /* Модалка. */
+    .modal-image-secondary > div {
+        width: 10rem;
+        height: 10rem;
+    }
 }
 
 @media (max-width: 470px){
+     /* Модалка. */
+    .modal-image-secondary > div {
+        width: 8rem;
+        height: 8rem;
+    }
 
+    /* Вікно повідомлення. */
+    .message-box{
+        width: 70%;
+    }
 }

@@ -17,7 +17,12 @@
     font-weight: 400;
     font-size: 2.4rem;
 }
-  
+ 
+.home-navigation-container img{
+    display: block;
+    width: 3.5rem;
+}
+
 .home-navigation-container span {
     padding: 0 1rem;
 }
@@ -39,6 +44,7 @@
 .main-search-line > input:focus{
     outline-offset: 1rem;
     outline: 1px solid #c4c4c4;
+    border-radius: .3rem;
 }
   
   
@@ -53,8 +59,13 @@
     padding: 2rem 6rem 5rem 6rem;
     background-color: #f1f1f1;
     position: relative;
+    overflow-x: hidden;
 }
-  
+
+.products-filter_btn{
+    display: none;
+}  
+
 .products-filter {
     flex-basis: 50%;
     min-width: 15%;
@@ -63,12 +74,15 @@
     background-color: white;
     height: fit-content;
     border: 1.5px solid #a04955;
+    border-radius: .3rem;
+    position: relative;
 }
-  
+
 .products-filter-container {
     display: flex;
     flex-direction: column;
     padding: 0 2rem;
+    background-color: white;
 }
   
 .filter-wrapper {
@@ -103,6 +117,7 @@
     margin: 1rem;
     border: 1px solid black;
     box-sizing: border-box;
+    border-radius: .3rem;
     cursor: pointer;
     transition: transform 1s linear;
 }
@@ -121,6 +136,7 @@
     display: flex;
     justify-content: space-around;
     padding: .6rem;
+    border-radius: .3rem;
 }
   
 .brand-name{
@@ -150,6 +166,7 @@
     background: white;
     border: 1px solid var(--main-color);
     padding: .8rem;
+    border-radius: .3rem;
     transition: all .3s;
 }
   
@@ -166,12 +183,16 @@
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     padding: .8rem;
+    border-radius: .3rem;
     text-transform: uppercase;
 }
-  
+
 .reset-all-filters:hover,
 .btn-filter-sorting:hover,
-.btn-filter-price:hover{
+.btn-filter-price:hover, 
+.reset-all-filters:focus,
+.btn-filter-sorting:focus,
+.btn-filter-price:focus{
     color: white;
     background: var(--main-color);
 }
@@ -182,7 +203,99 @@
     gap: 2rem;
     grid-auto-rows: min-content;
 }
-  
+
+/* Стилі карток товару. */
+.show-products-card {
+    width: unset;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: .3rem;
+    transition: 0.3s;
+}
+
+.show-products-card-img{
+    position: relative;
+}
+
+ 
+.show-products-card-img-1{
+    display: block;
+    /* width: 100%; */
+    max-height: 20rem;
+    height: 17.5rem;
+
+    opacity: 0;
+    transition: all .3s;
+}
+.show-products-card-img-2{
+  display: block;
+  position: absolute;
+  /* width: 100%; */
+  max-height: 20rem;
+  height: 17.5rem;
+
+  top: 0;
+  opacity: 1;
+  transition: all .3s;
+}
+
+/* Зміна фото карточки при наведенні. */
+.show-products-card:hover .show-products-card-img-1,
+.show-products-card:focus .show-products-card-img-1{
+  opacity: 1;
+}
+.show-products-card:hover .show-products-card-img-2,
+.show-products-card:focus .show-products-card-img-2{
+  opacity: 0;
+}
+
+
+
+.show-products-card:hover,
+.show-products-card:focus {
+    scale: 1.05;
+}
+
+.show-products-card-name {
+  font-weight: 500;
+  font-size: 2.4rem;
+  line-height: 1.6;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 10rem;
+}
+
+
+.show-products-price {
+  font-weight: 200;
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+.show-products-price span{
+  font-weight: 500;
+}
+
+.show-products-color div {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: inline-block;
+  margin: 1.5rem .5rem 1rem .5rem;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: .3rem;
+}
+
+
 .pages-list {
     display: flex;
     justify-content: flex-end;
@@ -202,11 +315,16 @@
     font-size: 2rem;
     line-height: 1.5;
     color: #a04955;
-    text-align: center;
     margin-right: 2rem;
+    border-radius: .3rem;
     cursor: pointer;
 }
-  
+ 
+.page-n-info img{
+    display: block;
+    width: 3rem;
+}
+
 .pages-list .page-n-info:first-child {
     transform: scale(-1, 1);
 }
@@ -221,7 +339,8 @@
 }
   
 .pages-list button[disabled] {
-    background-color: #979797;
+    /* background-color: #979797; */
+    opacity: .4;
     cursor:default;
 }
   

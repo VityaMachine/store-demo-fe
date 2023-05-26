@@ -1,3 +1,5 @@
+import { randomInteger, ratingStars } from "./methods.js";
+
 
 export function showModalProduct(productId = "", productList = []) {
     document.querySelector(".modal-image-main-container").innerHTML = ""
@@ -5,19 +7,23 @@ export function showModalProduct(productId = "", productList = []) {
     document.querySelector(".color-wrapper").innerHTML = ""
     document.querySelector(".size-wrapper").innerHTML = ""
     document.querySelector(".modal-image-secondary").innerHTML = ""
-    //знаходимо обраний товар
+    //знаходимо обраний товар.
  
     const findProduct = productList.find((obj) => {
         return obj.id == productId
     });
-    //знаходими необхідні параметри
+    //знаходими необхідні параметри.
     let { srcSecondary, productName, lowPrice, productColors, productSizes, productOptions } =
 			getProductOptions(findProduct);
     
-    // вивід назви
+    // вивід назви.
     document.querySelector(".modal-product-name").insertAdjacentHTML("beforeend", `
         ${productName} <span>ITEM # ${productId.slice(0, 5)}</span>
     `);
+
+    //Вивід рейтингу товару. !!!  Тимчасовий рейтинг товару рандомний, Після створення змінної на бекенді - підставити справжній ретинг замість- randomInteger(0, 5)!!!.
+    document.querySelector('.modal-product-stars').innerHTML = ratingStars(randomInteger(0, 5))
+
     // вивід ціни
     document.querySelector(".low-price").textContent = `${lowPrice} ₴`
     // вивід всіх кольорів за замовчуванням.
@@ -38,7 +44,7 @@ export function showModalProduct(productId = "", productList = []) {
             document.querySelector(".modal-image-main-container").innerHTML = `<img src="${src}" alt="img">`;
         }
         else {
-            data = `<div><img src="${src}" alt="img"></div>`
+            data = `<div class="" ><img src="${src}" alt="img"></div>`
         }
         
         document.querySelector(".modal-image-secondary").insertAdjacentHTML("beforeend", data)

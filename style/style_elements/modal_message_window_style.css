@@ -12,43 +12,52 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 3rem;
 }
   
 .modal-product-about {
-    box-sizing: border-box;
-    padding: 2rem;
-    width: 80%;
-    /* height: 90%; */
-    min-height: 500px;
+    max-width: 145rem;
     max-height: 90%;
     background-color: white;
+    width: 80%;
+    height: 90%;
     position: relative;
-    display: grid;
-    grid-template-areas:
-      "modal-image-main modal-product-description"
-      "modal-image-secondary modal-shipping";
-    gap: 1rem;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr 1fr;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
+    padding: 3rem;
     overflow: auto;
+
 }
-  
+
+.modal-product{
+    width: 90%;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    padding: 3rem;
+}
+
 .modal-image-main {
-    grid-area: modal-image-main;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem;
 }
   
 .modal-image-main img {
     display: block;
-    max-width: 35rem;
+    max-width: 30rem;
 }
-  
+
+.modal-image-main-container{
+
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
 .modal-product-description {
-    grid-area: modal-product-description;
-    justify-self: stretch;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -70,13 +79,20 @@
     font-size: 1.5rem;
     line-height: 1.9rem;
 }
-  
-.modal-product-stars {
+
+.modal-product-rating{
     display: flex;
     gap: 2rem;
 }
-  
-.modal-product-stars > span {
+
+.modal-product-stars {
+    display: flex;
+}
+.modal-product-stars span{
+    margin: .2rem;
+}
+
+.modal-product-rating > p {
     font-weight: 400;
     font-size: 1.5rem;
     line-height: 1.9;
@@ -105,8 +121,8 @@
     margin: 1rem 1rem 0 0;
     cursor: pointer;
     border: 1px solid black;
+    border-radius: .3rem;
 }
-  
   
 .size-wrapper div {
     display: inline-block;
@@ -114,6 +130,7 @@
     height: 3rem;
     margin: 1rem 1rem 0 0;
     border: 1px solid #c4c4c4;
+    border-radius: .3rem;
     text-align: center;
     cursor: pointer;
 }
@@ -127,6 +144,7 @@
 .add-to-bag,
 .add-to-wishlist {
     width: 31rem;
+    height: 40px;
     padding: 1.2rem 0;
     background-color: var(--main-color);
     color: white;
@@ -135,11 +153,15 @@
     justify-content: center;
     gap: 2rem;
     border: 1px solid var(--main-color);
+    border-radius: .3rem;
     cursor: pointer;
     transition: all .3s;
 }
+
 .add-to-wishlist:hover,
-.add-to-bag:hover{
+.add-to-bag:hover,
+.add-to-wishlist:focus,
+.add-to-bag:focus{
     opacity: .8;
 }
   
@@ -154,20 +176,30 @@
     color: var(--main-color);
 }
   
-  .modal-product-social {
-    padding: 0;
-  }
-  
-.modal-product-social > img {
-    margin-right: 2rem;
+.modal-product-social {
+    display: flex;
 }
   
+.modal-product-social  img {
+    display: block;
+    width: 3rem;
+    margin: 1rem;
+}
+
+.modal-product-social a{
+    display: inline-block;
+    transition: all .3s;
+}
+
+.modal-product-social a:hover {
+   opacity: .6;
+}
 .modal-image-secondary {
     grid-area: modal-image-secondary;
     display: flex;
     justify-content: center;
     align-items: center;
-    align-self: flex-start;
+    flex-wrap: wrap;
     gap: 2rem;
 }
   
@@ -177,27 +209,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .modal-image-select{
     border: 1px solid #333333;
+    border-radius: .3rem;
 }
   
-.modal-image-secondary div>img {
+.modal-image-secondary div > img {
     display: block;
     width: 80%;
 }
-  
-  
-  
-.modal-shipping {
-    grid-area: modal-shipping;
-    align-self: start;
-}
-  
+
 .modal-shipping img {
     display: block;
     width: 100%;
+    margin: 0 auto;
 }
   
 .close-modal {
@@ -206,19 +234,20 @@
     font-size: 2.5rem;
     color: var(--main-color);
     top: 1.5rem;
-    right: 2rem;
+    right: 3rem;
     cursor: pointer;
+    transition: all .3s;
 }
-  
+
+.close-modal:hover,
+.close-modal:focus{
+    transform: scale(1.1);
+}
+
 .e {
     display: none;
 }
   
-  
-.filter{
-    filter: blur(.8px) opacity(.6) !important;
-}
- 
 
  /* Вікно повідомлення. */
 .message{
@@ -264,6 +293,7 @@
     gap: 2rem;
     margin: 1rem;
     border: 1px solid var(--main-color);
+    border-radius: .3rem;
     cursor: pointer;
     transition: all 0.3s;
 }
@@ -277,6 +307,7 @@
     width: 20%;
     margin: 2rem auto;
 }
+
 .message-box-img img{
     display: block;
     width: 100%;

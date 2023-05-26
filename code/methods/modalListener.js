@@ -1,6 +1,6 @@
 import { FETCH, postData } from "./request.js";
 import { urlAdd , creatUrl } from "./url.js";
-import { baskCounter } from "./methods.js";
+import { baskCounter, bodyOverflowHid } from "./methods.js";
 
 // Обє'кт обраного товару перед відправкою в кошик.
 const productAddBag = {
@@ -79,6 +79,7 @@ export function modalListener() {
       return;
     }
   });
+
   // Слухач події кнопки додати товар у кошик.
   document.querySelector(".add-to-bag").addEventListener("click", (ev) => {
     productAddBag.product_id = document.querySelector(".add-to-bag").dataset.productId;
@@ -89,6 +90,7 @@ export function modalListener() {
     ) {
       FETCH(urlAdd, addToBag);
       document.querySelector(".modal").classList.add("hide");
+      bodyOverflowHid()
 
     } else {
       alert("Треба обрати розмір та колір");

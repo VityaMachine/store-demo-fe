@@ -102,10 +102,10 @@
 @media (max-width: 580px){
     /* header */
     .header-wrapper {
-        padding: 2rem 1rem 0 1rem;
+        padding: 2rem 1.8rem 0 1.8rem;
     }
     .logo > img {
-        width: 20rem;
+        width: 18rem;
     }
     .search-box {
          min-width: auto;

@@ -1,7 +1,8 @@
+import {  bodyOverflowHid } from "./methods.js"
+
 export function clickEvents() {
 	const burger = document.querySelector(".burger");
 	const burgerContainer = document.querySelector(".burger-container");
-	const body = document.body;
 	let open = false;
 
 	// адаптивне бургер меню
@@ -9,27 +10,22 @@ export function clickEvents() {
 		if(open === false){
 			this.classList.add("active");
 			burgerContainer.classList.add("open");
-			body.classList.add('overflow-hid')
+			bodyOverflowHid('hid')
 			open = true;
 		}
 		else if(open === true){
 			this.classList.remove("active");
 			burgerContainer.classList.remove("open");
-			body.classList.remove('overflow-hid');
+			bodyOverflowHid()
 			open = false;
 		}
-
-		// this.classList.toggle("active");
-		// document.querySelector(".burger-container").classList.toggle("open");
-
-		// console.log(burgerContainer.classList.value ==='burger-containern open')
 	});
 
 	burgerContainer.addEventListener('click',()=>{
 		if(open === true){
 			burger.classList.remove("active");
 			burgerContainer.classList.remove("open");
-			body.classList.remove('overflow-hid');
+			bodyOverflowHid()
 			open = false;
 		}
 		else return
@@ -54,4 +50,4 @@ export function clickEvents() {
 		document.location.pathname="../"
 	})
 	
-};
+}

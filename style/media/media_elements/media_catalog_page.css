@@ -8,23 +8,146 @@
   
 @media (max-width: 960px) {
      /* Сторінка каталог. */
+     .products{
+        padding: 0 2rem;
+     }
     .products-to-show {
         grid-template-columns: 1fr 1fr;
+        justify-items: center;
+
+        width: 100%;
+        margin: 10rem auto 2rem auto;
+    }
+
+    /* Стилі карток товару. */
+    .show-products-card {
+        padding: 2rem;
+        width: 90%;
     }
 }
   
 
 @media (max-width: 875px){
- 
+    /* Бокова панель фільтрів */
+    .products-filter_btn{
+        display: block;
+        position: absolute;
+        background: none;
+        border: 1px solid #9e9d9d;
+        cursor: pointer;
+        border-radius: .3rem;
+        padding: .5rem 1rem;
+        z-index: 3;
+        margin: 2rem;
+        transition: all 1s;
+    }
+
+    .products-filter_btn:hover,
+    .products-filter_btn:focus{
+        opacity: .8;
+    }
+
+    .products-filter_btn img{
+        display: block;
+        width: 100%;
+    }
+
+    .products-filter {
+        max-width: 100%;
+        background: rgba(0, 0, 0, 0.445);
+        padding: 10rem 30% 10rem 1rem;
+        position: absolute;
+        left: 0;
+        right: 0;
+        transform: translateX(-130%);
+        transition: all 1s;
+        z-index: 2;
+    }
+
+    .reset-all-filters{
+        width: 80%;
+        margin: 1.5rem auto;
+    }
+
+    .products-filter-show{
+        transform: translateX(0);
+    }
+
+    .products-filter_btn-show{
+        background: white;
+        transform: translateX(65vw);
+    }
+
+    .show-products-card-img-1{
+        width: 100%;
+        max-height: 50rem;
+        height: 30rem;
+
+    }
+    .show-products-card-img-2{
+      display: block;
+      position: absolute;
+      width: 100%;
+      max-height: 50rem;
+      height: 30rem;
+    }
+
 }
 
-@media (max-width: 580px){
+@media (max-width: 720px){
+
+    .main-search {
+        flex-direction: column;
+        padding: 12rem 6rem 4rem 6rem;
+    }
+
+    .home-navigation-container{
+        margin-bottom: 2rem;
+    }
+
+    .product-list{
+        width: 85%;
+        z-index:5;
+        left: 5%;
+        top: 95%;
+    }
     /* Сторінка каталог. */
     .products-to-show {
         grid-template-columns: 1fr;
     }
+    
+    /* Стилі карток товару. */
+    .show-products-card {
+        width: 80%;
+    }
+    .show-products-card-img-1{
+        max-height: 60rem;
+        height: 60rem;
+    }
+    .show-products-card-img-2{
+      max-height: 60rem;
+      height: 60rem;
+    }
+}
+
+
+
+@media (max-width: 580px){
+    .show-products-card-img-1{
+        height: 50rem;
+    }
+    .show-products-card-img-2{
+      height: 50rem;
+    }
+
+
 }
 
 @media (max-width: 470px){
-
+    .show-products-card-img-1{
+        height: 40rem;
+    }
+    .show-products-card-img-2{
+      height: 40rem;
+    }
 }

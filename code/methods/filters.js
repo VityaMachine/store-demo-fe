@@ -1,3 +1,6 @@
+import {resetAllFilters}  from "../catalog-page.js";
+
+
 // Повідомлення про відсутність обраного товару.
 const message = document.createElement('div');
 message.classList = 'message';
@@ -88,9 +91,9 @@ export function colorsSizesFilterHandler(arr, color, size, brand) {
     setTimeout(()=>{
       message.remove(message);
     },3000);
-
-    filteredColorArr = colorsFilter(arr, color)
-    return filteredColorArr;
+    // Скидання всіх фільтрів.
+    resetAllFilters()
+    return arr
   }
   else if(filteredSizeArr.length === 0 && size !== 'all'){
    // Повідомлення про відсутність обраного товару.
@@ -98,12 +101,12 @@ export function colorsSizesFilterHandler(arr, color, size, brand) {
     setTimeout(()=>{
       message.remove(message);
     },3000);
-
-    filteredSizeArr = sizesFilter(arr, size)
-    return filteredSizeArr;
+     // Скидання всіх фільтрів.
+    resetAllFilters()
+    return arr
   }
   return filteredSizeArr
-};
+}
 
 //Функція фільтр макс мінім ціна.
 export function priceFilter(data,flag = true){
@@ -134,7 +137,7 @@ export function priceFilter(data,flag = true){
     })
     return dataNew;
   }
-};
+}
 
 //Функція фільтр за абеткою.
 export function alphabeticalFilter(data,flag = true){
@@ -166,4 +169,4 @@ export function alphabeticalFilter(data,flag = true){
     })
     return dataNew;
   }
-};
+}

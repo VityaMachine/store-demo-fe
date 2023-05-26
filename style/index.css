@@ -14,7 +14,8 @@
 
 :root {
     --main-font-size: 10px;
-    --main-color: #a04955;
+    --main-color: #A04955;
+    
 }
   
 .adaptive {
@@ -53,4 +54,8 @@ a {
   
 .hide {
     display: none !important;
+}
+
+.filter{
+    filter: blur(.8px) opacity(.6) !important;
 }

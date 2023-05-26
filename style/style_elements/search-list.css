@@ -12,10 +12,12 @@
     display: flex;
     width: 100%;
     background-color: white;
+    border-radius: .3rem;
     align-items: center;
-    margin-bottom: .2rem;
+    margin-bottom: .5rem;
     box-shadow: 2px 2px 30px 2px black;
     justify-content: space-between;
+    transition: all .2s;
 }
 
 .product-list > li > :first-child{
@@ -29,5 +31,9 @@
 }
 
 .product-list img{
+    display: block;
     max-width: 100%;
+}
+.product-list > li:hover{
+    transform: scale(1.01);
 }

@@ -1,7 +1,7 @@
 import { FETCH, postData } from "./methods/request.js";
 import { url, urlAdd, creatUrl } from "./methods/url.js";
 import { creatCartProducts } from "./methods/creatCards.js"
-import { baskCounter, message } from "./methods/methods.js";
+import { baskCounter, message, listenerScroll, listenerlegacyArrow,  bodyOverflowHid } from "./methods/methods.js";
 import { searchEntipeStori, dataMain } from "./methods/search-entipe_stori.js";
 import { showModalProduct } from "./methods/modal.js";
 import { cleanProductAddBag, modalListener } from "./methods/modalListener.js";
@@ -9,8 +9,8 @@ import { clickEvents } from "./methods/click_events.js";
 
 
 //Змінна таблиці товарів.
-const cartProducts = document.getElementById('cart-table-products');
-
+// const cartProducts = document.getElementById('cart-table-products');
+const cartProducts = document.getElementById('cart-list-products');
 // Запит на сервер про вміст кошика.
 FETCH(urlAdd, showCartProduct);
 
@@ -108,13 +108,14 @@ document.querySelector(".close-modal").addEventListener("click", () => {
   // Очищення обє'кта після зачинення модалки.
   cleanProductAddBag()
   document.querySelector(".modal").classList.add("hide");
+  bodyOverflowHid()
 });
 
 //Повідомленя про вдале додавання товару у кошик.
 document.querySelector(".add-to-bag").addEventListener("click", (ev) => {
   message.innerHTML = `<div class="message-box">
     <div class="message-box-img" >
-      <img src="../img/SVG/bag.png" alt="bag">
+      <img src="../img/market/bag.png" alt="bag">
     </div>
     <p>The product has been successfully added to the cart.</p>
     <div  class="message-btns">
@@ -153,6 +154,7 @@ searchBtn.addEventListener('click',()=>{
     });
     if(foundedItem.length > 0){
       document.querySelector(".modal").classList.remove("hide");
+      bodyOverflowHid('hid')
       showModalProduct(foundedItem[0].id, dataMain);
       modalListener();
       searchInput.value = '';
@@ -167,3 +169,10 @@ searchBtn.addEventListener('click',()=>{
 
 //Виклик функції клік кнопок хедера.
 clickEvents();
+
+//Виклик функції управління відображення кнопки в гору та хедера в мобільній версії.
+listenerScroll();
+
+
+//Виклик функції слухач клік кнопки в гору.
+listenerlegacyArrow ();

@@ -3,16 +3,16 @@ import { url, urlAdd } from "./methods/url.js";
 import { creatProductElement } from "./methods/creatCards.js";
 import { searchCetalogPage } from "./methods/search.js";
 import { showModalProduct } from "./methods/modal.js";
-import { baskCounter, message } from "./methods/methods.js";
+import { baskCounter, message, listenerScroll, listenerlegacyArrow, showHeader, bodyOverflowHid } from "./methods/methods.js";
 import { colorsSizesFilterHandler, priceFilter, alphabeticalFilter } from "./methods/filters.js";
 import paginator from "./methods/paginator.js";
 import { modalListener, cleanProductAddBag } from "./methods/modalListener.js";
 import { searchEntipeStori } from "./methods/search-entipe_stori.js";
 import { clickEvents } from "./methods/click_events.js";
-import { getColorsSizeBrandProducts, createHtmlEl } from "./methods/functions_catalog-page.js"
+import { getColorsSizeBrandProducts, createHtmlEl, productCartPhotoChange } from "./methods/functions_catalog-page.js"
 
 
-// Запит на сервер про вміст кошика.
+// Запит на сервер про вміст кошика.add-to-cart
 FETCH(urlAdd, baskCounter);
 
 // Запит на сервер щоб отримати список товарів для виводу на сторінку за замовчуванням.
@@ -33,9 +33,6 @@ pagesControls.forEach((el) => {
   }
 });
 
-window.addEventListener("load", () => {
-  perPageHandler();
-});
 
 pagesControls.forEach((el) => {
   if (el.dataset.type) {
@@ -48,19 +45,21 @@ window.addEventListener("load", () => {
 });
 
 //Змінна списку товарів.
-let productList = [];
+let productList = [],
 
-let page_num = 1;
-let per_page = 6;
+page_num = 1,
+per_page = 6,
 //Стан кнопок фільтрів за замовчуванням.
-let colorFilter = 'all';
-let sizeFilter = 'all';
-let brandName = 'all';
+colorFilter = 'all',
+sizeFilter = 'all',
+brandName = 'all';
+
 
 //Функція збереження отриманих данних з сервера.
 function productsList(data) {
   productList = data;
 }
+
 //Функція виводу товарів на сторінку з урахуванням фільтрів та пагінації.
 function getProduct(data) {
   let resObj;
@@ -107,6 +106,12 @@ function getProduct(data) {
   //Виклик функції слухач події в полі пошуку хедер.
   searchEntipeStori(data);
   eventClickOpenModal(data);
+  
+  //Виклик функції управління відображення кнопки в гору та хедера в мобільній версії.
+  listenerScroll();
+
+  //Виклик функції слухач клік кнопки в гору.
+  listenerlegacyArrow ();
 }
 
 //Події кнопок макс мінім ціна.
@@ -149,6 +154,14 @@ document.querySelector('.filter-parameters-sorting')
     else return
   });
 
+ //Функція скидання всіх фільтрів.
+export function resetAllFilters(){
+  colorFilter = 'all';
+  sizeFilter = 'all';
+  brandName = 'all';
+}
+
+
 //Події кнопки скидання усіх фільтрів.
 document.querySelector('.reset-all-filters')
   .addEventListener('click',(ev)=>{
@@ -162,10 +175,9 @@ document.querySelector('.reset-all-filters')
       el.classList.remove('filter')
     })
 
-    if(ev.target.classList.value ==='reset-all-filters'){
-    colorFilter = 'all';
-    sizeFilter = 'all';
-    brandName = 'all';
+  if(ev.target.classList.value ==='reset-all-filters'){
+       // Скидання всіх фільтрів.
+      resetAllFilters()
     getProduct(productList)
   }
   else return;
@@ -181,7 +193,7 @@ function showFilerColorSizeBrand(option, selectedColor, selectedSize, selectedBr
   elSize.innerHTML = "";
   elBrand.innerHTML = "";
 
-  option.color.forEach((color,i) => {
+  option.color.forEach((color) => {
     const div = createHtmlEl("div","color-parameter")
     div.style.backgroundColor = `#${color.colorCode}`;
     div.dataset.colorname = color.colorName;
@@ -189,27 +201,11 @@ function showFilerColorSizeBrand(option, selectedColor, selectedSize, selectedBr
     if (selectedColor !== 'all' && selectedColor !== color.colorName) {
       div.classList.add("filter");
     }
-
     div.addEventListener("click", colorsFilterClickHandler);
-
     elColor.append(div);
-
-    if(option.color.length === i+1){
-      elColor.append(div);
-
-      const colorAll =  createHtmlEl("div","color-parameter",'All')
-      colorAll.style.backgroundColor = '#a04955';
-      colorAll.style.color = 'white';
-      colorAll.dataset.colorname  = 'all';
-      colorAll.addEventListener("click", colorsFilterClickHandler);
-      if (selectedColor !== 'all') {
-        colorAll.classList.add("filter");
-      }
-      elColor.append(colorAll);
-    }
   });
 
-  option.size.forEach((size,i) => {
+  option.size.forEach((size) => {
     const div = createHtmlEl("div","size-parameter", size, size)
     div.dataset.sizename = size;
     if (selectedSize !== 'all' && selectedSize !== size) {
@@ -217,39 +213,16 @@ function showFilerColorSizeBrand(option, selectedColor, selectedSize, selectedBr
     }
     div.addEventListener("click", sizesFilterClickHandler);
     elSize.append(div);
-    if(option.size.length === i+1){
-      elSize.append(div);
-
-      const sizeAll =  createHtmlEl("div","size-parameter",'All')
-      sizeAll.style.backgroundColor = '#a04955';
-      sizeAll.style.color = 'white';
-      sizeAll.dataset.sizename  = 'all';
-      sizeAll.addEventListener("click", sizesFilterClickHandler);
-      if (selectedSize !== 'all') {
-        sizeAll.classList.add("filter");
-      }
-    elSize.append(sizeAll);
-    }
   });
 
-  option.brand.forEach((brand,i) => {
-    const div = createHtmlEl("div","brand-name",`'${brand}'`)
+  option.brand.forEach((brand) => {
+    const div = createHtmlEl("div","brand-name",brand)
     div.dataset.brandname = brand;
     if (selectedBrand !== 'all' && selectedBrand !== brand) {
       div.classList.add("filter");
     }
     div.addEventListener("click", brandFilterClickHandler);
     elBrand.append(div);
-    if(option.brand.length === i+1){
-      elBrand.append(div);
-      const brandAll =  createHtmlEl("div","brand-name",'All brands')
-      brandAll.dataset.brandname = 'all';
-      if (selectedBrand !== 'all') {
-        brandAll.classList.add("filter");
-      }
-      brandAll.addEventListener("click", brandFilterClickHandler);
-      elBrand.append(brandAll);
-    }
   });
 };
 
@@ -257,33 +230,29 @@ function showFilerColorSizeBrand(option, selectedColor, selectedSize, selectedBr
 function brandFilterClickHandler(e) {
   if (brandName !== e.target.dataset.brandname) {
     brandName = e.target.dataset.brandname;
-  } else {
-    brandName = 'all'
-  }
+  } else return
 
   page_num = 1;
 
   getProduct(productList);
 };
+
 //функції подій кліків єлементів фільтрів.
 function colorsFilterClickHandler(e) {
   if (colorFilter !== e.target.dataset.colorname) {
     colorFilter = e.target.dataset.colorname;
-  } else {
-    colorFilter = 'all';
-  }
+  } else return
 
   page_num = 1;
 
   getProduct(productList);
 };
+
 //функції подій кліків єлементів фільтрів.
 function sizesFilterClickHandler(e) {
   if (sizeFilter !== e.target.dataset.sizename) {
     sizeFilter = e.target.dataset.sizename;
-  } else {
-    sizeFilter = 'all';
-  }
+  } else return
 
   page_num = 1;
 
@@ -309,6 +278,7 @@ searchBtn.addEventListener('click',()=>{
     });
     if(foundedItem.length > 0){
       document.querySelector(".modal").classList.remove("hide");
+      bodyOverflowHid('hid')
       showModalProduct(foundedItem[0].id, productList);
       modalListener();
       searchInput.value = '';
@@ -322,16 +292,25 @@ searchBtn.addEventListener('click',()=>{
 
 });
 
-// модальне вікно
+
+
+// модальне вікно подія клік на карточки товару.
 function eventClickOpenModal(productList) {
   // відкрити модальне вікно
   document.querySelectorAll(".show-products-card").forEach((el) => {
     el.addEventListener("click", (evt) => {
       if (evt.target.parentElement.classList == "add-to-cart") {
         document.querySelector(".modal").classList.remove("hide");
+        bodyOverflowHid('hid')
         showModalProduct(el.dataset.id, productList);
         modalListener();
       }
+      else if(evt.target.dataset.optionid){
+        // Заміна фото карточки залежно від обраного кольру.
+        productCartPhotoChange(productList, evt.target.dataset.productid, evt.target.dataset.optionid)
+      }
+      else return
+    
     });
   });
 
@@ -341,6 +320,7 @@ function eventClickOpenModal(productList) {
       // Очищення обє'кта після зачинення модалки.
       cleanProductAddBag()
       document.querySelector(".modal").classList.add("hide");
+      bodyOverflowHid()
     });
   } catch (e) {
     if (document.location.pathname.includes("/catalog/")) {
@@ -359,6 +339,8 @@ function pageNumHandler(e) {
   }
 
   getProduct(productList);
+  window.scrollTo(scrollY, 0);
+	showHeader()
 };
 
 function perPageHandler() {
@@ -386,6 +368,7 @@ const ul = document.querySelector(".product-list");
 const search = document.querySelector('.main-search-line > input');
 ul.addEventListener('click',(ev)=>{
   document.querySelector(".modal").classList.remove("hide");
+  bodyOverflowHid('hid')
   showModalProduct(ev.target.dataset.id, productList);
   modalListener();
   search.value = '';
@@ -396,7 +379,7 @@ ul.addEventListener('click',(ev)=>{
 document.querySelector(".add-to-bag").addEventListener("click", (ev) => {
   message.innerHTML = `<div class="message-box">
     <div class="message-box-img" >
-      <img src="../img/SVG/bag.png" alt="bag">
+      <img src="../img/market/bag.png" alt="bag">
     </div>
     <p>The product has been successfully added to the cart.</p>
     <div  class="message-btns">
@@ -436,3 +419,30 @@ document.body.addEventListener('click',(ev)=>{
 
 //Виклик функції клік кнопок хедера.
 clickEvents();
+
+// Відкрити закрити панель фільтрів в мобільній версії.
+const btn = document.querySelector('.products-filter_btn');
+const productsFilter = document.querySelector('.products-filter');
+let flag = false;
+
+btn.addEventListener('click',()=>{
+    if(flag === false){
+      btn.classList.add('products-filter_btn-show')
+      productsFilter.classList.add('products-filter-show')
+      flag = true;
+    }
+    else if(flag === true){
+      btn.classList.remove('products-filter_btn-show')
+      productsFilter.classList.remove('products-filter-show')
+      flag = false;
+    }
+  })
+
+  productsFilter.addEventListener('click',(e)=>{
+    if(e.target.classList[0] === 'products-filter' && flag === true){
+      btn.classList.remove('products-filter_btn-show')
+      productsFilter.classList.remove('products-filter-show')
+      flag = false;
+    }
+    else return
+  })

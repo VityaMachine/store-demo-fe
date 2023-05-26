@@ -1,19 +1,15 @@
 ﻿import { AJAX, FETCH } from "./methods/request.js";
-import { randomProduct , baskCounter, message } from "./methods/methods.js";
+import { randomProduct , baskCounter, message, listenerScroll, listenerlegacyArrow, bodyOverflowHid } from "./methods/methods.js";
 import { url,urlAdd } from "./methods/url.js";
 import { showModalProduct } from "./methods/modal.js";
 import { modalListener, cleanProductAddBag } from "./methods/modalListener.js";
 import { searchEntipeStori } from "./methods/search-entipe_stori.js";
 import { clickEvents } from "./methods/click_events.js";
-import { products } from "./data-products/products.js";
+import { creatProductCart } from "./methods/creatCards.js";
 
 // Запит на сервер щоб отримати список товарів.
 // AJAX трохи тормозить замінив на FETCH
 // AJAX(url, "GET", show)
-// products локальний список товарів.
-
-let scr = window.screen.width
-console.log(scr)
 
 // Запит на сервер щоб отримати список товарів.
 FETCH(url, show);
@@ -32,40 +28,21 @@ function show(data) {
     throw new Error("You get an error");
   }
 }
-// Тимчасове заповнення сторінки до отримання данних з сервера.
-show(products)
 
+// Функція виводу карточок товару на головну сторінку.
 function showRandomProducts(productsArr) {
-	try {
-		if (!Array.isArray(productsArr)) {
-			console.warn("Отримано не масив");
-			return;
-		}
-    document.querySelector(".sale-products").innerHTML ='';
-		productsArr.forEach((el) => {
-			let card = `
-        <div class="sale-products-card" data-id='${el.id}'>
-          <div class="sale-products-card-img">
-            <img src="${el.availableOptions[0].optionImages[0]}" alt="${el.productName}">
-          </div>
-          <div class="sale-products-card-name">${el.productName}</div>
-          <div class="sale-products-card-stars">
-            <img src="./img/market/stars.png" alt="stars">
-          </div>
-          <div class="sale-products-price">As low as <b>UAH ${el.availableOptions[0].prices[0].price}</b></div>
-          <div class="add-to-cart">
-            <img src="./img/market/bags.svg" alt="bags">
-            <div>ADD TO CART</div>
-          </div>
-        </div>`;
-      document.querySelector(".sale-products").insertAdjacentHTML("beforeend", card);
-      eventClickOpenModal(dataMain);
-		});
-	} catch (e) {
-		if (document.location.pathname === "/") {
-			console.error(e)
-		}
-	}
+  if (!Array.isArray(productsArr)) {
+    console.warn("Отримано не масив");
+    return;
+  }
+
+  document.querySelector(".sale-products").innerHTML ='';
+
+  productsArr.forEach((el) => {
+    document.querySelector(".sale-products").insertAdjacentHTML("beforeend", creatProductCart(el));
+  });
+
+  eventClickOpenModal(dataMain);
 };
 
 // модальне вікно.
@@ -75,6 +52,8 @@ function eventClickOpenModal(productList) {
     el.addEventListener("click", (evt) => {
       if (evt.target.parentElement.classList == "add-to-cart" || evt.target.classList == "add-to-cart") {
         document.querySelector(".modal").classList.remove("hide");
+        // document.body.classList.add('overflow-hid')
+        bodyOverflowHid('hid')
         showModalProduct(el.dataset.id, productList);
         modalListener();
       }
@@ -82,17 +61,13 @@ function eventClickOpenModal(productList) {
   });
 
   // закрити модальне вікно
-  try {
-    document.querySelector(".close-modal").addEventListener("click", () => {
-      // Очищення обє'кта після зачинення модалки.
-      cleanProductAddBag()
-      document.querySelector(".modal").classList.add("hide");
-    });
-  } catch (e) {
-    if (document.location.pathname.includes("/catalog/")) {
-      new Error(e);
-    }
-  }
+  document.querySelector(".close-modal").addEventListener("click", () => {
+    // Очищення обє'кта після зачинення модалки.
+    cleanProductAddBag()
+    document.querySelector(".modal").classList.add("hide");
+    // document.body.classList.remove('overflow-hid')
+    bodyOverflowHid()
+  });
 };
 
 // Слухач події додавання товару через інпут хедер.
@@ -109,6 +84,8 @@ searchBtn.addEventListener('click',()=>{
     });
     if(foundedItem.length > 0){
       document.querySelector(".modal").classList.remove("hide");
+      document.body.classList.add('overflow-hid')
+      bodyOverflowHid('hid')
       showModalProduct(foundedItem[0].id, dataMain);
       modalListener();
       searchInput.value = '';
@@ -125,7 +102,7 @@ searchBtn.addEventListener('click',()=>{
 document.querySelector(".add-to-bag").addEventListener("click", (ev) => {
   message.innerHTML = `<div class="message-box">
     <div class="message-box-img" >
-      <img src="../img/SVG/bag.png" alt="bag">
+      <img src="./img/market/bag.png" alt="bag">
     </div>
     <p>The product has been successfully added to the cart.</p>
     <div  class="message-btns">
@@ -149,6 +126,11 @@ document.querySelector(".add-to-bag").addEventListener("click", (ev) => {
     });
 });
 
-
 //Виклик функції клік кнопок хедера.
 clickEvents();
+
+//Виклик функції управління відображення кнопки в гору та хедера в мобільній версії.
+listenerScroll();
+
+//Виклик функції слухач клік кнопки вгору.
+listenerlegacyArrow ();
