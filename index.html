@@ -33,10 +33,9 @@
           </div >
           <div class="search-box">
             <div class="search-btn fa-2x"><i class="fa-solid fa-magnifying-glass"></i></div>
-            <input type="search" id="search-field" list="product-name" placeholder="SEARCH ENTIRE STORE">
-            <datalist id="product-name">
-            </datalist>
+            <input type="search" id="search-field" placeholder="SEARCH ENTIRE STORE">
           </div>
+
           <div class="basket-box">
             <span class="basket-counter hide-basket">0</span>         
             <svg class="cart" role="img" aria-label="Shopping cart line animation" viewBox="0 0 128 128" width="35px" height="35px" xmlns="http://www.w3.org/2000/svg">
@@ -58,16 +57,22 @@
                 </g>
             </svg>
           </div>
+
           <div class="burger">
             <span></span>
           </div>
         </div>
       </div>
+
       <!-- Лоудер. -->
       <div class="loader_header_box">
         <span class="loader_header"></span>
       </div>
     </header>
+
+    <!-- Search product list -->
+    <ul class="search-product-list" id="product-name"><!-- Search list generated JS --></ul>
+
     <main>
       <section class="shorts">
         <div class="about-shorts">
@@ -83,6 +88,7 @@
           </div>
         </div>
       </section>
+
       <section class="sale">
         <div class="sale-about">
           <h2 class="sale-about_title">TGIF, INLET, AND MARCHAL'S COLLECTIONS</h2>
@@ -107,6 +113,7 @@
           </div>
         </div>
       </section>
+
       <section class="new-collection">
         <h3 class="visually-hidden">new collection</h3>
         <div class="new-collection-card">
@@ -137,6 +144,7 @@
           <div class="to-shop-btn">SHOP POWEL SHORT SLEEVE</div>
         </div>
       </section>
+
       <section class="original-products">
         <div class="original-products-container">
           <h2 class="original-products-name">SPORTIF ORIGINAL PANT</h2>
@@ -182,6 +190,7 @@
           </div>
         </div>
       </section>
+
       <section class="legacy">
         <div class="legacy-container">
           <div class="legacy-img"><img src="./img/SVG/50years.svg" alt="50years"></div>
@@ -194,6 +203,7 @@
         </div>
       </section>
     </main>
+
     <footer>
       <div class="contacts-container">
         <div class="contacts">
@@ -240,17 +250,18 @@
       </div>
       <div class="copyright">©2021 Sportif Mailorder. All Rights Reserved.</div>
     </footer>
+
     <!-- Модальне вікно. -->
     <div class="modal hide">
       <div class="modal-product-about">
           <div class="close-modal">&#x2715;</div>
           <div class="modal-product">
-              <div class="modal-image-main">
-                <div class="modal-image-main-container"><!-- Product list generated JS --></div>
-                <div class="modal-image-secondary">
-                  <!-- Product list generated JS --> 
-                </div>
-
+            <div class="modal-image-main">
+              <div class="modal-image-main-container"><!-- Product list generated JS -->
+              </div>
+              <div class="modal-image-secondary">
+                <!-- Product list generated JS --> 
+              </div>
             </div>
             <div class="modal-product-description">
                 <div class="modal-product-tiitle">
@@ -313,6 +324,7 @@
           </div>
       </div>
     </div>
+    
     <!-- Кнопка на гору. -->
     <div class="legacy-arrow hide">
       <img src="./img/SVG/arrow.svg" alt="arrow">

@@ -1,7 +1,7 @@
 .open{
     height: 100vh!important;
-  
 }
+
 .overflow-hid{
     overflow: hidden !important;
 }
@@ -43,7 +43,6 @@
     transition: all 0.3s ease 0s;
     bottom: 0.7rem;
 }
-
 
 .burger.active>span{transform:scale(0)}
 

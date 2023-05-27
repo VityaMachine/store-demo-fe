@@ -28,6 +28,7 @@ html {
     font-size: var(--main-font-size);
     font-family: "Oswald";
 }
+
 .main-page{
     max-width: 177rem;
     margin: 0 auto;
@@ -38,6 +39,7 @@ a {
     color: black;
     transition: all .3s;
 } 
+
   /* Прихований заголовок */
 .visually-hidden{
     position: absolute;

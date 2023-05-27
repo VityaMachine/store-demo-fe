@@ -9,6 +9,7 @@
   padding: 14rem 6rem 9rem 6rem;
   box-sizing: border-box;
 }
+
 .about-shorts {
   width: 35%;
   display: flex;
@@ -24,6 +25,7 @@
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin-bottom: 2.5rem;
 }
+
 .shorts_text{
   font-family: "Open Sans";
   font-style: normal;
@@ -120,6 +122,7 @@
   left: 2rem;
   top: .5rem;
 }
+
 /* Секція 2 sale*/
 .sale {
   background-color: #f1f1f1;
@@ -171,8 +174,7 @@
   position: relative;
 }
 
-/* Зміна фото карточки при наведенн*/
-
+/* Зміна фото карточки при наведенні. */
 .sale-products-card-img-1{
   display: block;
   width: 100%;
@@ -194,8 +196,6 @@
   height: 17.5rem;
 }
 
-
-
 .sale-products-card:hover,
 .sale-products-card:focus {
   scale: 1.1;
@@ -210,8 +210,6 @@
 .sale-products-card:focus .sale-products-card-img-2{
   opacity: 0;
 }
-
-
 
 .sale-products-wrapper {
   display: flex;
@@ -230,6 +228,7 @@
   align-items: center;
   min-height: 10rem;
 }
+
 .sale-products-card-stars{
   display: flex;
   margin-bottom: 1rem;
@@ -244,10 +243,10 @@
   font-size: 1.4rem;
   line-height: 1.6;
 }
+
 .sale-products-price span{
   font-weight: 500;
 }
-
 
 .add-to-cart {
   width: 13rem;
@@ -267,7 +266,6 @@
 .add-to-cart:focus {
   opacity: .8;
 }
-
 
 .add-to-cart > div {
   font-weight: 400;
@@ -291,6 +289,7 @@
   flex-flow: column;
   justify-content: center;
 }
+
 /* Секція 4 new-collection*/
 .new-collection {
   display: flex;
@@ -417,6 +416,7 @@
   background-color: var(--main-color);
   border-color: var(--main-color);
 }
+
 /* Секція 6 in-trends*/
 .in-trends {
   padding: 9rem 6rem;
@@ -492,6 +492,7 @@
 .card-name-wrapper {
   text-align: center;
 }
+
 /* Секція 7 legacy*/
 .legacy {
   padding: 5rem 10rem;

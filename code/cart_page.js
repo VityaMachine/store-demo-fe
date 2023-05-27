@@ -8,8 +8,7 @@ import { cleanProductAddBag, modalListener } from "./methods/modalListener.js";
 import { clickEvents } from "./methods/click_events.js";
 
 
-//Змінна таблиці товарів.
-// const cartProducts = document.getElementById('cart-table-products');
+//Змінна списку товарів.
 const cartProducts = document.getElementById('cart-list-products');
 // Запит на сервер про вміст кошика.
 FETCH(urlAdd, showCartProduct);
@@ -95,6 +94,7 @@ document.querySelector('.data-cart').addEventListener('click',(ev)=>{
     },3000);
     FETCH(urlAdd, clearBasket);
     console.log('clear the basket')
+    window.scrollTo(scrollY, 0);
   }
 });
 

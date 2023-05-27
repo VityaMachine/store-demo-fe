@@ -30,12 +30,12 @@
                             <li><a href="#">SALE</a></li>
                         </ul>
                     </div>
+
                     <div class="search-box">
                         <div class="search-btn fa-2x"><i class="fa-solid fa-magnifying-glass"></i></div>
-                        <input type="search" id="search-field" list="product-name" placeholder="SEARCH ENTIRE STORE">
-                        <datalist id="product-name">
-                        </datalist>
+                        <input type="search" id="search-field" placeholder="SEARCH ENTIRE STORE">
                     </div>
+
                     <div class="basket-box">
                         <span class="basket-counter hide-basket">0</span>         
                         <svg class="cart" role="img" aria-label="Shopping cart line animation" viewBox="0 0 128 128" width="35px" height="35px" xmlns="http://www.w3.org/2000/svg">
@@ -57,12 +57,17 @@
                             </g>
                         </svg>
                     </div>
+
                     <div class="burger">
                         <span></span>
                     </div>
                 </div>
             </div>
         </header>
+
+        <!-- Search product list -->
+        <ul class="search-product-list" id="product-name"><!-- Search list generated JS --></ul>
+
         <main>
             <nav class="main-search">
                 <div class="home-navigation-container">
@@ -76,10 +81,18 @@
                 </div>
                 <ul class="product-list"></ul>
             </nav>
+
             <section class="products">
+
                 <button class="products-filter_btn">
-                    <img src="../img/SVG/document_filter_icon.svg" alt="filter icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.4" d="M3.34985 2H12.2499C12.9899 2 13.5999 2.61001 13.5999 3.35001V4.82999C13.5999 5.36999 13.2599 6.04 12.9299 6.38L10.0299 8.94C9.62991 9.28 9.35986 9.94999 9.35986 10.49V13.39C9.35986 13.79 9.08988 14.33 8.74988 14.54L7.80987 15.15C6.92987 15.69 5.71985 15.08 5.71985 14V10.43C5.71985 9.95999 5.44987 9.35001 5.17987 9.01001L2.61987 6.31C2.27987 5.97 2.00989 5.36999 2.00989 4.95999V3.41C1.99989 2.61 2.60985 2 3.34985 2Z" stroke="#292D32" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12.0002V15.0002C2 20.0002 4 22.0002 9 22.0002H15C20 22.0002 22 20.0002 22 15.0002V9.00024C22 5.88024 21.22 3.92024 19.41 2.90024C18.9 2.61024 17.88 2.39023 16.95 2.24023" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path opacity="0.4" d="M13 13H18" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path opacity="0.4" d="M11 17H18" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                 </button>
+
                 <aside class="products-filter">
                     <div class="products-filter-container">
                         <div class="color filter-wrapper">
@@ -109,6 +122,7 @@
                                 <button class="btn-filter-price" data-flag="max"  type="button">Max-Min</button>
                             </div>
                         </div>
+
                         <div class="sustainable filter-wrapper">
                             <div class="filter-name">alphabetical sorting<span class="filter-arrow"><i class="fa-solid fa-angle-down fa-lg fa-rotate-180" style="color: #a04955;"></i></span></div>
                             <div class="filter-parameters-sorting hide">
@@ -126,6 +140,7 @@
                     <!-- Product list generated JS -->
                 </div>
             </section>
+
             <!-- Пагінація. -->
             <nav class="pages-list">
                 <button class="page-n-info" data-type="prev"><img data-type="prev" src="../img/SVG/right-arrow-brovn.svg" alt="arrow"></button>
@@ -133,6 +148,7 @@
                 <button class="page-n-info" data-type="next"><img data-type="next" src="../img/SVG/right-arrow-brovn.svg" alt="arrow"></button>
             </nav>
         </main>
+
         <footer>
             <div class="contacts-container">
                 <div class="contacts">
@@ -179,6 +195,7 @@
             </div>
             <div class="copyright">©2021 Sportif Mailorder. All Rights Reserved.</div>
         </footer>
+
     <!-- Модальне вікно. -->
     <div class="modal hide">
         <div class="modal-product-about">
@@ -189,7 +206,6 @@
                   <div class="modal-image-secondary">
                     <!-- Product list generated JS --> 
                   </div>
-  
               </div>
               <div class="modal-product-description">
                   <div class="modal-product-tiitle">
@@ -252,6 +268,7 @@
             </div>
         </div>
       </div>
+
         <!-- Кнопка на гору. -->
         <div class="legacy-arrow hide">
             <img src="../img/SVG/arrow.svg" alt="arrow">
@@ -261,9 +278,11 @@
             <span class="loader"></span>
         </div>
     </div>
+
     <script src="https://kit.fontawesome.com/7fc5c6640b.js" crossorigin="anonymous"></script>
     <script src="../code/catalog-page.js" type="module"></script>
     <script src="../code/methods/modal.js" type="module"></script>
 </body>
+
 </html>
 

@@ -1,6 +1,5 @@
 import { randomInteger, ratingStars } from "./methods.js";
 
-
 export function showModalProduct(productId = "", productList = []) {
     document.querySelector(".modal-image-main-container").innerHTML = ""
     document.querySelector(".modal-product-name").innerHTML = ""

@@ -136,9 +136,6 @@ export function listenerScroll(){
 	// В мобільній версії приховує хедер скрол - вниз або показує скролл - вгору.Element.scrollHeight;
 	if(scrWidth <= 870){
 		window.addEventListener('scroll', () => {
-
-
-		
 			setTimeout(()=>{ b = scrollY }, 1);
 			// Перевірка напрям скроллу.
 			if(b > scrollY){
@@ -154,8 +151,11 @@ export function listenerScroll(){
 	  const bottom = document.querySelector('footer')
 	  const h = document.documentElement.scrollHeight;
 	  const hScren = window.screen.height;
-
+	  
 	  if(isVisible(bottom) && hScren*2 < h){
+		arrowTop.classList.remove('hide')
+	  }
+	  else if(scrollY > h - 750){
 		arrowTop.classList.remove('hide')
 	  }
 	  else {

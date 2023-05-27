@@ -26,8 +26,8 @@
     align-items: center;
     justify-content: center;
     padding: 3rem;
+    border-radius: .3rem;
     overflow: auto;
-
 }
 
 .modal-product{
@@ -52,7 +52,6 @@
 }
 
 .modal-image-main-container{
-
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -88,6 +87,7 @@
 .modal-product-stars {
     display: flex;
 }
+
 .modal-product-stars span{
     margin: .2rem;
 }
@@ -191,9 +191,11 @@
     transition: all .3s;
 }
 
-.modal-product-social a:hover {
+.modal-product-social a:hover,
+.modal-product-social a:focus{
    opacity: .6;
 }
+
 .modal-image-secondary {
     grid-area: modal-image-secondary;
     display: flex;
@@ -230,8 +232,8 @@
   
 .close-modal {
     position: absolute;
-    font-weight: 600;
-    font-size: 2.5rem;
+    font-weight: 700;
+    font-size: 3rem;
     color: var(--main-color);
     top: 1.5rem;
     right: 3rem;
@@ -270,6 +272,7 @@
     color: #000000;
     font-size: 3rem;
     text-align: center;
+    border-radius: .3rem;
 }
   
   
@@ -298,7 +301,8 @@
     transition: all 0.3s;
 }
 
-.message-btns button:hover{
+.message-btns button:hover,
+.message-btns button:focus{
     color: white;
     background: var(--main-color);
 }

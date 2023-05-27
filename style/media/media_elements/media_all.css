@@ -22,7 +22,6 @@
     .logo > img {
         width: 25rem; 
     }
-
 }
   
 
@@ -60,16 +59,17 @@
         row-gap: 1rem;
         font-family: "Oswald";
     }
+
     .nav li{
         width: 90%;
     }
+
     .nav a {
         display: inline-block;
         width: 100%;
         font-size: 3.2rem;
         padding: 1rem;
         border-radius: .6rem;
-     
         transition: 0.3s;
     }
 
@@ -77,7 +77,20 @@
         background-color: #ebe8e8;
         background: rgb(218, 216, 216);
         text-decoration: underline;
-        
+    }
+
+    .box-scale{
+        transform: scale(1.5);
+    }
+
+    .search-box:hover,
+    .search-box:focus{
+        transform: scale(1.5);
+    }
+
+    .search-product-list{
+        width: 55%;
+        text-align: center;
     }
 
     /* Підвал. */
@@ -104,14 +117,21 @@
     .header-wrapper {
         padding: 2rem 1.8rem 0 1.8rem;
     }
+
     .logo > img {
-        width: 18rem;
+        width: 19rem;
     }
+    
     .search-box {
          min-width: auto;
     }
+
     #search-field {
         height: 4rem;
+    }
+
+    .search-product-list{
+        width: 75%;
     }
 }
 

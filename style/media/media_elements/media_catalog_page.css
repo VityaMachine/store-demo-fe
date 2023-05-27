@@ -1,4 +1,3 @@
-
 @media (max-width: 1150px) {
     /* catalog_page */
     .products-to-show {
@@ -11,6 +10,7 @@
      .products{
         padding: 0 2rem;
      }
+
     .products-to-show {
         grid-template-columns: 1fr 1fr;
         justify-items: center;
@@ -33,23 +33,24 @@
         display: block;
         position: absolute;
         background: none;
-        border: 1px solid #9e9d9d;
         cursor: pointer;
-        border-radius: .3rem;
-        padding: .5rem 1rem;
         z-index: 3;
         margin: 2rem;
+        transition: all 1s;
+    }
+    
+    .products-filter_btn svg{
+        width: 35px;
+        height: 35px;
+    }
+
+    .products-filter_btn path{
         transition: all 1s;
     }
 
     .products-filter_btn:hover,
     .products-filter_btn:focus{
         opacity: .8;
-    }
-
-    .products-filter_btn img{
-        display: block;
-        width: 100%;
     }
 
     .products-filter {
@@ -74,8 +75,11 @@
     }
 
     .products-filter_btn-show{
-        background: white;
         transform: translateX(65vw);
+    }
+
+    .products-filter_btn-show path{
+        stroke: white;
     }
 
     .show-products-card-img-1{
@@ -84,6 +88,7 @@
         height: 30rem;
 
     }
+
     .show-products-card-img-2{
       display: block;
       position: absolute;
@@ -95,7 +100,6 @@
 }
 
 @media (max-width: 720px){
-
     .main-search {
         flex-direction: column;
         padding: 12rem 6rem 4rem 6rem;
@@ -111,6 +115,7 @@
         left: 5%;
         top: 95%;
     }
+
     /* Сторінка каталог. */
     .products-to-show {
         grid-template-columns: 1fr;
@@ -120,10 +125,12 @@
     .show-products-card {
         width: 80%;
     }
+
     .show-products-card-img-1{
         max-height: 60rem;
         height: 60rem;
     }
+
     .show-products-card-img-2{
       max-height: 60rem;
       height: 60rem;
@@ -136,17 +143,17 @@
     .show-products-card-img-1{
         height: 50rem;
     }
+
     .show-products-card-img-2{
       height: 50rem;
     }
-
-
 }
 
 @media (max-width: 470px){
     .show-products-card-img-1{
         height: 40rem;
     }
+
     .show-products-card-img-2{
       height: 40rem;
     }
