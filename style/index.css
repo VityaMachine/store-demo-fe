@@ -5,6 +5,7 @@
 @import url('./style_elements/modal_message_window_style.css');
 
 @import url('./animation/animation.css');
+
 @import url('./style_elements/basket.css');
 @import url('./style_elements/loader-main-page.css');
 @import url('./style_elements/loader.css');
@@ -27,6 +28,10 @@
 html {
     font-size: var(--main-font-size);
     font-family: "Oswald";
+}
+
+main{
+    min-height: 70vh;
 }
 
 .main-page{

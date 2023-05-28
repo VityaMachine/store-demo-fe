@@ -42,7 +42,7 @@ export function showCartProduct(data) {
       cartProducts
         .append(creatCartProducts(el))
     });
-    document.querySelector('.cart-grand-total').innerText = `${totalCost} UAH`
+    document.querySelector('.cart-grand-total').innerText = `${totalCost} ₴`
   }
   baskCounter(data)
 };

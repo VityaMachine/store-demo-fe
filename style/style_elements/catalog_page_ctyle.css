@@ -40,6 +40,7 @@
     border: none;
     border-bottom: 1px solid #c4c4c4;
 }
+
 .main-search-line > input:hover,
 .main-search-line > input:focus{
     outline-offset: 1rem;
@@ -149,7 +150,7 @@
     text-transform: uppercase;
     box-sizing: border-box;
     cursor: pointer;
-    transition: transform .6s linear;
+    transition: transform .3s linear;
 }
 
 .brand-name:hover{
@@ -179,7 +180,7 @@
     cursor: pointer;
     background: white;
     border: 1px solid var(--main-color);
-    transition: all .4s;
+    transition: all .3s;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     padding: .8rem;
