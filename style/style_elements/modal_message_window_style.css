@@ -16,15 +16,10 @@
   
 .modal-product-about {
     max-width: 145rem;
-    max-height: 90%;
+    max-height: 80%;
     background-color: white;
     width: 80%;
-    height: 90%;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding: 3rem;
     border-radius: .3rem;
     overflow: auto;
@@ -36,7 +31,8 @@
     display: flex;
     align-items: center;
     justify-content:space-around;
-    padding: 3rem;
+    padding: 2rem 1rem 1rem 1rem;
+    margin: 0 auto;
 }
 
 .modal-image-main {
@@ -52,6 +48,7 @@
 }
 
 .modal-image-main-container{
+    min-height: 30rem;
     text-align: center;
     margin-bottom: 2rem;
 }
@@ -182,12 +179,13 @@
   
 .modal-product-social  img {
     display: block;
-    width: 3rem;
-    margin: 1rem;
+    width: 100%;
 }
 
 .modal-product-social a{
     display: inline-block;
+    width: 3rem;
+    margin: 1rem;
     transition: all .3s;
 }
 
@@ -197,7 +195,7 @@
 }
 
 .modal-image-secondary {
-    grid-area: modal-image-secondary;
+    min-height: 12rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -224,10 +222,13 @@
     width: 80%;
 }
 
+.modal-shipping {
+   width: 80%;
+   margin: 0 auto;
+}
 .modal-shipping img {
     display: block;
     width: 100%;
-    margin: 0 auto;
 }
   
 .close-modal {

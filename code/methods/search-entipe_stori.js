@@ -1,3 +1,4 @@
+import {  bodyOverflowHid } from './methods.js';
 
 export let dataMain = []
 
@@ -17,13 +18,22 @@ export function searchEntipeStori(data){
   //  Збільшує поле пошуку в мобільній версії.
   searchInput.addEventListener('focus',()=>{
     if(window.screen.width <= 870){
-      searchBox.classList.add('box-scale')
+      searchBox.classList.add('box-scale');
+      datalist.classList.remove('hide');
+      bodyOverflowHid('hid')
     }
-    else  searchBox.classList.remove('box-scale')
+    else  {
+      searchBox.classList.remove('box-scale');
+      datalist.classList.add('hide');
+      bodyOverflowHid();
+    }
   })
+
+
   //  Подія інпут.
   searchInput.addEventListener("input", (event) => {
-    datalist.innerHTML = ''
+    datalist.innerHTML = '';
+    datalist.classList.remove('hide');
     const foundedItems = data.filter( (el) => {
     
       return el.productName.toLowerCase().includes(event.target.value.toLowerCase())
@@ -38,7 +48,9 @@ export function searchEntipeStori(data){
       option.addEventListener('click',()=>{
         searchInput.value = option.textContent;
         datalist.innerHTML = '';
-        searchBox.classList.remove('box-scale')
+        searchBox.classList.remove('box-scale');
+        datalist.classList.add('hide');
+        bodyOverflowHid();
       })
       datalist.append(option);
     });
@@ -48,6 +60,8 @@ export function searchEntipeStori(data){
   document.querySelector('main').addEventListener('click',()=>{
     searchInput.value = '';
     datalist.innerHTML = '';
-    searchBox.classList.remove('box-scale')
+    searchBox.classList.remove('box-scale');
+    datalist.classList.add('hide');
+    bodyOverflowHid();
   });
 };

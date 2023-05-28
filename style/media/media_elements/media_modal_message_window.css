@@ -6,19 +6,15 @@
         align-items: center;
     }
 
-    .modal-shipping img {
-        width: 80%;
+    .modal-shipping{
+        width: 100%;
     }
 }
 
 @media (max-width: 875px){
     /* Модалка. */
     .modal-product-about{
-        height: 80%;
-        display: flex;
-        flex-direction:row;
-        flex-wrap: wrap;
-        margin-top: 4rem;
+        margin-top: 5rem;
     }
 
     .modal-product{
@@ -64,23 +60,14 @@
     }
 
     .modal-product-social{
-        justify-content: space-between;
-    }
-
-    .modal-product-social  img {
-        margin: 1rem;
-        width: 25px;
+        margin: 0 auto;
     }
     
     .modal-product-social a{
-        display: inline-block;
-        transition: all .3s;
+        margin: 2rem;
+        width: 25px;
     }  
 
-    .modal-shipping img{
-        max-width: 70%;
-        margin: 0 auto;
-    }
 
     .modal-product-buttons{
         flex-direction: column;
@@ -90,10 +77,6 @@
     .add-to-bag,
     .add-to-wishlist {
         width: 90%;
-    }
-
-    .modal-shipping img {
-        width: 100%;
     }
 
     .close-modal {

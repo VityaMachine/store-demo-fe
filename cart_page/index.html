@@ -15,6 +15,7 @@
 
 <body>
     <div class="main-page">
+        
         <header>
             <div class="header-wrapper">
                 <div class="logo">
@@ -23,6 +24,7 @@
                 <div class="navigation">
                     <div class="burger-container">
                         <ul class="nav">
+                            <li><a href="/">HOME</a></li>
                             <li><a href="../catalog_page/index.html">SHORTS</a></li>
                             <li><a href="#">PANTS</a></li>
                             <li><a href="#">SHIRTS</a></li>
@@ -66,7 +68,7 @@
         </header>
 
         <!-- Search product list -->
-        <ul class="search-product-list" id="product-name"><!-- Search list generated JS --></ul>
+        <ul class="search-product-list hide" id="product-name"><!-- Search list generated JS --></ul>
 
         <main>
             <nav class="main-search">
@@ -158,78 +160,78 @@
             <div class="copyright">©2021 Sportif Mailorder. All Rights Reserved.</div>
         </footer>
 
-    <!-- Модальне вікно. -->
-    <div class="modal hide">
-        <div class="modal-product-about">
-            <div class="close-modal">&#x2715;</div>
-            <div class="modal-product">
-                <div class="modal-image-main">
-                  <div class="modal-image-main-container"><!-- Product list generated JS --></div>
-                  <div class="modal-image-secondary">
-                    <!-- Product list generated JS --> 
-                  </div>
-              </div>
-              <div class="modal-product-description">
-                  <div class="modal-product-tiitle">
-                      <div class="modal-product-name">
-                      <!-- Product list generated JS -->
-                      </div>
-                      <div class="modal-product-rating">
-                        <div class="modal-product-stars">
-                          <!-- Product rating generated JS -->
+        <!-- Модальне вікно. -->
+        <div class="modal hide">
+            <div class="modal-product-about">
+                <div class="close-modal">&#x2715;</div>
+                <div class="modal-product">
+                    <div class="modal-image-main">
+                    <div class="modal-image-main-container"><!-- Product list generated JS --></div>
+                    <div class="modal-image-secondary">
+                        <!-- Product list generated JS --> 
+                    </div>
+                </div>
+                <div class="modal-product-description">
+                    <div class="modal-product-tiitle">
+                        <div class="modal-product-name">
+                        <!-- Product list generated JS -->
                         </div>
-                        <p>93 REVIEWS</p> 
-                      </div>
-                  </div>
-                  <div class="modal-product-data">
-                      <div class="modal-product-price">
-                          As low as<br>
-                          <span class="low-price"><!-- Product list generated JS --></span>
-                      </div>
-                      <div class="modal-product-colors">
-                          <div>COLOR:</div>
-                          <div class="color-wrapper">
-                              <!-- Product list generated JS -->
-                          </div>
-                      </div>
-                      <div class="modal-product-sizes">
-                          <span>SIZE:</span>
-                          <div class="size-wrapper">
-                              <!-- Product list generated JS -->
-                          </div>
-                      </div>
-                  </div>
-                  <div class="modal-product-buttons">
-                      <button class="add-to-bag">
-                          <img src="../img/SVG/bags.svg" alt="bags">
-                          <span>ADD TO BAG</span>
-                      </button>
-                      <button class="add-to-wishlist">
-                          <img src="../img/SVG/heart-link.svg" alt="heart">
-                          <span>ADD TO WISHLIST</span>
-                      </button>
-                  </div>
-                  <div class="modal-product-social">
-                    <a href="https://uk-ua.facebook.com/" target="_blank">
-                      <img src="../img/SVG/facebook.svg" alt="face">
-                    </a>
-                    <a href="https://twitter.com/?lang=uk" target="_blank">
-                      <img src="../img/SVG/twitter.svg" alt="twitt">
-                    </a>
-                    <a href="https://www.pinterest.com/PinterestUA/" target="_blank">
-                      <img src="../img/SVG/pinterest.svg" alt="pint">
-                    </a>
-                    <a href="https://www.linkedin.com/" target="_blank">
-                      <img src="../img/SVG/link.svg" alt="link">
-                    </a>
-                  </div>
-              </div>
-            </div>
-            <div class="modal-shipping">
-                <div><img src="../img/SVG/shopping.svg" alt="shopping"></div>
+                        <div class="modal-product-rating">
+                            <div class="modal-product-stars">
+                            <!-- Product rating generated JS -->
+                            </div>
+                            <p>93 REVIEWS</p> 
+                        </div>
+                    </div>
+                    <div class="modal-product-data">
+                        <div class="modal-product-price">
+                            As low as<br>
+                            <span class="low-price"><!-- Product list generated JS --></span>
+                        </div>
+                        <div class="modal-product-colors">
+                            <div>COLOR:</div>
+                            <div class="color-wrapper">
+                                <!-- Product list generated JS -->
+                            </div>
+                        </div>
+                        <div class="modal-product-sizes">
+                            <span>SIZE:</span>
+                            <div class="size-wrapper">
+                                <!-- Product list generated JS -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-product-buttons">
+                        <button class="add-to-bag">
+                            <img src="../img/SVG/bags.svg" alt="bags">
+                            <span>ADD TO BAG</span>
+                        </button>
+                        <button class="add-to-wishlist">
+                            <img src="../img/SVG/heart-link.svg" alt="heart">
+                            <span>ADD TO WISHLIST</span>
+                        </button>
+                    </div>
+                    <div class="modal-product-social">
+                        <a href="https://uk-ua.facebook.com/" target="_blank">
+                        <img src="../img/SVG/facebook.svg" alt="face">
+                        </a>
+                        <a href="https://twitter.com/?lang=uk" target="_blank">
+                        <img src="../img/SVG/twitter.svg" alt="twitt">
+                        </a>
+                        <a href="https://www.pinterest.com/PinterestUA/" target="_blank">
+                        <img src="../img/SVG/pinterest.svg" alt="pint">
+                        </a>
+                        <a href="https://www.linkedin.com/" target="_blank">
+                        <img src="../img/SVG/link.svg" alt="link">
+                        </a>
+                    </div>
+                </div>
+                </div>
+                <div class="modal-shipping">
+                <img src="../img/SVG/shopping.svg" alt="shopping">
+                </div>
             </div>
         </div>
-      </div>
 
         <!-- Кнопка на гору. -->
         <div class="legacy-arrow hide">

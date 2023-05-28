@@ -104,12 +104,12 @@
     display: flex;
     flex-wrap: wrap;
 }
-  
+
 .size-parameter,
 .color-parameter {
     width: 4rem;
     height: 4rem;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 2rem;
     line-height: 1.8;
     text-align: center;
@@ -141,9 +141,9 @@
 }
   
 .brand-name{
-    font-weight: 300;
-    font-size: 2rem;
-    line-height: 1.5;
+    font-weight: 400;
+    font-size: 2.3rem;
+    line-height: 1.2;
     margin: 1rem;
     padding-left: .5rem;
     text-transform: uppercase;
@@ -159,7 +159,7 @@
 .btn-filter-sorting ,
 .btn-filter-price{
     width: 45%;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 2rem;
     line-height: 1.5rem;
     text-align: center;

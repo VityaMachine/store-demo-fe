@@ -10,7 +10,7 @@ if(document.location.pathname.includes("/catalog_page/") ||
 else loader = document.querySelector(".loader_header_box");
 
 
-// Відправлення POST запитів.
+// Відправлення GET запитів.
 function AJAX(url = "", method = "GET", callback = () => {}) {
   loader.classList.remove("hide");
   const ajax = new XMLHttpRequest();
@@ -27,7 +27,7 @@ function AJAX(url = "", method = "GET", callback = () => {}) {
   });
 };
 
-// Відправлення POST запитів.
+// Відправлення GET запитів.
 async function FETCH(
   url = "",
   callback = () => {},
