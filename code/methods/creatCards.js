@@ -18,7 +18,7 @@ export function creatProductCart(el) {
         <div class="sale-products-card-stars">
             ${ratingStars(randomInteger(0, 5))}
         </div>
-        <div class="sale-products-price">As low as :<span> ${el.availableOptions[0].prices[0].price} ₴</span></div>
+        <div class="sale-products-price">As low as <span> ${el.availableOptions[0].prices[0].price} ₴</span></div>
         <div class="add-to-cart">
         <img src="./img/SVG/bags.svg" alt="bags">
         <div>ADD TO CART</div>
@@ -56,7 +56,7 @@ export function creatProductElement(product) {
                     <div class="sale-products-card-stars">
                         ${ratingStars(randomInteger(0, 5))}
                     </div>
-                    <div class="show-products-price">As low as : <span>${product.availableOptions[0].prices[0].price} ₴ </span></div>
+                    <div class="show-products-price">As low as <span>${product.availableOptions[0].prices[0].price} ₴ </span></div>
                     <div class="show-products-color">${colors}</div>
                     <div data-id="${cardID}" class="add-to-cart">
                         <img src="/img/SVG/bags.svg" alt="bags">
