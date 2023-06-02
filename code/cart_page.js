@@ -6,7 +6,7 @@ import { searchEntipeStori, dataMain } from "./methods/search-entipe_stori.js";
 import { showModalProduct } from "./methods/modal.js";
 import { cleanProductAddBag, modalListener } from "./methods/modalListener.js";
 import { clickEvents } from "./methods/click_events.js";
-
+import { formFooterHandler, formModalValidate, clearFormFields, formRemoveError } from "./methods/form_handler.js";
 
 //Змінна списку товарів.
 const cartProducts = document.getElementById('cart-list-products');
@@ -18,7 +18,7 @@ FETCH(url, searchEntipeStori);
 
 
 // Функція очищення корзини на сервері корзини.
-function clearBasket(data) {
+export function clearBasket(data) {
   if(!Array.isArray(data)) return;
   data.forEach(el => {
     postData(creatUrl(el.id), "DELETE",{},showCartProduct);
@@ -42,11 +42,12 @@ export function showCartProduct(data) {
       cartProducts
         .append(creatCartProducts(el))
     });
-    document.querySelector('.cart-grand-total').innerText = `${totalCost} ₴`
+    document.querySelector('.cart-grand-total').innerText = `${totalCost} ₴`;
+    // Заповнення модального вікна.
+    document.querySelector('.modal-form-total-price').innerHTML =`${totalCost}`;
   }
   baskCounter(data)
 };
-
 
 // Події для кнопок (+ , -,  Х) 
 cartProducts.addEventListener('click',(ev)=>{
@@ -80,6 +81,56 @@ cartProducts.addEventListener('click',(ev)=>{
   else return
 });
 
+//Події модального вікна оформлення товару.
+const modalForm = document.querySelector('.modal-form');
+
+const formModal = document.querySelector('.modal-form-js');
+
+const closeModalForm = document.getElementById('close-modal-form');
+
+const modalFormMessage = document.getElementById('modal-form-message');
+
+const modalFormBtn = document.getElementById('modal-form-btn');
+
+modalFormBtn.addEventListener('click',(ev)=>{
+  ev.preventDefault();
+  
+   let error = formModalValidate(formModal)
+    if(error === 0){
+      message.innerHTML = `<div class="message-box">
+      <div class="message-box-img" >
+      <img src="../img/SVG/icon_modal_send/icon-ok.svg" alt="ok">
+      </div>
+      <p>Thank you for your order.<br> Our manager will contact you shortly.</p>
+      </div>`;
+      document.querySelector('main').append(message)
+      setTimeout(()=>{
+        message.remove(message);
+      },3000);
+      FETCH(urlAdd, clearBasket);
+      FETCH(urlAdd, showCartProduct);
+    }
+    else {
+      console.log('Error')
+      return
+    }
+    window.scrollTo(scrollY, 0);
+    modalForm.classList.add('hide');
+    bodyOverflowHid()
+})
+
+formModal.addEventListener('click',(el)=>{
+   
+    if(el.target.classList.value !== 'modal-form-btn'){
+        formRemoveError()
+    }
+    else return
+})
+
+closeModalForm.addEventListener("click",()=>{
+  modalForm.classList.add('hide');
+  bodyOverflowHid()
+});
 
 // Слухач події кнопок "продовжити покупки" та "оформити заявку"
 document.querySelector('.data-cart').addEventListener('click',(ev)=>{
@@ -87,14 +138,22 @@ document.querySelector('.data-cart').addEventListener('click',(ev)=>{
     document.location.pathname="/catalog_page"
   }
   else if(ev.target.classList.value === 'btn-apply'){
-    message.innerHTML = `<div class="message-box"><p>Далі буде сторінка підтвердження та оформлення замовлення.</p></div>`;
-    document.querySelector('main').append(message)
-    setTimeout(()=>{
-      message.remove(message);
-    },3000);
-    FETCH(urlAdd, clearBasket);
-    console.log('clear the basket')
-    window.scrollTo(scrollY, 0);
+    modalForm.classList.remove('hide');
+    bodyOverflowHid('hid')
+    document.getElementById('modal-form-check').checked = false;
+    clearFormFields();
+    modalFormMessage.value = '';
+    formRemoveError()
+    // document.getElementById('order').value = creatMailMessage(data)
+    // FETCH(urlAdd, showCartProduct);
+    // message.innerHTML = `<div class="message-box"><p>Далі буде сторінка підтвердження та оформлення замовлення.</p></div>`;
+    // document.querySelector('main').append(message)
+    // setTimeout(()=>{
+    //   message.remove(message);
+    // },3000);
+    // FETCH(urlAdd, clearBasket);
+    // console.log('clear the basket')
+    // window.scrollTo(scrollY, 0);
   }
 });
 
@@ -104,7 +163,7 @@ document.querySelector('.cart-basket-empty-btn').addEventListener("click",() =>{
 });
 
 // модальне вікно.
-document.querySelector(".close-modal").addEventListener("click", () => {
+document.querySelector("#close-modal").addEventListener("click", () => {
   // Очищення обє'кта після зачинення модалки.
   cleanProductAddBag()
   document.querySelector(".modal").classList.add("hide");
@@ -173,6 +232,8 @@ clickEvents();
 //Виклик функції управління відображення кнопки в гору та хедера в мобільній версії.
 listenerScroll();
 
-
 //Виклик функції слухач клік кнопки в гору.
 listenerlegacyArrow ();
+
+//Виклик функції обробник форми футер.
+formFooterHandler();

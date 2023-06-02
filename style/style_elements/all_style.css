@@ -199,7 +199,7 @@ header {
     justify-content: flex-start;
     margin: 0;
     padding: 0;
-    width: 22rem;
+    /* width: 22rem; */
     margin-right: 1rem;
 }
   
@@ -208,7 +208,6 @@ header {
     font-size: 1.8rem;
     line-height: 1.4;
     color: #ffffff;
-    list-style: none;
     padding-bottom: 1rem;
 }
   
@@ -222,7 +221,8 @@ header {
     width: 100%;
     margin-bottom: 4rem;
 }
-  
+
+
 .form > li:first-child {
     font-weight: 400;
     font-size: 1.8rem;
@@ -232,7 +232,24 @@ header {
 .form > li:last-child {
     position: relative;
 }
-  
+
+.footer-form{
+    transition: all 1s;
+}
+.footer-form-send{
+    font-weight: 600;
+    font-size: 2.3rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+}
+
+.footer-form-send  div{
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+}
+
 #mail {
     width: 50rem;
     height: 6rem;
@@ -241,6 +258,7 @@ header {
     background-color: #f1f1f1;
     border-radius: .3rem;
     border: none;
+    outline: none;
 }
   
 #mail::placeholder {
@@ -248,20 +266,35 @@ header {
     font-size: 1.8rem;
     color: var(--main-color);
 }
-  
-input[value="SUBSCRIBE"] {
+
+#mail:focus {
+    border: 1px solid black;
+}
+
+.footer-form-btn{
     width: 17rem;
     height: 4.3rem;
+    text-transform: uppercase;
     color: white;
     background-color: var(--main-color);
-    border: none;
+    border: 1px solid var(--main-color);
+    border-radius: .3rem;
     position: absolute;
     right: 1rem;
     top: 0.9rem;
     border-radius: .3rem;
     cursor: pointer;
+    transition: all .3s;
 }
-  
+
+.footer-form-btn:hover,
+.footer-form-btn:hover{
+    background-color: white;
+    scale: 1.03;
+    border-color: var(--main-color);
+    color: var(--main-color);
+}
+
 .copyright {
     font-weight: 400;
     font-size: 1.4rem;

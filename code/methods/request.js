@@ -69,4 +69,22 @@ async function postData(url = "", met = "POST", data = {},callback = ()=>{}) {
  loader.classList.add("hide");
 };
 
-export { AJAX, FETCH,  postData};
+// Відправлення повідомлень на Email !!!-- Працює тількі на сервері --!!!.
+async function formSend(form){
+  const formData = new FormData(form);
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString(),
+  })
+  .then(() => {
+    console.log("Form successfully submitted")
+  })
+  .catch((error) => alert(error));
+
+}
+
+
+
+
+export { AJAX, FETCH,  postData, formSend};

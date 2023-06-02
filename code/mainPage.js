@@ -6,6 +6,7 @@ import { modalListener, cleanProductAddBag } from "./methods/modalListener.js";
 import { searchEntipeStori } from "./methods/search-entipe_stori.js";
 import { clickEvents } from "./methods/click_events.js";
 import { creatProductCart } from "./methods/creatCards.js";
+import { formFooterHandler } from "./methods/form_handler.js";
 
 // Запит на сервер щоб отримати список товарів.
 // AJAX трохи тормозить замінив на FETCH
@@ -134,3 +135,6 @@ listenerScroll();
 
 //Виклик функції слухач клік кнопки вгору.
 listenerlegacyArrow ();
+
+//Виклик функції обробник форми футер.
+formFooterHandler();

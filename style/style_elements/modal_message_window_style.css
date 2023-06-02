@@ -1,5 +1,5 @@
 /* ------------------ MODAL -------------------------- */
-
+.modal-form,
 .modal {
     z-index: 60;
     background-color: rgba(94, 89, 89, 0.8);
@@ -13,7 +13,8 @@
     justify-content: center;
     align-items: center;
 }
-  
+
+.modal-form-about,
 .modal-product-about {
     max-width: 145rem;
     max-height: 80%;
@@ -250,7 +251,159 @@
 .e {
     display: none;
 }
-  
+
+ /* Модальне вікно авторизації. */
+
+.modal-form-js{
+    width: 90%;
+    border-radius: .3rem;
+    margin: 0 auto;
+    transition: all 1s;
+}
+
+.modal-form-title{
+    font-weight: 600;
+    font-size: 2.8rem;
+    line-height: 1.6; 
+    margin: 1rem;
+    text-align: center;
+}
+
+.form-list{
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    width: 50%;
+    margin: 0 auto;
+}
+
+
+.form-list-item{
+    display: flex;
+    border-radius: .3rem;
+    margin: 1rem;
+    padding: 1rem;
+    position: relative;
+    transition: all .3s;
+}
+
+.form-list-item input,
+.form-list-item textarea{
+    width: 100%;
+    border: none;
+    border-radius: .3rem;
+    background-color: rgb(192, 189, 189);
+    font-size: 2rem;
+    outline: none;
+    transition: all .3s;
+   
+}
+
+.form-list-item input{
+    padding: 1rem 1rem 1rem 4rem;
+    position: relative;
+}
+
+.form-list-item textarea{
+    padding: 1rem;
+}
+
+.form-list-item input._error{
+    box-shadow: 0 0 1.5rem red;
+}
+
+.form-list-item input:hover,
+.form-list-item textarea:hover,
+.form-list-item input:focus,
+.form-list-item textarea:focus{
+    box-shadow: 0 0 1.5rem rgb(5, 172, 5);
+}
+
+.form-list-item textarea{
+    resize: none;
+}
+.form-name-input-icon{
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 2;
+}
+
+.form-name-input-icon > img{
+    display: block;
+    width: 100%;
+}
+
+.checkbox-label{
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.checkbox-label::before{
+    content: '';
+    align-self: flex-start;
+    flex: 0 0 2.4rem;
+    height: 2.4rem;
+    background: white;
+    border: 1px solid var(--main-color);
+    border-radius: .4rem;
+    margin: 0 1rem 0 0;
+}
+
+.checkbox-label::after{
+    content: '';
+    width: 1.6rem;
+    height: 1.6rem;
+    position: absolute;
+    top: .4rem;
+    left: .4rem;
+    background: var(--main-color);
+    border-radius: .4rem;
+    transform: scale(0);
+    transition: all .5s;
+}
+.checkbox-input{
+    display: none;
+}
+
+.checkbox-input:checked + .checkbox-label::after{
+    transform: scale(1); 
+}
+
+.checkbox-input._error + .checkbox-label::before{
+    box-shadow: 0 0 1.5rem red;
+}
+
+.form-list-checkbox{
+    padding: .5rem 1rem;
+    margin: 0 1rem;
+}
+
+.modal-form-btn{
+    width: 80%;
+    font-size: 2rem;
+    background: var(--main-color);
+    text-transform: uppercase;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    gap: 2rem;
+    margin: 1rem auto;
+    border: 1px solid var(--main-color);
+    border-radius: .3rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.modal-form-btn:hover,
+.modal-form-btn:focus{
+    opacity: .8;
+}
+
 
  /* Вікно повідомлення. */
 .message{

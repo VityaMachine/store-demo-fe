@@ -101,6 +101,7 @@
                         <li  id="cart-list-products">
                             <!-- Product list generated JS -->
                         </li>
+
                         <li class="data-cart">
                             <div class="btn-check">Return to shopping</div>
                             <div class="data-cart-subtotal">
@@ -152,8 +153,11 @@
                     <ul class="list form">
                         <li>Sign Up for Our Newsletter:</li>
                         <li>
-                            <input type="email" id="mail" placeholder="EMAIL ADDRESS">
-                            <input type="button" value="SUBSCRIBE">
+                         <!-- Ця форма надає інфо про нового користувача для відправки на пошту адміністратора -->
+                            <form action="#" class="footer-form" data-netlify ="true" id="form" name="footer_form-3">
+                                <input class="footer-form-email" type="email" id="mail" name="New user Email:" placeholder="EMAIL ADDRESS">
+                                <button class="footer-form-btn" type="submit">SUBSCRIBE</button>
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -164,7 +168,7 @@
         <!-- Модальне вікно. -->
         <div class="modal hide">
             <div class="modal-product-about">
-                <div class="close-modal">&#x2715;</div>
+                <div class="close-modal" id="close-modal">&#x2715;</div>
                 <div class="modal-product">
                     <div class="modal-image-main">
                     <div class="modal-image-main-container"><!-- Product list generated JS --></div>
@@ -231,6 +235,49 @@
                 <div class="modal-shipping">
                 <img src="../img/SVG/shopping.svg" alt="shopping">
                 </div>
+            </div>
+        </div>
+
+        <!-- Модальне вікно авторизації та підтвердження замовлення. -->
+        <div class="modal-form hide">
+            <div class="modal-form-about">
+                <div class="close-modal" id="close-modal-form">&#x2715;</div>
+                <form action="#" class="modal-form-js" name="modal_form">
+                    <h2 class="modal-form-title">Please fill out the contact form</h2>
+                    <ul class="form-list">
+                        <li class="form-list-item">
+                            <div class="form-name-input-icon">
+                                <img src="../img/SVG/icon_modal_send/person.svg" alt="person">
+                            </div>
+                            <input class="form-name-input _req" type="text" name="Name:" id="modal-form-name" placeholder="* Your name:">
+                        </li>
+                        <li class="form-list-item">
+
+                            <div class="form-name-input-icon">
+                                <img src="../img/SVG/icon_modal_send/phone.svg" alt="phone">
+                            </div>
+                            <input class="form-tel-input _req" type="tel" name="Phone:" id="modal-form-tel" placeholder="* Сontact phone number:">
+                        </li>
+                        <li class="form-list-item">
+                            
+                            <div class="form-name-input-icon">
+                                <img src="../img/SVG/icon_modal_send/email.svg" alt="email">
+                            </div>
+                            <input class="form-email-input _req" type="email" name="Email:" id="modal-form-email" placeholder="* Сontact email address:">
+                        </li>
+                        <li class="form-list-item">
+                            <textarea name="Message:" id="modal-form-message" placeholder="Comment:"></textarea>
+                        </li>
+                        <li class="form-list-checkbox">
+                            <input class="checkbox-input _req" type="checkbox" name="check" id="modal-form-check">
+                            <label class="checkbox-label" for="modal-form-check"><span>Confirm the order for the amount: <span class="modal-form-total-price"><!-- Total price generated JS --></span> ₴ </span> </label>
+                          
+                        </li>
+                        <li class="form-list-item">
+                            <button class="modal-form-btn" id="modal-form-btn" type="submit">Send an application</button>
+                        </li>
+                    </ul>
+                </form>
             </div>
         </div>
 

@@ -66,3 +66,11 @@ a {
 .filter{
     filter: blur(.8px) opacity(.6) !important;
 }
+
+.scale{
+    transform: scale(0)!important;
+}
+.error{
+    color: red !important;
+    box-shadow: 0 0 1.5rem red !important;
+}

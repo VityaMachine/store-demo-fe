@@ -1,6 +1,7 @@
 
 @media (max-width: 960px) {
     /* Модалка. */
+    .modal-form-about,
     .modal-product-about {
         justify-content: center;
         align-items: center;
@@ -103,6 +104,15 @@
     .message-btns button{
         width: 80%;
     }
+
+     /* Модальне вікно авторизації. */
+    .modal-form-js{
+        width: 100%;
+    }
+
+    .form-list{
+        width: 70%;
+    }
 }
 
 @media (max-width: 580px){
@@ -111,6 +121,15 @@
         width: 10rem;
         height: 10rem;
     }
+    /* Модальне вікно авторизації. */
+    .form-list{
+        width: 100%;
+    }
+    .form-list-item:hover,
+    .form-list-item:focus{
+        transform: scale(1.05);
+    }
+
 }
 
 @media (max-width: 470px){

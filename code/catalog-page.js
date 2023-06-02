@@ -9,7 +9,8 @@ import paginator from "./methods/paginator.js";
 import { modalListener, cleanProductAddBag } from "./methods/modalListener.js";
 import { searchEntipeStori } from "./methods/search-entipe_stori.js";
 import { clickEvents } from "./methods/click_events.js";
-import { getColorsSizeBrandProducts, createHtmlEl, productCartPhotoChange } from "./methods/functions_catalog-page.js"
+import { getColorsSizeBrandProducts, createHtmlEl, productCartPhotoChange } from "./methods/functions_catalog-page.js";
+import {formFooterHandler} from "./methods/form_handler.js";
 
 
 // Запит на сервер про вміст кошика.add-to-cart
@@ -419,6 +420,9 @@ document.body.addEventListener('click',(ev)=>{
 
 //Виклик функції клік кнопок хедера.
 clickEvents();
+
+//Виклик функції обробник форми футер.
+formFooterHandler();
 
 // Відкрити закрити панель фільтрів в мобільній версії.
 const btn = document.querySelector('.products-filter_btn');
