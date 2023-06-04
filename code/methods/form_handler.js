@@ -54,26 +54,27 @@ export function formFooterHandler(){
 // Функція валідації даних з форми.
 export function formModalValidate(form){
     let error = 0;
+    let str = []
+
     let formReq = document.querySelectorAll('._req')
     formRemoveError()
     for(let i = 0 ; i < formReq.length; i++){
-        const input = formReq[i]
-        // formRemoveError()
-        // console.log(input.checked)  
+        const input = formReq[i] 
         if(input.classList.contains('form-name-input')){
             if(!validate(paternName,input.value)){
                 formAddError(input)
                 error++;
             }
+            else str.push(`Name: ${input.value}`)
         }
         else if(input.classList.contains('form-email-input')){
             if(!validate(paternEmail,input.value)){
                 formAddError(input)
                 error++;
             }
+            else str.push(`Email: ${input.value}`);
         }
-        else if(input.getAttribute('type') === 'checkbox' && input.checked === false){  
-            // console.log(input.checked)  
+        else if(input.getAttribute('type') === 'checkbox' && input.checked === false){   
             formAddError(input)
             error++;
         }
@@ -82,8 +83,16 @@ export function formModalValidate(form){
                 formAddError(input)
                 error++;
             }
+            else str.push(`Phone number: ${input.value}`);
         }
+        else if(input.classList.contains('form-message-input')){
+            if(input.value !== ""){
+                str.push(`Message: ${input.value}`);
+            }
+        }
+
     }
+    // console.log(str.join(', '))
     return error;
 }
 

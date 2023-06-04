@@ -24,13 +24,27 @@
                 <div class="navigation">
                     <div class="burger-container">
                         <ul class="nav">
-                            <li><a href="/">HOME</a></li>
-                            <li><a href="../catalog_page/index.html">SHORTS</a></li>
-                            <li><a href="#">PANTS</a></li>
-                            <li><a href="#">SHIRTS</a></li>
-                            <li><a href="#">ACCESSORIES</a></li>
-                            <li><a href="#">SALE</a></li>
-                        </ul>
+                            <li><a href="../catalog_page/index.html">
+                              <span class="nav-icon">
+                                <img src="../img/SVG/icon_modal_send/shorts_icon.svg" alt="shorts">
+                              </span>SHORTS</a></li>
+                            <li class="nav-item"><a href="#">
+                              <span class="nav-icon">
+                                <img src="../img/SVG/icon_modal_send/pants.svg" alt="pants">
+                              </span>PANTS</a></li>
+                            <li><a href="#">
+                              <span class="nav-icon">
+                                <img src="../img/SVG/icon_modal_send/trousers.svg" alt="shorts">
+                              </span>SHIRTS</a></li>
+                            <li><a href="#">
+                              <span class="nav-icon">
+                                <img src="../img/SVG/icon_modal_send/accessories.svg" alt="accessories">
+                              </span>ACCESSORIES</a></li>
+                            <li><a href="#">
+                              <span class="nav-icon">
+                                <img src="../img/SVG/icon_modal_send/sale.svg" alt="accessories">
+                              </span>SALE</a></li>
+                          </ul>
                     </div>
 
                     <div class="search-box">
@@ -252,29 +266,26 @@
                             <input class="form-name-input _req" type="text" name="Name:" id="modal-form-name" placeholder="* Your name:">
                         </li>
                         <li class="form-list-item">
-
                             <div class="form-name-input-icon">
                                 <img src="../img/SVG/icon_modal_send/phone.svg" alt="phone">
                             </div>
                             <input class="form-tel-input _req" type="tel" name="Phone:" id="modal-form-tel" placeholder="* Сontact phone number:">
                         </li>
                         <li class="form-list-item">
-                            
                             <div class="form-name-input-icon">
                                 <img src="../img/SVG/icon_modal_send/email.svg" alt="email">
                             </div>
                             <input class="form-email-input _req" type="email" name="Email:" id="modal-form-email" placeholder="* Сontact email address:">
                         </li>
                         <li class="form-list-item">
-                            <textarea name="Message:" id="modal-form-message" placeholder="Comment:"></textarea>
+                            <textarea class="form-message-input _req"  name="Message:" id="modal-form-message" placeholder="Comment:"></textarea>
                         </li>
                         <li class="form-list-checkbox">
                             <input class="checkbox-input _req" type="checkbox" name="check" id="modal-form-check">
-                            <label class="checkbox-label" for="modal-form-check"><span>Confirm the order for the amount: <span class="modal-form-total-price"><!-- Total price generated JS --></span> ₴ </span> </label>
-                          
+                            <label class="checkbox-label" for="modal-form-check"><span>Confirm the order for the amount: <span class="modal-form-total-price"><!-- Total price generated JS --></span> ₴ </span> </label> 
                         </li>
                         <li class="form-list-item">
-                            <button class="modal-form-btn" id="modal-form-btn" type="submit">Send an application</button>
+                            <button class="modal-form-btn" id="modal-form-btn" type="button">Send an application</button>
                         </li>
                     </ul>
                 </form>

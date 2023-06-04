@@ -12,9 +12,8 @@
     z-index: 50;
     align-items: center;
     justify-content: flex-end;
-    width: 30px;
-    width: 4.2rem;
-    height: 4.2rem;   
+    width: 5rem;
+    height: 5rem;  
 }
 
 .burger span{
@@ -47,11 +46,11 @@
 .burger.active>span{transform:scale(0)}
 
 .burger.active::before{
-    top: 50%;
+    top:49%;
     transform: rotate(-45deg) translate(0,-50%);
 }
 
 .burger.active::after {
-    bottom: 50%;
+    bottom: 49%;
     transform: rotate(45deg) translate(0, 50%);
 }

@@ -62,15 +62,19 @@
 
     .nav li{
         width: 90%;
+        margin: 1rem;
     }
 
+    .nav-icon{
+        display: block;
+        margin-right: 2rem;
+    }
+    
     .nav a {
-        display: inline-block;
         width: 100%;
         font-size: 3.2rem;
         padding: 1rem;
         border-radius: .6rem;
-        transition: 0.3s;
     }
 
     .nav a:hover {

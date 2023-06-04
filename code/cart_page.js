@@ -92,8 +92,8 @@ const modalFormMessage = document.getElementById('modal-form-message');
 
 const modalFormBtn = document.getElementById('modal-form-btn');
 
+
 modalFormBtn.addEventListener('click',(ev)=>{
-  ev.preventDefault();
   
    let error = formModalValidate(formModal)
     if(error === 0){
