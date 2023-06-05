@@ -53,11 +53,6 @@ header {
     display: none;
 }
 
-.nav-icon img{
-    display: block;
-    width: 7rem;
-}
-
 .nav a {
     padding: 0 1rem;
     font-family: "Oswald";
